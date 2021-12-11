@@ -14,20 +14,24 @@ import static com.martinmimiGames.util.logger.Log.Log;
 
 import android.graphics.Bitmap;
 
-import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
-
 public class Parser {
 
     public static final String TAG = "Images parser";
-    public int imageId;
 
-    public Parser(Bitmap bitmap) {
+    /**
+     * put texture data into opengl,
+     * and return texture id
+     *
+     * @param bitmap image
+     * @return texture id
+     */
+    public static int parseTexture(Bitmap bitmap) {
         final int[] textureObjectIds = new int[1];
         glGenTextures(1, textureObjectIds, 0);
 
         if (textureObjectIds[0] == 0) {
             Log(TAG, "Could not generate a new OpenGL texture object.");
-            return;
+            return 0;
         }
         // Bind to the texture in OpenGL
         glBindTexture(GL_TEXTURE_2D, textureObjectIds[0]);
@@ -56,7 +60,7 @@ public class Parser {
         // Unbind from the texture.
         glBindTexture(GL_TEXTURE_2D, 0);
 
-        imageId = textureObjectIds[0];
+        return textureObjectIds[0];
     }
 
 

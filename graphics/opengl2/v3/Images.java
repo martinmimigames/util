@@ -2,8 +2,6 @@ package com.martinmimiGames.util.graphics.opengl2.v3;
 
 import static android.opengl.GLES20.GL_TRIANGLE_STRIP;
 import static android.opengl.GLES20.glDrawArrays;
-import static android.opengl.Matrix.rotateM;
-import static android.opengl.Matrix.translateM;
 import static com.martinmimiGames.util.logger.Log.Log;
 
 import android.content.Context;
@@ -13,49 +11,84 @@ import android.graphics.BitmapFactory;
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.TextureShaderProgram;
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.VertexArray;
 import com.martinmimiGames.util.graphics.opengl2.v3.images.Parser;
-import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
 
-public class Images implements Drawable{
+public class Images implements Drawable {
 
-    public static final String TAG = "Parser";
+    public static final String TAG = "Images";
 
+    /**
+     * how many position component are there.
+     * update stride
+     * default = 2
+     */
     int positionComponentCount = 2;
+    /**
+     * how many coordinate component are there.
+     * default = 2
+     */
     int textureCoordinatesComponentCount = 2;
+    /**
+     * how many set of points are there.
+     * a set = (position + coordinate)
+     *
+     */
     public int points;
+    /**
+     * stride
+     */
     public int stride;
 
+    /**
+     * type of image.
+     * use value in TYPE
+     */
+    public int imageType = TYPE.NONE;
+    /**
+     * id of texture stored in openGL
+     */
+    public int textureId;
+
+    /**
+     * vertex data
+     */
     public float[] vertex_data;
 
-    public void updateStride(){
+    /**
+     * update stride value
+     */
+    public void updateStride() {
         stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
     }
 
     @Override
     public void draw(Draw draw) {
-        drawTextureDefault(vertex_data, draw.projectionMatrix, parser.imageId, draw);
+        drawTextureDefault(vertex_data, Draw.projectionMatrix, textureId, draw);
     }
 
-    private void drawTextureDefault(final float[] vertex_data, final float[] projectionMatrix, final int texture, final Draw draw){
+    private void drawTextureDefault(final float[] vertex_data, final float[] projectionMatrix, final int texture, final Draw draw) {
         final VertexArray vertexArray = new VertexArray(vertex_data);
 
-        draw.textureProgram.useProgram();
+        if (draw.availablePrograms.textureProgram == null) {
+            draw.availablePrograms.textureProgram = new TextureShaderProgram();
+        }
+        draw.availablePrograms.textureProgram.useProgram();
 
-        draw.textureProgram.setUniforms(projectionMatrix, texture);
+        draw.availablePrograms.textureProgram.setUniforms(projectionMatrix, texture);
 
-        bindData(draw.textureProgram, vertexArray, draw);
+        bindData(draw.availablePrograms.textureProgram, vertexArray, draw);
 
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, points);
     }
 
     private void bindData(final TextureShaderProgram textureProgram, final VertexArray vertexArray, final Draw draw) {
         vertexArray.setVertexAttribPointer(
-                0, textureProgram.getPositionAttributeLocation(), draw.POSITION_COMPONENT_COUNT, draw.STRIDE);
+                0, textureProgram.getPositionAttributeLocation(), positionComponentCount, stride);
 
         vertexArray.setVertexAttribPointer(
-                draw.POSITION_COMPONENT_COUNT,
+                positionComponentCount,
                 textureProgram.getTextureCoordinatesAttributeLocation(),
-                draw.TEXTURE_COORDINATES_COMPONENT_COUNT,
-                draw.STRIDE);
+                textureCoordinatesComponentCount,
+                stride);
     }
 
 
@@ -64,16 +97,13 @@ public class Images implements Drawable{
         public static final int IMAGES = 1;
     }
 
-    public int imageType;
-    public Parser parser;
 
-    public Images() {
-        nullifier();
-        Rectangle.getDefaultVertexData(this);
-    }
-
+    /**
+     *
+     * @param context the context
+     * @param imageRId the id in R.java
+     */
     public Images(final Context context, final int imageRId) {
-
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false;
 
@@ -83,22 +113,19 @@ public class Images implements Drawable{
 
         if (bitmap == null) {
             Log(TAG, "Resource ID " + imageRId + " could not be decoded.");
-            nullifier();
             return;
         }
-        parser = new Parser(bitmap);
+        textureId = Parser.parseTexture(bitmap);
         imageType = TYPE.IMAGES;
         bitmap.recycle();
     }
 
+    /**
+     *
+     * @param bitmap the bitmap for the image
+     */
     public Images(final Bitmap bitmap) {
-        parser = new Parser(bitmap);
+        textureId = Parser.parseTexture(bitmap);
         imageType = TYPE.IMAGES;
     }
-
-    public void nullifier() {
-        imageType = TYPE.NONE;
-        parser = null;
-    }
-
 }

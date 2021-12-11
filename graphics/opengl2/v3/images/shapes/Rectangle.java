@@ -1,19 +1,49 @@
 package com.martinmimiGames.util.graphics.opengl2.v3.images.shapes;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
+
+import com.martinmimiGames.util.graphics.opengl2.v3.Draw;
 import com.martinmimiGames.util.graphics.opengl2.v3.Images;
 
-public class Rectangle{
+public class Rectangle extends Images {
 
-    public static void getDefaultVertexData(Images shape) {
-        shape.points = 4;
-        shape.updateStride();
-        shape.vertex_data = new float[shape.stride];
-        setWidth(shape, 100f);
-        setHeight(shape, 100f);
-        setImageCrop(shape, 0f, 1f, 0f, 1f);
+    Draw draw;
+
+    /**
+     *
+     * @param draw the Draw.java
+     * @param context the context with the screen
+     * @param imageRId the id in R.java
+     */
+    public Rectangle(Draw draw, Context context, int imageRId) {
+        super(context, imageRId);
+        init(draw);
     }
 
-    public static final class POINTS{
+    /**
+     *
+     * @param draw the Draw.java
+     * @param bitmap the bitmap with the texture
+     */
+    public Rectangle(Draw draw, Bitmap bitmap) {
+        super(bitmap);
+        init(draw);
+    }
+
+    private void init(Draw draw) {
+        this.draw = draw;
+        this.points = 4;
+        this.updateStride();
+        this.vertex_data = new float[this.stride];
+        setWidth(1080f);
+        setHeight(1080f);
+        setImageCrop(0f, 1f, 0f, 1f);
+        Log.e("test", "ran");
+    }
+
+    public static final class POINTS {
 
         static final int NULL = 0;
         static final int MINUS_HALF_WIDTH = 1;
@@ -46,7 +76,7 @@ public class Rectangle{
 
     }
 
-    public static final class Crop{
+    public static final class Crop {
 
         static final int NULL = 0;
         static final int LEFT = 1;
@@ -79,25 +109,37 @@ public class Rectangle{
 
     }
 
-    public static Images setImageCrop(final Images shape,
-                                     final float left,
-                                     final float right,
-                                     final float top,
-                                     final float bottom
-    ){
-        for (int i = 0; i < shape.vertex_data.length; i++){
-            switch (Crop.VALUE[i]){
+    /**
+     * crop the image,
+     * value 0 - 1
+     * @param left value 0 (left) - 1 (right),
+     *             default = 0
+     * @param right value 0 (left) - 1 (right),
+     *              default = 1
+     * @param top value 0 (top) - 1 (bottom),
+     *            default = 0;
+     * @param bottom value 0 (top) - 1 (bottom),
+     *               default = 1;
+     * @return this Rectangle
+     */
+    public Rectangle setImageCrop(final float left,
+                                  final float right,
+                                  final float top,
+                                  final float bottom
+    ) {
+        for (int i = 0; i < this.vertex_data.length; i++) {
+            switch (Crop.VALUE[i]) {
                 case Crop.LEFT:
-                    shape.vertex_data[i] = left;
+                    this.vertex_data[i] = left;
                     break;
                 case Crop.RIGHT:
-                    shape.vertex_data[i] = right;
+                    this.vertex_data[i] = right;
                     break;
                 case Crop.TOP:
-                    shape.vertex_data[i] = top;
+                    this.vertex_data[i] = top;
                     break;
                 case Crop.BOTTOM:
-                    shape.vertex_data[i] = bottom;
+                    this.vertex_data[i] = bottom;
                     break;
                 case Crop.NULL:
                 default:
@@ -105,41 +147,51 @@ public class Rectangle{
 
             }
         }
-        return shape;
+        return this;
     }
 
-    public static Images setWidth(final Images shape, final float width){
-        final float half_width = width / 2f;
-        for (int i = 0; i < shape.vertex_data.length; i++) {
+    /**
+     * set object width
+     * @param width pixel value
+     * @return this Rectangle
+     */
+    public Rectangle setWidth(final float width) {
+        final float half_width = width / draw.height;
+        for (int i = 0; i < this.vertex_data.length; i++) {
             switch (POINTS.VALUE[i]) {
                 case POINTS.MINUS_HALF_WIDTH:
-                    shape.vertex_data[i] = -half_width;
+                    this.vertex_data[i] = -half_width;
                     break;
                 case POINTS.PLUS_HALF_WIDTH:
-                    shape.vertex_data[i] = half_width;
+                    this.vertex_data[i] = half_width;
                     break;
                 default:
                     break;
             }
         }
-        return shape;
+        return this;
     }
 
-    public static Images setHeight(final Images shape, final float height){
-        final float half_height = height / 2f;
-        for (int i = 0; i < shape.vertex_data.length; i++) {
+    /**
+     * set object height
+     * @param height pixel value
+     * @return this Rectangle
+     */
+    public Rectangle setHeight(final float height) {
+        final float half_height = height / draw.height;
+        for (int i = 0; i < this.vertex_data.length; i++) {
             switch (POINTS.VALUE[i]) {
                 case POINTS.MINUS_HALF_HEIGHT:
-                    shape.vertex_data[i] = -half_height;
+                    this.vertex_data[i] = -half_height;
                     break;
                 case POINTS.PLUS_HALF_HEIGHT:
-                    shape.vertex_data[i] = half_height;
+                    this.vertex_data[i] = half_height;
                     break;
                 default:
                     break;
             }
         }
-        return shape;
+        return this;
     }
 
 }
