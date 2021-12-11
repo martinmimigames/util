@@ -14,6 +14,14 @@ import static com.martinmimiGames.util.logger.Log.Log;
 
 import android.graphics.Bitmap;
 
+/**
+ * This is the MGGames utility dependency.
+ * Image parsing for Draw dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
+ */
+
 public class Parser {
 
     public static final String TAG = "Images parser";

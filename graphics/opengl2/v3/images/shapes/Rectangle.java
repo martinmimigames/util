@@ -7,6 +7,14 @@ import android.util.Log;
 import com.martinmimiGames.util.graphics.opengl2.v3.Draw;
 import com.martinmimiGames.util.graphics.opengl2.v3.Images;
 
+/**
+ * This is the MGGames utility dependency.
+ * Rectangle in Draw dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
+ */
+
 public class Rectangle extends Images {
 
     Draw draw;

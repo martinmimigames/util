@@ -1,5 +1,13 @@
 package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
 
+/**
+ * This is the MGGames utility dependency.
+ * opengl code for Draw dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
+ */
+
 public class ShaderCode {
 
     public static final String TEXTURE_VERTEX_SHADER =

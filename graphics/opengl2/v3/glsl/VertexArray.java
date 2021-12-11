@@ -8,6 +8,14 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+/**
+ * This is the MGGames utility dependency.
+ * Vertex data processing for Draw dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
+ */
+
 public class VertexArray {
     private final FloatBuffer floatBuffer;
     private static final int BYTE_PER_FLOAT = 4;

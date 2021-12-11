@@ -17,6 +17,14 @@ import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glUseProgram;
 import static com.martinmimiGames.util.logger.Log.Log;
 
+/**
+ * This is the MGGames utility dependency.
+ * opengl code implementation for Draw dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
+ */
+
 public abstract class ShaderProgram {
     // Uniform constants
     protected static final String U_MATRIX = "u_Matrix";

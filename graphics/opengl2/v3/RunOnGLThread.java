@@ -7,7 +7,11 @@ import static android.opengl.GLES20.glClearColor;
 import java.util.ArrayList;
 
 /**
- * functions that can only run in GLThreads
+ * This is the MGGames utility dependency.
+ * Store functions that can only run in GLThreads
+ * @author martinmimi (from martinmimigames)
+ * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.0 first release
  */
 class RunOnGLThread {
 
@@ -32,6 +36,9 @@ class RunOnGLThread {
         glClearColor(red / 255f, green / 255f, blue / 255f, alpha / 255f);
     }
 
+    /**
+     * draw the Drawables in query
+     */
     public void draw() {
         while (objects.size() > 0) {
             objects.get(0).draw(draw);
