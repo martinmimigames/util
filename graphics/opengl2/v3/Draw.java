@@ -125,10 +125,16 @@ public class Draw {
         runOnGLThread.draw();
     }
 
+    /**
+     * call after draw frame
+     */
     public void nextBuffer(){
         drawFinished = true;
     }
 
+    /**
+     * call to wait until next buffer
+     */
     public void waitForNextBuffer(){
         while (!drawFinished);
         drawFinished = false;
