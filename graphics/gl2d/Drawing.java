@@ -14,6 +14,7 @@ import static com.martinmimiGames.util.graphics.gl2d.Prop.height;
 import static com.martinmimiGames.util.graphics.gl2d.Prop.crop_data;
 import static com.martinmimiGames.util.graphics.gl2d.Prop.ratio;
 import static com.martinmimiGames.util.graphics.gl2d.Prop.texture_data;
+import static com.martinmimiGames.util.graphics.gl2d.Prop.activity;
 
 class Drawing {
 
@@ -217,6 +218,7 @@ class Drawing {
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }
+
 
     private static void bindData(final TextureShaderProgram textureProgram,final VertexArray vertexArray) {
         vertexArray.setVertexAttribPointer(
