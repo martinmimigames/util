@@ -15,7 +15,7 @@ import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
  * @version 1.0.0 first release
  */
 
-public class Object implements Drawable {
+public class Object implements Drawable , Cloneable{
 
     /**
      * location values on the screen

@@ -14,6 +14,7 @@ import static android.opengl.Matrix.translateM;
 import android.app.Activity;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.AvailablePrograms;
+import com.martinmimiGames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.
@@ -30,6 +31,7 @@ public class Draw {
     float ratio;
     public Integer height;
     AvailablePrograms availablePrograms;
+    private volatile boolean drawFinished;
 
 
     /**
@@ -74,7 +76,19 @@ public class Draw {
     /**
      * Add object to draw query to be used in draw()
      */
-    public void add(Object object) {
+    public void addLocationIndependent(Object object) {
+        Object new_object = new Object();
+        try {
+            new_object.location = (Location) object.location.clone();
+        } catch (CloneNotSupportedException ignored) {}
+        new_object.drawable = object.drawable;
+        runOnGLThread.objects.add(new_object);
+    }
+
+    /**
+     * Add object to draw query to be used in draw()
+     */
+    public void add(Object object){
         runOnGLThread.objects.add(object);
     }
 
@@ -95,8 +109,12 @@ public class Draw {
      * Clear the rendering surface.
      * Can only run in GLThread
      */
-    public void clear() {
+    public void clean() {
         runOnGLThread.clear();
+    }
+
+    public void clear(){
+        runOnGLThread.objects.clear();
     }
 
     /**
@@ -105,5 +123,14 @@ public class Draw {
      */
     public void draw() {
         runOnGLThread.draw();
+    }
+
+    public void nextBuffer(){
+        drawFinished = true;
+    }
+
+    public void waitForNextBuffer(){
+        while (!drawFinished);
+        drawFinished = false;
     }
 }

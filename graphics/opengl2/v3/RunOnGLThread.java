@@ -3,8 +3,15 @@ package com.martinmimiGames.util.graphics.opengl2.v3;
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
+import static android.opengl.GLES20.glFlush;
+
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * This is the MGGames utility dependency.
@@ -21,7 +28,7 @@ class RunOnGLThread {
         this.draw = draw;
     }
 
-    ArrayList<Drawable> objects = new ArrayList<>();
+    final ArrayList<Drawable> objects = new ArrayList<>(1000);
 
     /**
      * set background colour.
@@ -40,10 +47,33 @@ class RunOnGLThread {
      * draw the Drawables in query
      */
     public void draw() {
-        while (objects.size() > 0) {
-            objects.get(0).draw(draw);
+        //Drawable[] list = objects.toArray(objects.toArray(new Drawable[objects.size()]));
+        /*ListIterator<Drawable> iterator;
+            List<Drawable> list = new ArrayList(objects);
+            iterator = list.listIterator(objects.size());
+            objects.removeAll(list);
+
+        Log.e("","size : " + objects.size());
+        while (iterator.hasPrevious()){
+                iterator.previous().draw(draw);
+                iterator.remove();
+        }*/
+        Log.e("","size : " + objects.size());
+        for (int i = 0;!objects.isEmpty(); i++) {
+            Drawable object = objects.get(0);
+            if (object != null)
+                object.draw(draw);
+            if (i % 75 == 0){
+                glFlush();
+            }
             objects.remove(0);
         }
+        /*final Drawable[] drawables = objects.toArray(new Drawable[objects.size()]);
+        objects = new ArrayList<>();
+        for (Drawable drawable : drawables) {
+            drawable.draw(draw);
+        }*/
+
     }
 
     /**
