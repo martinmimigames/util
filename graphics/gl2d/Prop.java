@@ -1,8 +1,8 @@
 package com.martinmimiGames.util.graphics.gl2d;
 
-import android.content.Context;
 import android.util.Log;
 
+import android.app.Activity;
 import com.martinmimiGames.util.graphics.gl2d.objects.TextureHelper;
 import com.martinmimiGames.util.graphics.gl2d.objects.TextureShaderProgram;
 import com.martinmimiGames.util.logger.LoggerConfig;
@@ -42,21 +42,21 @@ public class Prop {
     static float ratio;
 
     // required files
-    private static Context context;
+    static Activity activity;
     static TextureShaderProgram textureProgram;
 
 
     /**
      * setup this dependency for use
-     * @param contexts returned by "this" in Activity
+     * @param _activity returned by "this" in Activity
      * @param vertex a texture vertex shader
      * @param fragment a texture fragment shader
      */
-    public static void setup(Context contexts, int vertex, int fragment) {
+    public static void setup(Activity _activity, int vertex, int fragment) {
 
         // setting up variables
-        context = contexts;
-        textureProgram = new TextureShaderProgram(context, vertex, fragment);
+        activity = _activity;
+        textureProgram = new TextureShaderProgram(activity, vertex, fragment);
 
         // setting up storage
         texture_data = new ArrayList<>();
@@ -95,7 +95,7 @@ public class Prop {
      */
     // load a texture (jpg, png, etc)
     public static int loadTexture(int resourceId) {
-        final int texture = TextureHelper.loadTexture(context, resourceId);
+        final int texture = TextureHelper.loadTexture(activity, resourceId);
         texture_data.add(texture);
         ArrayList<Float> data = new ArrayList<>();
         data.add(0f);
@@ -115,7 +115,7 @@ public class Prop {
      */
     // load a texture (jpg, png, etc)
     public static void changeTexture(int id, int resourceId) {
-        final int texture = TextureHelper.loadTexture(context, resourceId);
+        final int texture = TextureHelper.loadTexture(activity, resourceId);
         texture_data.set(id, texture);
     }
 
