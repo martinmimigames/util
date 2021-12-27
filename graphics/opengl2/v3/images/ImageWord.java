@@ -12,6 +12,10 @@ public class ImageWord extends Object {
     private byte[] byteList;
     public float fontSize;
     private final Object object;
+    public int drawType;
+
+    public static final int CENTERED = 0;
+    public static final int LEFT = 1;
 
     public ImageWord(Draw draw, Context context, int imageRId) {
         location = new Location();
@@ -19,13 +23,23 @@ public class ImageWord extends Object {
         object.drawable = drawable = new Rectangle(draw, context, imageRId);
         byteList = new byte[0];
         fontSize = 25;
+        drawType = CENTERED;
     }
 
     @Override
     public void draw(Draw draw) {
         final float y = location.coor[Location.Y];
         final float string_size = byteList.length * fontSize;
-        float x = location.coor[Location.X] - string_size / 2 + fontSize / 2;
+        float x;
+        switch (drawType){
+            case LEFT:
+                x = location.coor[Location.X];
+                break;
+            case CENTERED:
+            default:
+                x = location.coor[Location.X] - string_size / 2 + fontSize / 2;
+                break;
+        }
         ((Rectangle) drawable).setWidth(fontSize);
         ((Rectangle) drawable).setHeight(fontSize);
         for (byte value : byteList) {
@@ -71,12 +85,10 @@ public class ImageWord extends Object {
         object.draw(draw);
     }
 
-    public void setText(CharSequence string) {
+    public void setText(String string) {
 
-        char[] text = new char[string.length()];
-        for (int i = 0; i < string.length(); i++) {
-            text[i] = string.charAt(i);
-        }
+        char[] text = string.toLowerCase().toCharArray();
+
         byteList = new byte[text.length];
         for (int i = 0; i < text.length; i++) {
             switch (text[i]) {
@@ -84,6 +96,7 @@ public class ImageWord extends Object {
                 // numbers
 
                 case '0':
+                    byteList[i] = 0;
                     break;
                 case '1':
                     byteList[i] = 1;
