@@ -14,14 +14,14 @@ import static android.opengl.Matrix.translateM;
 import android.app.Activity;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.AvailablePrograms;
-import com.martinmimiGames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.
  * Draw dependency for opengl graphic works
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 
 public class Draw {
@@ -61,11 +61,11 @@ public class Draw {
     public void setScreen(int width, int height) {
         // Set the OpenGL viewport to fill the entire surface.
         ratio = 2 / (float) height;
-        this.height = (Integer) height;
+        this.height = height;
         glViewport(0, 0, width, height);
-        final float aspectRatio = (float) width / (float) (float) height;
+        final float aspectRatio = (float) width / (float) height;
         orthoM(projectionMatrix, 0, -aspectRatio, aspectRatio, -1, 1, -1, 1);
-        translateM(projectionMatrix, 0, (float) -(((float) width) / (float) (float) height), 1, 0);
+        translateM(projectionMatrix, 0, -(((float) width) / (float) height), 1, 0);
         float[] modelMatrix = new float[16];
         setIdentityM(modelMatrix, 0);
         final float[] temp = new float[16];
@@ -80,7 +80,8 @@ public class Draw {
         Object new_object = new Object();
         try {
             new_object.location = (Location) object.location.clone();
-        } catch (CloneNotSupportedException ignored) {}
+        } catch (CloneNotSupportedException ignored) {
+        }
         new_object.drawable = object.drawable;
         runOnGLThread.objects.add(new_object);
     }
@@ -88,7 +89,7 @@ public class Draw {
     /**
      * Add object to draw query to be used in draw()
      */
-    public void add(Object object){
+    public void add(Object object) {
         runOnGLThread.objects.add(object);
     }
 
@@ -113,7 +114,7 @@ public class Draw {
         runOnGLThread.clear();
     }
 
-    public void clear(){
+    public void clear() {
         runOnGLThread.objects.clear();
     }
 
@@ -128,15 +129,15 @@ public class Draw {
     /**
      * call after draw frame
      */
-    public void nextBuffer(){
+    public void nextBuffer() {
         drawFinished = true;
     }
 
     /**
      * call to wait until next buffer
      */
-    public void waitForNextBuffer(){
-        while (!drawFinished);
+    public void waitForNextBuffer() {
+        while (!drawFinished) ;
         drawFinished = false;
     }
 }

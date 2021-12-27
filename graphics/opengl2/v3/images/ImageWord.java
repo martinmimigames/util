@@ -2,35 +2,32 @@ package com.martinmimiGames.util.graphics.opengl2.v3.images;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.gl2d.DrawType;
-import com.martinmimiGames.util.graphics.gl2d.Prop;
 import com.martinmimiGames.util.graphics.opengl2.v3.Draw;
-import com.martinmimiGames.util.graphics.opengl2.v3.Images;
 import com.martinmimiGames.util.graphics.opengl2.v3.Location;
 import com.martinmimiGames.util.graphics.opengl2.v3.Object;
 import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
 
-import java.util.ArrayList;
-
 public class ImageWord extends Object {
-    
-    byte[] byteList;
-    float font_size;
-    Object object;
+
+    private byte[] byteList;
+    public float fontSize;
+    private final Object object;
 
     public ImageWord(Draw draw, Context context, int imageRId) {
         location = new Location();
         object = new Object();
         object.drawable = drawable = new Rectangle(draw, context, imageRId);
+        byteList = new byte[0];
+        fontSize = 25;
     }
 
     @Override
     public void draw(Draw draw) {
         final float y = location.coor[Location.Y];
-        final float string_size = byteList.length * font_size;
-        float x = location.coor[Location.X] - string_size / 2 + font_size / 2;
-        ((Rectangle) drawable).setWidth(font_size);
-        ((Rectangle) drawable).setHeight(font_size);
+        final float string_size = byteList.length * fontSize;
+        float x = location.coor[Location.X] - string_size / 2 + fontSize / 2;
+        ((Rectangle) drawable).setWidth(fontSize);
+        ((Rectangle) drawable).setHeight(fontSize);
         for (byte value : byteList) {
             byte b = value;
             if (b < 11 || b > 36) {
@@ -39,7 +36,7 @@ public class ImageWord extends Object {
                 } else if (b < 10) {
                     b += 3;
                     int row = 4;
-                    drawWords(draw, b, row, x, y);
+                    drawChar(draw, b, row, x, y);
                 }
 
             } else {
@@ -47,19 +44,19 @@ public class ImageWord extends Object {
 
                 int row = 0;
 
-                drawWords(draw, b, row, x, y);
+                drawChar(draw, b, row, x, y);
 
             }
-            x += font_size;
+            x += fontSize;
         }
     }
 
-    private void drawWords(Draw draw, byte b, int row, float x, float y) {
-        while (b > 6) {
-            b -= 6;
+    private void drawChar(Draw draw, byte charByte, int row, float x, float y) {
+        while (charByte > 6) {
+            charByte -= 6;
             row += 1;
         }
-        final float cx = b * 0.15625f + 0.01f;
+        final float cx = charByte * 0.15625f + 0.01f;
         final float cy = row * 0.15625f + 0.01f;
         Rectangle rectangle = (Rectangle) drawable;
         rectangle.setImageCrop(
@@ -77,12 +74,11 @@ public class ImageWord extends Object {
     public void setText(CharSequence string) {
 
         char[] text = new char[string.length()];
-        for (int i = 0; i < string.length(); i++){
+        for (int i = 0; i < string.length(); i++) {
             text[i] = string.charAt(i);
         }
         byteList = new byte[text.length];
         for (int i = 0; i < text.length; i++) {
-            byte n = 0;
             switch (text[i]) {
 
                 // numbers
@@ -90,121 +86,120 @@ public class ImageWord extends Object {
                 case '0':
                     break;
                 case '1':
-                    n = 1;
+                    byteList[i] = 1;
                     break;
                 case '2':
-                    n = 2;
+                    byteList[i] = 2;
                     break;
                 case '3':
-                    n = 3;
+                    byteList[i] = 3;
                     break;
                 case '4':
-                    n = 4;
+                    byteList[i] = 4;
                     break;
                 case '5':
-                    n = 5;
+                    byteList[i] = 5;
                     break;
                 case '6':
-                    n = 6;
+                    byteList[i] = 6;
                     break;
                 case '7':
-                    n = 7;
+                    byteList[i] = 7;
                     break;
                 case '8':
-                    n = 8;
+                    byteList[i] = 8;
                     break;
                 case '9':
-                    n = 9;
+                    byteList[i] = 9;
                     break;
 
                 // space
 
                 case ' ':
-                    n = 10;
+                    byteList[i] = 10;
                     break;
 
                 // letters
 
                 case 'a':
-                    n = 11;
+                    byteList[i] = 11;
                     break;
                 case 'b':
-                    n = 12;
+                    byteList[i] = 12;
                     break;
                 case 'c':
-                    n = 13;
+                    byteList[i] = 13;
                     break;
                 case 'd':
-                    n = 14;
+                    byteList[i] = 14;
                     break;
                 case 'e':
-                    n = 15;
+                    byteList[i] = 15;
                     break;
                 case 'f':
-                    n = 16;
+                    byteList[i] = 16;
                     break;
                 case 'g':
-                    n = 17;
+                    byteList[i] = 17;
                     break;
                 case 'h':
-                    n = 18;
+                    byteList[i] = 18;
                     break;
                 case 'i':
-                    n = 19;
+                    byteList[i] = 19;
                     break;
                 case 'j':
-                    n = 20;
+                    byteList[i] = 20;
                     break;
                 case 'k':
-                    n = 21;
+                    byteList[i] = 21;
                     break;
                 case 'l':
-                    n = 22;
+                    byteList[i] = 22;
                     break;
                 case 'm':
-                    n = 23;
+                    byteList[i] = 23;
                     break;
                 case 'n':
-                    n = 24;
+                    byteList[i] = 24;
                     break;
                 case 'o':
-                    n = 25;
+                    byteList[i] = 25;
                     break;
                 case 'p':
-                    n = 26;
+                    byteList[i] = 26;
                     break;
                 case 'q':
-                    n = 27;
+                    byteList[i] = 27;
                     break;
                 case 'r':
-                    n = 28;
+                    byteList[i] = 28;
                     break;
                 case 's':
-                    n = 29;
+                    byteList[i] = 29;
                     break;
                 case 't':
-                    n = 30;
+                    byteList[i] = 30;
                     break;
                 case 'u':
-                    n = 31;
+                    byteList[i] = 31;
                     break;
                 case 'v':
-                    n = 32;
+                    byteList[i] = 32;
                     break;
                 case 'w':
-                    n = 33;
+                    byteList[i] = 33;
                     break;
                 case 'x':
-                    n = 34;
+                    byteList[i] = 34;
                     break;
                 case 'y':
-                    n = 35;
+                    byteList[i] = 35;
                     break;
                 case 'z':
-                    n = 36;
+                    byteList[i] = 36;
                     break;
             }
-            byteList[i] = n;
         }
     }
 }

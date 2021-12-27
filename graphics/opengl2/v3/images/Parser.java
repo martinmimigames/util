@@ -17,9 +17,10 @@ import android.graphics.Bitmap;
 /**
  * This is the MGGames utility dependency.
  * Image parsing for Draw dependency
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 
 public class Parser {

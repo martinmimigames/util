@@ -2,7 +2,6 @@ package com.martinmimiGames.util.graphics.opengl2.v3.images.shapes;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.Draw;
 import com.martinmimiGames.util.graphics.opengl2.v3.Images;
@@ -10,9 +9,10 @@ import com.martinmimiGames.util.graphics.opengl2.v3.Images;
 /**
  * This is the MGGames utility dependency.
  * Rectangle in Draw dependency
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 
 public class Rectangle extends Images {
@@ -20,9 +20,8 @@ public class Rectangle extends Images {
     Draw draw;
 
     /**
-     *
-     * @param draw the Draw.java
-     * @param context the context with the screen
+     * @param draw     the Draw.java
+     * @param context  the context with the screen
      * @param imageRId the id in R.java
      */
     public Rectangle(Draw draw, Context context, int imageRId) {
@@ -31,8 +30,7 @@ public class Rectangle extends Images {
     }
 
     /**
-     *
-     * @param draw the Draw.java
+     * @param draw   the Draw.java
      * @param bitmap the bitmap with the texture
      */
     public Rectangle(Draw draw, Bitmap bitmap) {
@@ -48,7 +46,6 @@ public class Rectangle extends Images {
         setWidth(1080f);
         setHeight(1080f);
         setImageCrop(0f, 1f, 0f, 1f);
-        Log.e("test", "ran");
     }
 
     public static final class POINTS {
@@ -120,12 +117,13 @@ public class Rectangle extends Images {
     /**
      * crop the image,
      * value 0 - 1
-     * @param left value 0 (left) - 1 (right),
-     *             default = 0
-     * @param right value 0 (left) - 1 (right),
-     *              default = 1
-     * @param top value 0 (top) - 1 (bottom),
-     *            default = 0;
+     *
+     * @param left   value 0 (left) - 1 (right),
+     *               default = 0
+     * @param right  value 0 (left) - 1 (right),
+     *               default = 1
+     * @param top    value 0 (top) - 1 (bottom),
+     *               default = 0;
      * @param bottom value 0 (top) - 1 (bottom),
      *               default = 1;
      * @return this Rectangle
@@ -160,6 +158,7 @@ public class Rectangle extends Images {
 
     /**
      * set object width
+     *
      * @param width pixel value
      * @return this Rectangle
      */
@@ -182,6 +181,7 @@ public class Rectangle extends Images {
 
     /**
      * set object height
+     *
      * @param height pixel value
      * @return this Rectangle
      */

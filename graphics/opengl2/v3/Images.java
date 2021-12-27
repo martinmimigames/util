@@ -15,9 +15,10 @@ import com.martinmimiGames.util.graphics.opengl2.v3.images.Parser;
 /**
  * This is the MGGames utility dependency.
  * Images for Draw dependency
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 
 public class Images implements Drawable {
@@ -38,7 +39,6 @@ public class Images implements Drawable {
     /**
      * how many set of points are there.
      * a set = (position + coordinate)
-     *
      */
     public int points;
     /**
@@ -107,8 +107,7 @@ public class Images implements Drawable {
 
 
     /**
-     *
-     * @param context the context
+     * @param context  the context
      * @param imageRId the id in R.java
      */
     public Images(final Context context, final int imageRId) {
@@ -129,7 +128,6 @@ public class Images implements Drawable {
     }
 
     /**
-     *
      * @param bitmap the bitmap for the image
      */
     public Images(final Bitmap bitmap) {

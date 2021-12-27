@@ -8,17 +8,14 @@ import static android.opengl.GLES20.glFlush;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 /**
  * This is the MGGames utility dependency.
  * Store functions that can only run in GLThreads
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 class RunOnGLThread {
 
@@ -58,12 +55,12 @@ class RunOnGLThread {
                 iterator.previous().draw(draw);
                 iterator.remove();
         }*/
-        Log.e("","size : " + objects.size());
-        for (int i = 0;!objects.isEmpty(); i++) {
+        Log.e("", "size : " + objects.size());
+        for (int i = 0; !objects.isEmpty(); i++) {
             Drawable object = objects.get(0);
             if (object != null)
                 object.draw(draw);
-            if (i % 75 == 0){
+            if (i % 75 == 0) {
                 glFlush();
             }
             objects.remove(0);

@@ -10,12 +10,13 @@ import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
 /**
  * This is the MGGames utility dependency.
  * Object for Draw dependency
+ *
  * @author martinmimi (from martinmimigames)
- * @since about 11-12-2021 dd-mm-yyyy
  * @version 1.0.0 first release
+ * @since about 11-12-2021 dd-mm-yyyy
  */
 
-public class Object implements Drawable , Cloneable{
+public class Object implements Drawable, Cloneable {
 
     /**
      * location values on the screen
@@ -37,9 +38,10 @@ public class Object implements Drawable , Cloneable{
     /**
      * create an Object with defaults,
      * best used for textured objects
-     * @param draw the Draw.java
+     *
+     * @param draw    the Draw.java
      * @param context the context with the screen
-     * @param Rid the id in R.java
+     * @param Rid     the id in R.java
      * @return a new Object with defaults
      */
     public static Object Images(final Draw draw, final Context context, final int Rid) {
@@ -64,7 +66,7 @@ public class Object implements Drawable , Cloneable{
             rotateM(Draw.projectionMatrix, 0, location.angle, 0f, 0f, 1f);
 
             translateM(Draw.projectionMatrix, 0, -x, y, 0f);
-        }else {
+        } else {
             // the drawing process
             translateM(Draw.projectionMatrix, 0, x, -y, 0f);
 
