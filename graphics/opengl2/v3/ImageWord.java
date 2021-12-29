@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.images;
+package com.martinmimiGames.util.graphics.opengl2.v3;
 
 import android.content.Context;
 

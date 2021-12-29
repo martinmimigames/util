@@ -127,6 +127,13 @@ public class Draw {
     }
 
     /**
+     * call at start of draw frame before drawing
+     */
+    public void newBuffer(){
+        drawFinished = false;
+    }
+
+    /**
      * call after draw frame
      */
     public void nextBuffer() {
@@ -138,6 +145,5 @@ public class Draw {
      */
     public void waitForNextBuffer() {
         while (!drawFinished) ;
-        drawFinished = false;
     }
 }
