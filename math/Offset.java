@@ -18,7 +18,7 @@ public class Offset {
     right = new Right();
   }
 
-  private void setOffset(float x, float y) {
+  public void setOffset(float x, float y) {
     length = Math.sqrt(sqr(x) + sqr(y));
     atan_in_radians = Math.atan(x / y);
   }
