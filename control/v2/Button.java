@@ -17,6 +17,15 @@ public class Button {
     location = new Location();
   }
 
+  public Button(float x, float y, float width, float height){
+    buttonEdges = new float[4];
+    location = new Location();
+    location.x = x;
+    location.y = y;
+    setWidth(width);
+    setHeight(height);
+  }
+
   public class Location{
     public float x;
     public float y;
