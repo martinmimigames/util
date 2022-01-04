@@ -1,5 +1,6 @@
 package com.martinmimiGames.util.graphics.gl2d;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import android.app.Activity;
@@ -29,6 +30,8 @@ import static android.opengl.Matrix.translateM;
  * @version 0.0.0.1
  */
 @Deprecated
+@SuppressLint("StaticFieldLeak")
+@SuppressWarnings({"deprecation", "fallthrough", "cast"})
 public class Prop {
     static final int POSITION_COMPONENT_COUNT = 2;
     static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;

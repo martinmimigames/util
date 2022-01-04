@@ -12,6 +12,7 @@ import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniformMatrix4fv;
 
 @Deprecated
+@SuppressWarnings( "deprecation" )
 public class TextureShaderProgram extends ShaderProgram {
     // Uniform locations
     private final int uMatrixLocation;

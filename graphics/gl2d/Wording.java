@@ -5,6 +5,7 @@ import com.martinmimiGames.util.objects.Rect;
 import java.util.ArrayList;
 
 @Deprecated
+@SuppressWarnings({"deprecation", "StatementWithEmptyBody"})
 public class Wording {
 
     private static int word_res;
@@ -40,7 +41,7 @@ public class Wording {
 
     public static void change(int id, String words) {
         final byte[] string = textToInt(words);
-        ArrayList<Byte> data = new ArrayList<Byte>();
+        ArrayList<Byte> data = new ArrayList<>();
         for (byte b : string) {
             data.add(b);
         }

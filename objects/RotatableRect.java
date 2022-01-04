@@ -8,6 +8,7 @@ package com.martinmimiGames.util.objects;
  */
 
 @Deprecated
+@SuppressWarnings( "deprecation" )
 public class RotatableRect extends Rect {
 
     //static final are constants

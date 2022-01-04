@@ -7,6 +7,7 @@ package com.martinmimiGames.util.objects;
  */
 
 @Deprecated
+@SuppressWarnings( "deprecation" )
 public class Rect extends Coor{
 
     //static final are constants
