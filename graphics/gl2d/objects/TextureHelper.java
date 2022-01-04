@@ -19,6 +19,7 @@ import static android.opengl.GLES20.glGenerateMipmap;
 import static android.opengl.GLES20.glTexParameteri;
 import static android.opengl.GLUtils.texImage2D;
 
+@Deprecated
 public class TextureHelper {
     private static final String TAG = "TextureHelper";
 

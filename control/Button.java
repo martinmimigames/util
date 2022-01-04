@@ -2,6 +2,7 @@ package com.martinmimiGames.util.control;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class Button {
 
     private static final ArrayList<Float> left = new ArrayList<Float>();

@@ -6,7 +6,7 @@ package com.martinmimiGames.util.graphics.gl2d;
  * @since about 2020/3/24
  * @version 0.0.0.1
  */
-
+@Deprecated
 public final class DrawType{
         public static final int DEFAULT = 0;
         public static final int ROTATABLE = 1;

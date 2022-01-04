@@ -1,5 +1,6 @@
 package com.martinmimiGames.util.prefix;
 
+@Deprecated
 public class Coor {
 
     public static final int UPPER_LEFT = 0;

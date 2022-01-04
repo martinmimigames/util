@@ -1,5 +1,6 @@
 package com.martinmimiGames.util.objects;
 
+@Deprecated
 public class Coor {
 
     /**

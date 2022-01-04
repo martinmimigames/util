@@ -8,6 +8,7 @@ import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glVertexAttribPointer;
 
+@Deprecated
 public class VertexArray {
     private final FloatBuffer floatBuffer;
     private final int byte_per_float;

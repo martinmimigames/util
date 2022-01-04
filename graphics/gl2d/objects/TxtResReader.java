@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+@Deprecated
 public class TxtResReader {
     /**
      * Reads in text from a resource file and returns a String containing the text.

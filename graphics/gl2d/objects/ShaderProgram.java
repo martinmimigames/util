@@ -4,6 +4,7 @@ import android.content.Context;
 
 import static android.opengl.GLES20.glUseProgram;
 
+@Deprecated
 public abstract class ShaderProgram {
     // Uniform constants
     protected static final String U_MATRIX = "u_Matrix";

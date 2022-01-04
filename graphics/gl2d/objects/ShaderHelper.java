@@ -23,6 +23,7 @@ import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glValidateProgram;
 
+@Deprecated
 public class ShaderHelper {
     private static final String TAG = "ShaderHelper";
 

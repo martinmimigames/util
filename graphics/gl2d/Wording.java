@@ -4,6 +4,7 @@ import com.martinmimiGames.util.objects.Rect;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class Wording {
 
     private static int word_res;

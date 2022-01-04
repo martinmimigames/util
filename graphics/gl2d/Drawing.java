@@ -16,6 +16,7 @@ import static com.martinmimiGames.util.graphics.gl2d.Prop.ratio;
 import static com.martinmimiGames.util.graphics.gl2d.Prop.texture_data;
 import static com.martinmimiGames.util.graphics.gl2d.Prop.activity;
 
+@Deprecated
 class Drawing {
 
     public static void drawRotatableDefault(RotatableRect objects, float[] projectionMatrix, int textureId) {

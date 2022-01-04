@@ -28,7 +28,7 @@ import static android.opengl.Matrix.translateM;
  * @since about 2020/12/15
  * @version 0.0.0.1
  */
-
+@Deprecated
 public class Prop {
     static final int POSITION_COMPONENT_COUNT = 2;
     static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
