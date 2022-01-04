@@ -27,9 +27,9 @@ public class TextureHelper {
      * Loads a texture from a resource ID, returning the OpenGL ID for that texture. Returns 0 if
      * the load failed.
      *
-     * @param context
-     * @param resourceId
-     * @return
+     * @param context context in use e.g. Activity
+     * @param resourceId id of texture in R.java
+     * @return index of texture
      */
     public static int loadTexture(Context context, int resourceId) {
         final int[] textureObjectIds = new int[1];

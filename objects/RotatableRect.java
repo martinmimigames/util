@@ -1,14 +1,14 @@
 package com.martinmimiGames.util.objects;
 
+/**
+ * This is the martinmimigames Rotatable rectangle object dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 2021/3/21
+ * @version 0.0.0.1
+ */
+
 @Deprecated
 public class RotatableRect extends Rect {
-
-    /**
-     * This is the martinmimigames Rotatable rectangle object dependency
-     * @author martinmimi (from martinmimigames)
-     * @since about 2021/3/21
-     * @version 0.0.0.1
-     */
 
     //static final are constants
     //the followings will be used for

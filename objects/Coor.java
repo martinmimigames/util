@@ -1,14 +1,14 @@
 package com.martinmimiGames.util.objects;
 
+
+/**
+ * This is the martinmimigames coordination dependency
+ * @author martinmimi (from martinmimigames)
+ * @since about 2021/3/21
+ * @version 0.0.0.1
+ */
 @Deprecated
 public class Coor {
-
-    /**
-     * This is the martinmimigames coordination dependency
-     * @author martinmimi (from martinmimigames)
-     * @since about 2021/3/21
-     * @version 0.0.0.1
-     */
 
     //static final are constants
     //the followings will be used for

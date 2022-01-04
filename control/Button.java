@@ -5,10 +5,10 @@ import java.util.ArrayList;
 @Deprecated
 public class Button {
 
-    private static final ArrayList<Float> left = new ArrayList<Float>();
-    private static final ArrayList<Float> right = new ArrayList<Float>();
-    private static final ArrayList<Float> up = new ArrayList<Float>();
-    private static final ArrayList<Float> down = new ArrayList<Float>();
+    private static final ArrayList<Float> left = new ArrayList<>();
+    private static final ArrayList<Float> right = new ArrayList<>();
+    private static final ArrayList<Float> up = new ArrayList<>();
+    private static final ArrayList<Float> down = new ArrayList<>();
 
     private static float current_x, current_y;
 

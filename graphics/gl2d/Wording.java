@@ -19,15 +19,15 @@ public class Wording {
         word_res = Prop.loadTexture(word_file_resource);
         //final float[] size = {0f, 0f, 1f, 1f};
         word_obj = new Rect();
-        word_data = new ArrayList<ArrayList<Byte>>();
-        x_data = new ArrayList<Float>();
-        y_data = new ArrayList<Float>();
-        font_size = new ArrayList<Float>();
+        word_data = new ArrayList<>();
+        x_data = new ArrayList<>();
+        y_data = new ArrayList<>();
+        font_size = new ArrayList<>();
     }
 
     public static int add(String words, float size, float x, float y) {
         final byte[] string = textToInt(words);
-        ArrayList<Byte> data = new ArrayList<Byte>();
+        ArrayList<Byte> data = new ArrayList<>();
         for (byte b : string) {
             data.add(b);
         }
