@@ -9,6 +9,6 @@ package com.martinmimiGames.util.graphics.opengl2.v3;
  * @since about 11-12-2021 dd-mm-yyyy
  */
 
-interface Drawable {
+public interface Drawable {
     void draw(Draw draw);
 }

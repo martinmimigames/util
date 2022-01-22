@@ -83,14 +83,14 @@ public class Draw {
         } catch (CloneNotSupportedException ignored) {
         }
         new_object.drawable = object.drawable;
-        runOnGLThread.objects.add(new_object);
+        runOnGLThread.drawables.add(new_object);
     }
 
     /**
      * Add object to draw query to be used in draw()
      */
-    public void add(Object object) {
-        runOnGLThread.objects.add(object);
+    public void add(Drawable drawable) {
+        runOnGLThread.drawables.add(drawable);
     }
 
     /**
@@ -115,7 +115,7 @@ public class Draw {
     }
 
     public void clear() {
-        runOnGLThread.objects.clear();
+        runOnGLThread.drawables.clear();
     }
 
     /**

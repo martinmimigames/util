@@ -31,14 +31,16 @@ public class Button {
     public float y;
   }
 
-  public void setWidth(float width){
+  public Button setWidth(float width){
     buttonEdges[LEFT] = location.x - width / 2f;
     buttonEdges[RIGHT] = location.x + width / 2f;
+    return this;
   }
 
-  public void setHeight(float height){
+  public Button setHeight(float height){
     buttonEdges[TOP] = location.y + height / 2f;
     buttonEdges[BOTTOM] = location.y - height / 2f;
+    return this;
   }
 
   public boolean check(MotionEvent event, int index){

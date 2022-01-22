@@ -20,12 +20,12 @@ import java.util.ArrayList;
 class RunOnGLThread {
 
     private final Draw draw;
+    final ArrayList<Drawable> drawables;
 
     RunOnGLThread(Draw draw) {
         this.draw = draw;
+        drawables = new ArrayList<>(1000);
     }
-
-    final ArrayList<Drawable> objects = new ArrayList<>(1000);
 
     /**
      * set background colour.
@@ -55,15 +55,15 @@ class RunOnGLThread {
                 iterator.previous().draw(draw);
                 iterator.remove();
         }*/
-        Log.e("", "size : " + objects.size());
-        for (int i = 0; !objects.isEmpty(); i++) {
-            Drawable object = objects.get(0);
-            if (object != null)
-                object.draw(draw);
+        Log.e("", "size : " + drawables.size());
+        for (int i = 0; !drawables.isEmpty(); i++) {
+            Drawable drawable = drawables.get(0);
+            if (drawable != null)
+                drawable.draw(draw);
             if (i % 75 == 0) {
                 glFlush();
             }
-            objects.remove(0);
+            drawables.remove(0);
         }
         /*final Drawable[] drawables = objects.toArray(new Drawable[objects.size()]);
         objects = new ArrayList<>();
