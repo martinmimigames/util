@@ -143,6 +143,7 @@ public class Draw {
     /**
      * call to wait until next buffer
      */
+    @SuppressWarnings("StatementWithEmptyBody")
     public void waitForNextBuffer() {
         while (!drawFinished) ;
     }
