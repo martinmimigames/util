@@ -4,11 +4,11 @@ import java.net.Socket;
 
 public interface Server {
 
-    void onServerStart(int port);
-  
-    void onClientConnect(Socket socket);
+  void onServerStart(int port);
 
-    void onServerTimeout();
+  void onClientConnect(Socket socket);
 
-    void onServerClose();
+  void onServerTimeout();
+
+  void onServerClose();
 }

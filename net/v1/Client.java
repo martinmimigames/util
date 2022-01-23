@@ -9,7 +9,7 @@ public interface Client {
   void onConnectionFailed();
 
   void onConnect(Socket socket);
-    
+
   void onClientClose();
 
 }

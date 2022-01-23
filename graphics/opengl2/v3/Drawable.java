@@ -10,5 +10,5 @@ package com.martinmimiGames.util.graphics.opengl2.v3;
  */
 
 public interface Drawable {
-    void draw(Draw draw);
+  void draw(Draw draw);
 }

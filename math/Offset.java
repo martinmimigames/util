@@ -13,7 +13,7 @@ public class Offset {
     right = new Right();
   }
 
-  public Offset(){
+  public Offset() {
     left = new Left();
     right = new Right();
   }

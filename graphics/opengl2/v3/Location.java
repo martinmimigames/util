@@ -11,29 +11,29 @@ package com.martinmimiGames.util.graphics.opengl2.v3;
 
 public class Location implements Cloneable {
 
-    public static final int X = 0;
-    public static final int Y = 1;
+  public static final int X = 0;
+  public static final int Y = 1;
 
-    /**
-     * coordinates,
-     * can use X,Y values for retrieval
-     */
-    public float[] coor;
-    /**
-     * the angle in which the object is drawn
-     */
-    public float angle;
+  /**
+   * coordinates,
+   * can use X,Y values for retrieval
+   */
+  public float[] coor;
+  /**
+   * the angle in which the object is drawn
+   */
+  public float angle;
 
-    public Location() {
-        coor = new float[2];
-    }
+  public Location() {
+    coor = new float[2];
+  }
 
-    @Override
-    protected java.lang.Object clone() throws CloneNotSupportedException {
-        Location location = new Location();
-        location.coor[Location.X] = this.coor[Location.X];
-        location.coor[Location.Y] = this.coor[Location.Y];
-        location.angle = this.angle;
-        return location;
-    }
+  @Override
+  protected java.lang.Object clone() throws CloneNotSupportedException {
+    Location location = new Location();
+    location.coor[Location.X] = this.coor[Location.X];
+    location.coor[Location.Y] = this.coor[Location.Y];
+    location.angle = this.angle;
+    return location;
+  }
 }

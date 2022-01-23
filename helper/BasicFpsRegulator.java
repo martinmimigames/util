@@ -1,5 +1,7 @@
 package com.martinmimiGames.util.helper;
 
+import com.martinmimiGames.util.logger.Log;
+
 /**
  * This is the MGGames utility dependency.
  * a fps regulator
@@ -17,12 +19,14 @@ public class BasicFpsRegulator implements Runnable {
   public void run() {
     try {
       Thread.sleep(stopTime);
-    } catch (InterruptedException ignored) {
+    } catch (InterruptedException e) {
+      if (Log.ON) Log.w(BasicFpsRegulator.class.toString(), "stop interrupted.\n" + e.getCause());
     }
   }
 
   /**
    * set the time to stop in millis
+   *
    * @param stopTime time to stop in millis
    */
   public void setStopTime(long stopTime) {
@@ -31,6 +35,7 @@ public class BasicFpsRegulator implements Runnable {
 
   /**
    * set the time to stop by fps
+   *
    * @param fps fps of loop
    */
   public void setFps(float fps) {

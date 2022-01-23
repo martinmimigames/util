@@ -12,12 +12,12 @@ public class Button {
 
   public Location location;
 
-  public Button(){
+  public Button() {
     buttonEdges = new float[4];
     location = new Location();
   }
 
-  public Button(float x, float y, float width, float height){
+  public Button(float x, float y, float width, float height) {
     buttonEdges = new float[4];
     location = new Location();
     location.x = x;
@@ -26,28 +26,28 @@ public class Button {
     setHeight(height);
   }
 
-  public class Location{
+  public class Location {
     public float x;
     public float y;
   }
 
-  public Button setWidth(float width){
+  public Button setWidth(float width) {
     buttonEdges[LEFT] = location.x - width / 2f;
     buttonEdges[RIGHT] = location.x + width / 2f;
     return this;
   }
 
-  public Button setHeight(float height){
+  public Button setHeight(float height) {
     buttonEdges[TOP] = location.y + height / 2f;
     buttonEdges[BOTTOM] = location.y - height / 2f;
     return this;
   }
 
-  public boolean check(MotionEvent event, int index){
+  public boolean check(MotionEvent event, int index) {
     return check(event.getX(index), event.getY(index));
   }
 
-  public boolean check(float x, float y){
+  public boolean check(float x, float y) {
     return x >= buttonEdges[LEFT]
         && y <= buttonEdges[TOP]
         && x <= buttonEdges[RIGHT]

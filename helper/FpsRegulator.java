@@ -1,6 +1,6 @@
 package com.martinmimiGames.util.helper;
 
-import android.util.Log;
+import com.martinmimiGames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.
@@ -22,14 +22,16 @@ public class FpsRegulator implements Runnable {
     final long pauseTime = stopTime - (currentTime - lastStopTime);
     try {
       if (pauseTime > 0)
-      Thread.sleep(pauseTime);
-    } catch (InterruptedException ignored) {
+        Thread.sleep(pauseTime);
+    } catch (InterruptedException e) {
+      if (Log.ON) Log.w(FpsRegulator.class.toString(), "stop interrupted.\n" + e.getCause());
     }
-      lastStopTime = currentTime;
+    lastStopTime = currentTime;
   }
 
   /**
    * set the time to stop in millis
+   *
    * @param stopTime time to stop in millis
    */
   public void setStopTime(long stopTime) {
@@ -38,6 +40,7 @@ public class FpsRegulator implements Runnable {
 
   /**
    * set the time to stop by fps
+   *
    * @param fps fps of loop
    */
   public void setFps(float fps) {
