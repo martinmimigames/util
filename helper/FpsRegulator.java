@@ -10,22 +10,17 @@ import com.martinmimiGames.util.logger.Log;
  * @version 1.0.0 first release
  * @since about 22-01-2021 dd-mm-yyyy
  */
-public class FpsRegulator implements Runnable {
+public class FpsRegulator{
 
   // default 50 fps
   private long stopTime = 20;
   private long lastStopTime = System.currentTimeMillis();
 
-  @Override
-  public void run() {
+  public void run() throws InterruptedException {
     final long currentTime = System.currentTimeMillis();
     final long pauseTime = stopTime - (currentTime - lastStopTime);
-    try {
       if (pauseTime > 0)
         Thread.sleep(pauseTime);
-    } catch (InterruptedException e) {
-      if (Log.ON) Log.w(FpsRegulator.class.toString(), "stop interrupted.\n" + e.getCause());
-    }
     lastStopTime = currentTime;
   }
 
