@@ -9,7 +9,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 public class Renderer implements GLSurfaceView.Renderer {
-  private boolean isRunning;
   private final Activity activity;
   public Draw draw;
 
@@ -17,15 +16,6 @@ public class Renderer implements GLSurfaceView.Renderer {
 
   public Renderer(Activity activity) {
     this.activity = activity;
-    isRunning = true;
-  }
-
-  public void pause() {
-    isRunning = false;
-  }
-
-  public void resume() {
-    isRunning = true;
   }
 
   @Override
@@ -47,11 +37,9 @@ public class Renderer implements GLSurfaceView.Renderer {
   @Override
   public void onDrawFrame(GL10 glUnused) {
     // start of loop
-    if (!isRunning) return;
     // Clear the rendering surface.
     draw.clean();
     draw.draw();
-    // drawing and game loop
     // end of loop
   }
 }

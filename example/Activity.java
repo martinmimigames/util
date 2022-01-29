@@ -7,29 +7,27 @@ import android.view.WindowManager;
 
 public class Activity extends android.app.Activity {
 
+  private GLSurfaceView v;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-    getWindow()
-        .setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-    GLSurfaceView v = new GLSurfaceView(this);
+    v = new GLSurfaceView(this);
     v.setEGLContextClientVersion(2);
     v.setRenderer(new Renderer(this));
     setContentView(v);
   }
 
   @Override
-  protected void onPause() {
-    super.onPause();
+  protected void onStart(){
+    super.onStart();
+    v.onResume();
   }
 
   @Override
-  protected void onResume() {
-    super.onResume();
+  protected void onPause(){
+    super.onPause();
+    v.onPause();
   }
 }
