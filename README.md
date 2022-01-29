@@ -26,5 +26,5 @@ Please put appropiate tags to issues if possible.
 
 
 #### Last update of README ####
-Date : 03-01-2022 dd-mm-yyyy
+Date : 29-01-2022 dd-mm-yyyy
 
