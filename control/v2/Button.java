@@ -1,24 +1,22 @@
 package com.martinmimiGames.util.control.v2;
 
+import static com.martinmimiGames.javacar4.main_screen.Renderer.height;
+import static com.martinmimiGames.javacar4.main_screen.Renderer.width;
+
 import android.view.MotionEvent;
 
 public class Button {
 
-  private final float[] buttonEdges;
-  private static final int LEFT = 0;
-  private static final int RIGHT = 1;
-  private static final int TOP = 2;
-  private static final int BOTTOM = 3;
+  private float half_w = width / 2f;
+  private float half_h = height / 2f;
 
   public Location location;
 
   public Button() {
-    buttonEdges = new float[4];
     location = new Location();
   }
 
   public Button(float x, float y, float width, float height) {
-    buttonEdges = new float[4];
     location = new Location();
     location.x = x;
     location.y = y;
@@ -32,14 +30,12 @@ public class Button {
   }
 
   public Button setWidth(float width) {
-    buttonEdges[LEFT] = location.x - width / 2f;
-    buttonEdges[RIGHT] = location.x + width / 2f;
+    half_w = width / 2f;
     return this;
   }
 
   public Button setHeight(float height) {
-    buttonEdges[TOP] = location.y + height / 2f;
-    buttonEdges[BOTTOM] = location.y - height / 2f;
+    half_h = height / 2f;
     return this;
   }
 
@@ -48,9 +44,9 @@ public class Button {
   }
 
   public boolean check(float x, float y) {
-    return x >= buttonEdges[LEFT]
-        && y <= buttonEdges[TOP]
-        && x <= buttonEdges[RIGHT]
-        && y >= buttonEdges[BOTTOM];
+    return x >= location.x - half_w
+        && y <= location.y + half_h
+        && x <= location.x + half_w
+        && y >= location.y - half_h;
   }
 }
