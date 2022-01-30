@@ -1,14 +1,11 @@
 package com.martinmimiGames.util.control.v2;
 
-import static com.martinmimiGames.javacar4.main_screen.Renderer.height;
-import static com.martinmimiGames.javacar4.main_screen.Renderer.width;
-
 import android.view.MotionEvent;
 
 public class Button {
 
-  private float half_w = width / 2f;
-  private float half_h = height / 2f;
+  private float half_w;
+  private float half_h;
 
   public Location location;
 
