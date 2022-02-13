@@ -6,6 +6,7 @@ public class Button {
 
   private float half_w;
   private float half_h;
+  private float heightGap;
 
   public Location location;
 
@@ -36,11 +37,17 @@ public class Button {
     return this;
   }
 
+  public Button setHeightGap(float heightGap) {
+    this.heightGap = heightGap;
+    return this;
+  }
+
   public boolean check(MotionEvent event, int index) {
-    return check(event.getX(index), event.getY(index));
+    return check(event.getX(index), event.getY(index) + heightGap);
   }
 
   public boolean check(float x, float y) {
+    y += heightGap;
     return x >= location.x - half_w
         && y <= location.y + half_h
         && x <= location.x + half_w
