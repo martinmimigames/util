@@ -14,6 +14,7 @@ import static android.opengl.Matrix.translateM;
 import android.app.Activity;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.AvailablePrograms;
+import com.martinmimiGames.util.objects.LocationXYA;
 
 /**
  * This is the MGGames utility dependency.
@@ -79,7 +80,7 @@ public class Draw {
   public void addLocationIndependent(Object object) {
     Object new_object = new Object();
     try {
-      new_object.location = (Location) object.location.clone();
+      new_object.location = (LocationXYA) object.location.clone();
     } catch (CloneNotSupportedException ignored) {
     }
     new_object.drawable = object.drawable;

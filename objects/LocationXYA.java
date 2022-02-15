@@ -1,15 +1,15 @@
-package com.martinmimiGames.util.graphics.opengl2.v3;
+package com.martinmimiGames.util.objects;
 
 /**
  * This is the MGGames utility dependency.
- * Location for Draw dependency
+ * LocationXYA for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
  * @version 1.0.0 first release
  * @since about 11-12-2021 dd-mm-yyyy
  */
 
-public class Location implements Cloneable {
+public class LocationXYA implements Cloneable {
 
   //public static final int X = 0;
   //public static final int Y = 1;
@@ -26,15 +26,15 @@ public class Location implements Cloneable {
    */
   public float angle;
 
-  /*public Location() {
+  /*public LocationXYA() {
     coor = new float[2];
   }*/
 
   @Override
-  protected java.lang.Object clone() throws CloneNotSupportedException {
-    Location location = new Location();
-    //location.coor[Location.X] = this.coor[Location.X];
-    //location.coor[Location.Y] = this.coor[Location.Y];
+  public java.lang.Object clone() throws CloneNotSupportedException {
+    LocationXYA location = new LocationXYA();
+    //location.coor[LocationXYA.X] = this.coor[LocationXYA.X];
+    //location.coor[LocationXYA.Y] = this.coor[LocationXYA.Y];
     location.x = this.x;
     location.y = this.y;
     location.angle = this.angle;

@@ -40,7 +40,7 @@ public class Rectangle extends Button implements Drawable {
    */
   public Rectangle setX(float x) {
     button.location.x = x;
-    //object.location.coor[com.martinmimiGames.util.graphics.opengl2.v3.Location.X] = x;
+    //object.location.coor[com.martinmimiGames.util.objects.LocationXYA.X] = x;
     object.location.x = x;
     return this;
   }
@@ -53,7 +53,7 @@ public class Rectangle extends Button implements Drawable {
    */
   public Rectangle setY(float y) {
     button.location.y = y;
-    //object.location.coor[com.martinmimiGames.util.graphics.opengl2.v3.Location.Y] = y;
+    //object.location.coor[com.martinmimiGames.util.objects.LocationXYA.Y] = y;
     object.location.y = y;
     return this;
   }

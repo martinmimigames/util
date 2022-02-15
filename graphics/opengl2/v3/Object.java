@@ -6,6 +6,7 @@ import static android.opengl.Matrix.translateM;
 import android.content.Context;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
+import com.martinmimiGames.util.objects.LocationXYA;
 
 /**
  * This is the MGGames utility dependency.
@@ -21,7 +22,7 @@ public class Object implements Drawable, Cloneable {
   /**
    * location values on the screen
    */
-  public Location location;
+  public LocationXYA location;
   /**
    * the texture
    */
@@ -32,7 +33,7 @@ public class Object implements Drawable, Cloneable {
    * no default Drawable
    */
   public Object() {
-    location = new Location();
+    location = new LocationXYA();
   }
 
   /**
@@ -53,8 +54,8 @@ public class Object implements Drawable, Cloneable {
   @Override
   public void draw(Draw draw) {
 
-    //final float x = location.coor[Location.X] * draw.ratio;
-    //final float y = location.coor[Location.Y] * draw.ratio;
+    //final float x = location.coor[LocationXYA.X] * draw.ratio;
+    //final float y = location.coor[LocationXYA.Y] * draw.ratio;
     final float x = location.x * draw.ratio;
     final float y = location.y * draw.ratio;
 

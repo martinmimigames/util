@@ -2,28 +2,25 @@ package com.martinmimiGames.util.control.v2;
 
 import android.view.MotionEvent;
 
+import com.martinmimiGames.util.objects.LocationXY;
+
 public class Button {
 
   private float half_w;
   private float half_h;
 
-  public Location location;
+  public LocationXY location;
 
   public Button() {
-    location = new Location();
+    location = new LocationXY();
   }
 
   public Button(float x, float y, float width, float height) {
-    location = new Location();
+    location = new LocationXY();
     location.x = x;
     location.y = y;
     setWidth(width);
     setHeight(height);
-  }
-
-  public class Location {
-    public float x;
-    public float y;
   }
 
   public Button setWidth(float width) {
