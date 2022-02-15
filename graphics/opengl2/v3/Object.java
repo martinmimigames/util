@@ -53,8 +53,10 @@ public class Object implements Drawable, Cloneable {
   @Override
   public void draw(Draw draw) {
 
-    final float x = location.coor[Location.X] * draw.ratio;
-    final float y = location.coor[Location.Y] * draw.ratio;
+    //final float x = location.coor[Location.X] * draw.ratio;
+    //final float y = location.coor[Location.Y] * draw.ratio;
+    final float x = location.x * draw.ratio;
+    final float y = location.y * draw.ratio;
 
     if (location.angle != 0) {
       // the drawing process

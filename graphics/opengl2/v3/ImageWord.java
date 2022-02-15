@@ -25,16 +25,19 @@ public class ImageWord extends Object {
 
   @Override
   public void draw(Draw draw) {
-    final float y = location.coor[Location.Y];
+    //final float y = location.coor[Location.Y];
+    final float y = location.y;
     final float string_size = byteList.length * fontSize;
     float x;
     switch (drawType) {
       case LEFT:
-        x = location.coor[Location.X];
+        //x = location.coor[Location.X];
+        x = location.x;
         break;
       case CENTERED:
       default:
-        x = location.coor[Location.X] - string_size / 2 + fontSize / 2;
+        //x = location.coor[Location.X] - string_size / 2 + fontSize / 2;
+        x = location.x - string_size / 2 + fontSize / 2;
         break;
     }
     ((Rectangle) drawable).setWidth(fontSize);
@@ -77,8 +80,10 @@ public class ImageWord extends Object {
         //row
         cy,
         cy + 0.15625f);
-    object.location.coor[Location.X] = x;
-    object.location.coor[Location.Y] = y;
+    //object.location.coor[Location.X] = x;
+    //object.location.coor[Location.Y] = y;
+    object.location.x = x;
+    object.location.y = y;
     object.draw(draw);
   }
 
