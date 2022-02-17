@@ -31,7 +31,7 @@ import com.martinmimiGames.util.objects.LocationXYA;
 public class Draw {
 
   public static float[] projectionMatrix;
-  float ratio;
+  public float ratio;
   public Integer height;
   AvailablePrograms availablePrograms;
 
