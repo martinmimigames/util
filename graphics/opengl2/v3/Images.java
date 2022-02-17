@@ -80,18 +80,12 @@ public class Images implements Drawable {
 
   @Override
   public void draw(Draw draw) {
-    drawTextureDefault(vertex_data, Draw.projectionMatrix, textureId, draw);
-  }
-
-  private void drawTextureDefault(final float[] vertex_data, final float[] projectionMatrix, final int texture, final Draw draw) {
-    //final VertexArray vertexArray = new VertexArray(vertex_data);
-
-    if (draw.availablePrograms.textureProgram == null) {
+    if (draw.availablePrograms.textureProgram == null)
       draw.availablePrograms.textureProgram = new TextureShaderProgram();
-    }
+
     draw.availablePrograms.textureProgram.useProgram();
 
-    draw.availablePrograms.textureProgram.setUniforms(projectionMatrix, texture);
+    draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
 
     bindData(draw.availablePrograms.textureProgram, vertexArray);
 

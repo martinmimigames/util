@@ -1,9 +1,12 @@
 package com.martinmimiGames.util.graphics.opengl2.v3;
 
 import static android.opengl.GLES20.GL_BLEND;
+import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
 import static android.opengl.GLES20.GL_ONE_MINUS_SRC_ALPHA;
 import static android.opengl.GLES20.GL_SRC_ALPHA;
 import static android.opengl.GLES20.glBlendFunc;
+import static android.opengl.GLES20.glClear;
+import static android.opengl.GLES20.glClearColor;
 import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glViewport;
 import static android.opengl.Matrix.multiplyMM;
@@ -27,13 +30,10 @@ import com.martinmimiGames.util.objects.LocationXYA;
 
 public class Draw {
 
-  private final RunOnGLThread runOnGLThread;
   public static float[] projectionMatrix;
   float ratio;
   public Integer height;
   AvailablePrograms availablePrograms;
-  private volatile boolean drawFinished;
-
 
   /**
    * Do not use in Constructor
@@ -44,7 +44,6 @@ public class Draw {
   public Draw(Activity activity) {
     // setting up variables
     height = activity.getWindow().getDecorView().getBottom();
-    runOnGLThread = new RunOnGLThread(this);
     projectionMatrix = new float[16];
     availablePrograms = new AvailablePrograms();
     // enable transparent texture
@@ -75,26 +74,6 @@ public class Draw {
   }
 
   /**
-   * Add object to draw query to be used in draw()
-   */
-  public void addLocationIndependent(Object object) {
-    Object new_object = new Object();
-    try {
-      new_object.location = (LocationXYA) object.location.clone();
-    } catch (CloneNotSupportedException ignored) {
-    }
-    new_object.drawable = object.drawable;
-    runOnGLThread.drawables.add(new_object);
-  }
-
-  /**
-   * Add object to draw query to be used in draw()
-   */
-  public void add(Drawable drawable) {
-    runOnGLThread.drawables.add(drawable);
-  }
-
-  /**
    * set background colour.
    * Can only run in GLThread
    *
@@ -104,7 +83,7 @@ public class Draw {
    * @param alpha value alpha, value 1 - 255
    */
   public void background(final float red, final float green, final float blue, final float alpha) {
-    runOnGLThread.background(red, green, blue, alpha);
+    glClearColor(red / 255f, green / 255f, blue / 255f, alpha / 255f);
   }
 
   /**
@@ -112,40 +91,7 @@ public class Draw {
    * Can only run in GLThread
    */
   public void clean() {
-    runOnGLThread.clear();
-  }
-
-  public void clear() {
-    runOnGLThread.drawables.clear();
-  }
-
-  /**
-   * Draw queried objects.
-   * Can only run in GLThread
-   */
-  public void draw() {
-    runOnGLThread.draw();
-  }
-
-  /**
-   * call at start of draw frame before drawing
-   */
-  public void newBuffer() {
-    drawFinished = false;
-  }
-
-  /**
-   * call after draw frame
-   */
-  public void nextBuffer() {
-    drawFinished = true;
-  }
-
-  /**
-   * call to wait until next buffer
-   */
-  @SuppressWarnings("StatementWithEmptyBody")
-  public void waitForNextBuffer() {
-    while (!drawFinished) ;
+    // Clear the rendering surface.
+    glClear(GL_COLOR_BUFFER_BIT);
   }
 }

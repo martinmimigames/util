@@ -26,18 +26,15 @@ public class ImageWord extends Object {
 
   @Override
   public void draw(Draw draw) {
-    //final float y = location.coor[LocationXYA.Y];
     final float y = location.y;
     final float string_size = byteList.length * fontSize;
     float x;
     switch (drawType) {
       case LEFT:
-        //x = location.coor[LocationXYA.X];
         x = location.x;
         break;
       case CENTERED:
       default:
-        //x = location.coor[LocationXYA.X] - string_size / 2 + fontSize / 2;
         x = location.x - string_size / 2 + fontSize / 2;
         break;
     }
@@ -81,8 +78,6 @@ public class ImageWord extends Object {
         //row
         cy,
         cy + 0.15625f);
-    //object.location.coor[LocationXYA.X] = x;
-    //object.location.coor[LocationXYA.Y] = y;
     object.location.x = x;
     object.location.y = y;
     object.draw(draw);

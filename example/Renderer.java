@@ -39,7 +39,6 @@ public class Renderer implements GLSurfaceView.Renderer {
     // start of loop
     // Clear the rendering surface.
     draw.clean();
-    draw.draw();
     // end of loop
   }
 }
