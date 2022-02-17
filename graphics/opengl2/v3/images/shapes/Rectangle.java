@@ -46,6 +46,7 @@ public class Rectangle extends Images {
     setWidth(1080f);
     setHeight(1080f);
     setImageCrop(0f, 1f, 0f, 1f);
+    this.updateVertexData();
   }
 
   public static final class POINTS {
@@ -153,6 +154,7 @@ public class Rectangle extends Images {
 
       }
     }
+    this.updateVertexData();
     return this;
   }
 
@@ -176,6 +178,7 @@ public class Rectangle extends Images {
           break;
       }
     }
+    this.updateVertexData();
     return this;
   }
 
@@ -199,6 +202,7 @@ public class Rectangle extends Images {
           break;
       }
     }
+    this.updateVertexData();
     return this;
   }
 

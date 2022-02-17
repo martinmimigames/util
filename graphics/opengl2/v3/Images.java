@@ -61,11 +61,17 @@ public class Images implements Drawable {
    */
   public float[] vertex_data;
 
+  private VertexArray vertexArray;
+
   /**
    * update stride value
    */
   public void updateStride() {
     stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
+  }
+
+  public void updateVertexData(){
+    vertexArray = new VertexArray(vertex_data);
   }
 
   @Override
@@ -74,7 +80,7 @@ public class Images implements Drawable {
   }
 
   private void drawTextureDefault(final float[] vertex_data, final float[] projectionMatrix, final int texture, final Draw draw) {
-    final VertexArray vertexArray = new VertexArray(vertex_data);
+    //final VertexArray vertexArray = new VertexArray(vertex_data);
 
     if (draw.availablePrograms.textureProgram == null) {
       draw.availablePrograms.textureProgram = new TextureShaderProgram();
