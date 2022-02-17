@@ -23,8 +23,8 @@ import com.martinmimiGames.util.logger.Log;
  * opengl code implementation for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.0 first release
- * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.1 release
+ * @since 17-02-2022 dd-mm-yyyy
  */
 
 public abstract class ShaderProgram {
@@ -46,8 +46,10 @@ public abstract class ShaderProgram {
   protected ShaderProgram() {
 
     // Compile the shaders.
-    int vertexShader = compileShader(GL_VERTEX_SHADER, ShaderCode.TEXTURE_VERTEX_SHADER);
-    int fragmentShader = compileShader(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
+    final int vertexShader =
+        compileShader(GL_VERTEX_SHADER, ShaderCode.TEXTURE_VERTEX_SHADER);
+    final int fragmentShader =
+        compileShader(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
 
     // Link them into a shader program.
 

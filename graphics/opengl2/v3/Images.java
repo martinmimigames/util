@@ -17,8 +17,8 @@ import com.martinmimiGames.util.logger.Log;
  * Images for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.0 first release
- * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.1 release
+ * @since 17-02-2022 dd-mm-yyyy
  */
 
 public class Images implements Drawable {
@@ -80,8 +80,8 @@ public class Images implements Drawable {
 
   @Override
   public void draw(Draw draw) {
-    if (draw.availablePrograms.textureProgram == null)
-      draw.availablePrograms.textureProgram = new TextureShaderProgram();
+    //if (draw.availablePrograms.textureProgram == null)
+    //  draw.availablePrograms.textureProgram = new TextureShaderProgram();
 
     draw.availablePrograms.textureProgram.useProgram();
 

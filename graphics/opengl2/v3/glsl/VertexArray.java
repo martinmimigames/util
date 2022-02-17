@@ -13,8 +13,8 @@ import java.nio.FloatBuffer;
  * Vertex data processing for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.0 first release
- * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.1 release
+ * @since 17-02-2022 dd-mm-yyyy
  */
 
 public class VertexArray {
