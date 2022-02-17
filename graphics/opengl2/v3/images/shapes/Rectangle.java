@@ -43,6 +43,7 @@ public class Rectangle extends Images {
     this.points = 4;
     this.updateStride();
     this.vertex_data = new float[this.stride];
+    this.updateVertexDataNewLength();
     setWidth(1080f);
     setHeight(1080f);
     setImageCrop(0f, 1f, 0f, 1f);

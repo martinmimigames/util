@@ -26,7 +26,13 @@ public class VertexArray {
         .allocateDirect(vertexData.length * BYTE_PER_FLOAT)
         .order(ByteOrder.nativeOrder())
         .asFloatBuffer()
-        .put(vertexData);
+        .put(vertexData, 0, vertexData.length);
+  }
+
+  public void overwrite(float[] vertexData){
+    floatBuffer.position(0);
+    final int length = vertexData.length;
+    for (int i = 0; i < length; i++) floatBuffer.put(vertexData[i]);
   }
 
   public void setVertexAttribPointer(int dataOffset, int attributeLocation,

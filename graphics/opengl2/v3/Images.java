@@ -70,8 +70,12 @@ public class Images implements Drawable {
     stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
   }
 
-  public void updateVertexData(){
+  public void updateVertexDataNewLength() {
     vertexArray = new VertexArray(vertex_data);
+  }
+
+  public void updateVertexData() {
+    vertexArray.overwrite(vertex_data);
   }
 
   @Override
