@@ -6,6 +6,7 @@ import static android.opengl.GLES20.glDrawArrays;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.TextureShaderProgram;
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.VertexArray;
@@ -51,6 +52,7 @@ public class Images implements Drawable {
    * use value in TYPE
    */
   public int imageType = TYPE.NONE;
+
   /**
    * id of texture stored in openGL
    */
@@ -80,9 +82,6 @@ public class Images implements Drawable {
 
   @Override
   public void draw(Draw draw) {
-    //if (draw.availablePrograms.textureProgram == null)
-    //  draw.availablePrograms.textureProgram = new TextureShaderProgram();
-
     draw.availablePrograms.textureProgram.useProgram();
 
     draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
@@ -117,6 +116,8 @@ public class Images implements Drawable {
   public Images(final Context context, final int imageRId) {
     final BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
+    if (Build.VERSION.SDK_INT >= 10)
+      options.inPreferQualityOverSpeed = true;
 
     // Read in the resource
     final Bitmap bitmap =
