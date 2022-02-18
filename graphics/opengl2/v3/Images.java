@@ -140,4 +140,8 @@ public class Images implements Drawable {
     textureId = Parser.parseTexture(bitmap);
     imageType = TYPE.IMAGES;
   }
+
+  public void deleteTexture(){
+    Parser.deleteTexture(textureId);
+  }
 }

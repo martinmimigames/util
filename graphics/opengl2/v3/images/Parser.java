@@ -6,6 +6,7 @@ import static android.opengl.GLES20.GL_TEXTURE_2D;
 import static android.opengl.GLES20.GL_TEXTURE_MAG_FILTER;
 import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
 import static android.opengl.GLES20.glBindTexture;
+import static android.opengl.GLES20.glDeleteTextures;
 import static android.opengl.GLES20.glGenTextures;
 import static android.opengl.GLES20.glGenerateMipmap;
 import static android.opengl.GLES20.glTexParameteri;
@@ -20,8 +21,8 @@ import com.martinmimiGames.util.logger.Log;
  * Image parsing for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.0 first release
- * @since about 11-12-2021 dd-mm-yyyy
+ * @version 1.0.1 first release
+ * @since about 18-02-2022 dd-mm-yyyy
  */
 
 public class Parser {
@@ -73,5 +74,12 @@ public class Parser {
     return textureObjectIds[0];
   }
 
-
+  /**
+   * delete the texture of the given id,
+   * in order to free up memory
+   * @param textureId the id of the texture to be deleted
+   */
+  public static void deleteTexture(int textureId){
+    glDeleteTextures(1, new int[]{textureId}, 0);
+  }
 }
