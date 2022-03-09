@@ -5,6 +5,15 @@ import android.content.Context;
 import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
 import com.martinmimiGames.util.objects.LocationXYA;
 
+/**
+ * This is the MGGames utility dependency.
+ * Text composing for Draw dependency
+ *
+ * @author martinmimi (from martinmimigames)
+ * @version 1.0.1 release
+ * @since 09-03-2022 dd-mm-yyyy
+ */
+
 public class ImageWord extends Object {
 
   private byte[] byteList;
@@ -84,7 +93,6 @@ public class ImageWord extends Object {
   }
 
   public void setText(String string) {
-
     char[] text = string.toLowerCase().toCharArray();
 
     byteList = new byte[text.length];
