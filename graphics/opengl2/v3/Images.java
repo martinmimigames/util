@@ -13,13 +13,15 @@ import com.martinmimiGames.util.graphics.opengl2.v3.glsl.VertexArray;
 import com.martinmimiGames.util.graphics.opengl2.v3.images.Parser;
 import com.martinmimiGames.util.logger.Log;
 
+import java.nio.BufferOverflowException;
+
 /**
  * This is the MGGames utility dependency.
  * Images for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.1 release
- * @since 17-02-2022 dd-mm-yyyy
+ * @version 1.0.2 release
+ * @since 09-03-2022 dd-mm-yyyy
  */
 
 public class Images implements Drawable {
@@ -63,21 +65,11 @@ public class Images implements Drawable {
    */
   public float[] vertex_data;
 
-  private VertexArray vertexArray;
-
   /**
    * update stride value
    */
   public void updateStride() {
     stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
-  }
-
-  public void updateVertexDataNewLength() {
-    vertexArray = new VertexArray(vertex_data);
-  }
-
-  public void updateVertexData() {
-    vertexArray.overwrite(vertex_data);
   }
 
   @Override
@@ -86,22 +78,27 @@ public class Images implements Drawable {
 
     draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
 
-    bindData(draw.availablePrograms.textureProgram, vertexArray);
+    try {
+      draw.vertexArray.overwrite(vertex_data);
+    }catch (BufferOverflowException e) {
+      draw.vertexArray = new VertexArray(vertex_data);
+    }catch (NullPointerException e){
+      draw.vertexArray = new VertexArray(vertex_data);
+    }
+    draw.vertexArray.setVertexAttribPointer(
+        0,
+        draw.availablePrograms.textureProgram.getPositionAttributeLocation(),
+        positionComponentCount,
+        stride);
+
+    draw.vertexArray.setVertexAttribPointer(
+        positionComponentCount,
+        draw.availablePrograms.textureProgram.getTextureCoordinatesAttributeLocation(),
+        textureCoordinatesComponentCount,
+        stride);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, points);
   }
-
-  private void bindData(final TextureShaderProgram textureProgram, final VertexArray vertexArray) {
-    vertexArray.setVertexAttribPointer(
-        0, textureProgram.getPositionAttributeLocation(), positionComponentCount, stride);
-
-    vertexArray.setVertexAttribPointer(
-        positionComponentCount,
-        textureProgram.getTextureCoordinatesAttributeLocation(),
-        textureCoordinatesComponentCount,
-        stride);
-  }
-
 
   public static final class TYPE {
     public static final int NONE = 0;

@@ -17,6 +17,7 @@ import static android.opengl.Matrix.translateM;
 import android.app.Activity;
 
 import com.martinmimiGames.util.graphics.opengl2.v3.glsl.AvailablePrograms;
+import com.martinmimiGames.util.graphics.opengl2.v3.glsl.VertexArray;
 import com.martinmimiGames.util.objects.LocationXYA;
 
 /**
@@ -34,6 +35,7 @@ public class Draw {
   public float ratio;
   public Integer height;
   AvailablePrograms availablePrograms;
+  VertexArray vertexArray;
 
   /**
    * Do not use in Constructor

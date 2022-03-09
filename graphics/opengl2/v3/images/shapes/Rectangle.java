@@ -11,8 +11,8 @@ import com.martinmimiGames.util.graphics.opengl2.v3.Images;
  * Rectangle in Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.1 release
- * @since 17-02-2022 dd-mm-yyyy
+ * @version 1.0.2 release
+ * @since 09-03-2022 dd-mm-yyyy
  */
 
 public class Rectangle extends Images {
@@ -43,11 +43,9 @@ public class Rectangle extends Images {
     this.points = 4;
     this.updateStride();
     this.vertex_data = new float[this.stride];
-    this.updateVertexDataNewLength();
     setWidth(1080f);
     setHeight(1080f);
     setImageCrop(0f, 1f, 0f, 1f);
-    this.updateVertexData();
   }
 
   public static final class POINTS {
@@ -155,7 +153,6 @@ public class Rectangle extends Images {
 
       }
     }
-    this.updateVertexData();
     return this;
   }
 
@@ -179,7 +176,6 @@ public class Rectangle extends Images {
           break;
       }
     }
-    this.updateVertexData();
     return this;
   }
 
@@ -203,7 +199,6 @@ public class Rectangle extends Images {
           break;
       }
     }
-    this.updateVertexData();
     return this;
   }
 

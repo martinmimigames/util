@@ -13,8 +13,8 @@ import java.nio.FloatBuffer;
  * Vertex data processing for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.1 release
- * @since 17-02-2022 dd-mm-yyyy
+ * @version 1.0.2 release
+ * @since 09-03-2022 dd-mm-yyyy
  */
 
 public class VertexArray {
@@ -41,7 +41,5 @@ public class VertexArray {
     glVertexAttribPointer(attributeLocation, componentCount, GL_FLOAT,
         false, stride, floatBuffer);
     glEnableVertexAttribArray(attributeLocation);
-
-    floatBuffer.position(0);
   }
 }
