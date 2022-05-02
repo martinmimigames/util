@@ -1,9 +1,11 @@
 package com.martinmimiGames.util.graphics.opengl2.v4.glsl;
 
 import static android.opengl.GLES20.GL_FLOAT;
+import static android.opengl.GLES20.glDisableVertexAttribArray;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glVertexAttribPointer;
 
+import java.nio.BufferOverflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -18,8 +20,15 @@ import java.nio.FloatBuffer;
  */
 
 public class VertexArray {
-  private final FloatBuffer floatBuffer;
+  private FloatBuffer floatBuffer;
   private static final int BYTE_PER_FLOAT = 4;
+
+  public VertexArray(){
+    floatBuffer = ByteBuffer
+        .allocateDirect(0)
+        .order(ByteOrder.nativeOrder())
+        .asFloatBuffer();
+  }
 
   public VertexArray(float[] vertexData) {
     floatBuffer = ByteBuffer
@@ -30,9 +39,17 @@ public class VertexArray {
   }
 
   public void overwrite(float[] vertexData){
-    floatBuffer.position(0);
-    final int length = vertexData.length;
-    for (int i = 0; i < length; i++) floatBuffer.put(vertexData[i]);
+    try {
+      floatBuffer.position(0);
+      final int length = vertexData.length;
+      for (int i = 0; i < length; i++) floatBuffer.put(vertexData[i]);
+    } catch (BufferOverflowException e){
+      floatBuffer = ByteBuffer
+          .allocateDirect(vertexData.length * BYTE_PER_FLOAT)
+          .order(ByteOrder.nativeOrder())
+          .asFloatBuffer()
+          .put(vertexData, 0, vertexData.length);
+    }
   }
 
   public void setVertexAttribPointer(int dataOffset, int attributeLocation,
@@ -41,5 +58,9 @@ public class VertexArray {
     glVertexAttribPointer(attributeLocation, componentCount, GL_FLOAT,
         false, stride, floatBuffer);
     glEnableVertexAttribArray(attributeLocation);
+  }
+
+  public void disableVertexAttribPointer(int attributeLocation){
+    glDisableVertexAttribArray(attributeLocation);
   }
 }

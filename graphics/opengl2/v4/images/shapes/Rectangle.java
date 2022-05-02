@@ -54,22 +54,22 @@ public class Rectangle extends Images {
     public static final int[] VALUE =
         {
             MINUS_HALF_WIDTH,
-            MINUS_HALF_HEIGHT,
+            PLUS_HALF_HEIGHT,
             NULL,
             NULL,
 
             MINUS_HALF_WIDTH,
-            PLUS_HALF_HEIGHT,
-            NULL,
-            NULL,
-
-            PLUS_HALF_WIDTH,
             MINUS_HALF_HEIGHT,
             NULL,
             NULL,
 
             PLUS_HALF_WIDTH,
             PLUS_HALF_HEIGHT,
+            NULL,
+            NULL,
+
+            PLUS_HALF_WIDTH,
+            MINUS_HALF_HEIGHT,
             NULL,
             NULL
         };
@@ -117,16 +117,16 @@ public class Rectangle extends Images {
    *               default = 0
    * @param right  value 0 (left) - 1 (right),
    *               default = 1
-   * @param top    value 0 (top) - 1 (bottom),
-   *               default = 0;
-   * @param bottom value 0 (top) - 1 (bottom),
-   *               default = 1;
+   * @param bottom value 0 (bottom) - 1 (top),
+   *               default = 0
+   * @param top    value 0 (bottom) - 1 (top),
+   *               default = 1
    * @return this Rectangle
    */
   public Rectangle setImageCrop(final float left,
                                 final float right,
-                                final float top,
-                                final float bottom
+                                final float bottom,
+                                final float top
   ) {
     for (int i = 0; i < this.vertex_data.length; i++) {
       switch (Crop.VALUE[i]) {
