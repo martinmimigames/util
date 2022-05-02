@@ -9,16 +9,8 @@ import com.martinmimiGames.util.graphics.opengl2.v4.glsl.Program;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 
-public class SolidShape {
+public class SolidShape extends Renderable{
 
-  private final Program program;
-
-  // number of coordinates per vertex in this array
-  public int vertexPartCount = 2;
-  public float[] vertex;
-  public int vertexCount;
-  public static int FLOAT_BYTE_SIZE = 4;
-  public int vertexStride = vertexPartCount * FLOAT_BYTE_SIZE; // 4 bytes per vertex
   public float[] color;
   private final int positionLocation;
   private final int colorLocation;

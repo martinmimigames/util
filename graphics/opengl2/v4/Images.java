@@ -23,30 +23,15 @@ import java.nio.BufferOverflowException;
  * @since 09-03-2022 dd-mm-yyyy
  */
 
-public class Images implements Drawable {
+public class Images extends Renderable {
 
   public static final String TAG = "Images";
 
   /**
-   * how many position component are there.
-   * update stride
-   * default = 2
-   */
-  int positionComponentCount = 2;
-  /**
    * how many coordinate component are there.
    * default = 2
    */
-  int textureCoordinatesComponentCount = 2;
-  /**
-   * how many set of points are there.
-   * a set = (position + coordinate)
-   */
-  public int points;
-  /**
-   * stride
-   */
-  public int stride;
+  int texturePartCount = 2;
 
   /**
    * type of image.
@@ -60,15 +45,10 @@ public class Images implements Drawable {
   public int textureId;
 
   /**
-   * vertex data
-   */
-  public float[] vertex_data;
-
-  /**
    * update stride value
    */
   public void updateStride() {
-    stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
+    vertexStride = (vertexPartCount + texturePartCount) * vertexCount;
   }
 
   @Override
@@ -78,25 +58,25 @@ public class Images implements Drawable {
     Draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
 
     try {
-      Draw.vertexArray.overwrite(vertex_data);
+      Draw.vertexArray.overwrite(vertex);
     }catch (BufferOverflowException e) {
-      Draw.vertexArray = new VertexArray(vertex_data);
+      Draw.vertexArray = new VertexArray(vertex);
     }catch (NullPointerException e){
-      Draw.vertexArray = new VertexArray(vertex_data);
+      Draw.vertexArray = new VertexArray(vertex);
     }
     Draw.vertexArray.setVertexAttribPointer(
         0,
         Draw.availablePrograms.textureProgram.getPositionAttributeLocation(),
-        positionComponentCount,
-        stride);
+        vertexPartCount,
+        vertexStride);
 
     Draw.vertexArray.setVertexAttribPointer(
-        positionComponentCount,
+        vertexPartCount,
         Draw.availablePrograms.textureProgram.getTextureCoordinatesAttributeLocation(),
-        textureCoordinatesComponentCount,
-        stride);
+        texturePartCount,
+        vertexStride);
 
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, points);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, vertexCount);
   }
 
   public static final class TYPE {

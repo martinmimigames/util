@@ -35,9 +35,9 @@ public class Rectangle extends Images {
   }
 
   private void init() {
-    this.points = 4;
+    this.vertexCount = 4;
     this.updateStride();
-    this.vertex_data = new float[this.stride];
+    this.vertex = new float[this.vertexStride];
     setWidth(1080f);
     setHeight(1080f);
     setImageCrop(0f, 1f, 0f, 1f);
@@ -128,19 +128,19 @@ public class Rectangle extends Images {
                                 final float bottom,
                                 final float top
   ) {
-    for (int i = 0; i < this.vertex_data.length; i++) {
+    for (int i = 0; i < this.vertex.length; i++) {
       switch (Crop.VALUE[i]) {
         case Crop.LEFT:
-          this.vertex_data[i] = left;
+          this.vertex[i] = left;
           break;
         case Crop.RIGHT:
-          this.vertex_data[i] = right;
+          this.vertex[i] = right;
           break;
         case Crop.TOP:
-          this.vertex_data[i] = top;
+          this.vertex[i] = top;
           break;
         case Crop.BOTTOM:
-          this.vertex_data[i] = bottom;
+          this.vertex[i] = bottom;
           break;
         case Crop.NULL:
         default:
@@ -159,13 +159,13 @@ public class Rectangle extends Images {
    */
   public Rectangle setWidth(final float width) {
     final float half_width = width / Draw.height;
-    for (int i = 0; i < this.vertex_data.length; i++) {
+    for (int i = 0; i < this.vertex.length; i++) {
       switch (POINTS.VALUE[i]) {
         case POINTS.MINUS_HALF_WIDTH:
-          this.vertex_data[i] = -half_width;
+          this.vertex[i] = -half_width;
           break;
         case POINTS.PLUS_HALF_WIDTH:
-          this.vertex_data[i] = half_width;
+          this.vertex[i] = half_width;
           break;
         default:
           break;
@@ -182,13 +182,13 @@ public class Rectangle extends Images {
    */
   public Rectangle setHeight(final float height) {
     final float half_height = height / Draw.height;
-    for (int i = 0; i < this.vertex_data.length; i++) {
+    for (int i = 0; i < this.vertex.length; i++) {
       switch (POINTS.VALUE[i]) {
         case POINTS.MINUS_HALF_HEIGHT:
-          this.vertex_data[i] = -half_height;
+          this.vertex[i] = -half_height;
           break;
         case POINTS.PLUS_HALF_HEIGHT:
-          this.vertex_data[i] = half_height;
+          this.vertex[i] = half_height;
           break;
         default:
           break;
