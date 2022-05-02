@@ -77,6 +77,9 @@ public class Images extends Renderable {
         vertexStride);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, vertexCount);
+
+    Draw.vertexArray.disableVertexAttribPointer(Draw.availablePrograms.textureProgram.getPositionAttributeLocation());
+    Draw.vertexArray.disableVertexAttribPointer(Draw.availablePrograms.textureProgram.getTextureCoordinatesAttributeLocation());
   }
 
   public static final class TYPE {
