@@ -10,13 +10,16 @@ import static android.opengl.GLES20.glCreateProgram;
 import static android.opengl.GLES20.glCreateShader;
 import static android.opengl.GLES20.glDeleteProgram;
 import static android.opengl.GLES20.glDeleteShader;
+import static android.opengl.GLES20.glGetAttribLocation;
 import static android.opengl.GLES20.glGetProgramiv;
 import static android.opengl.GLES20.glGetShaderiv;
+import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glUseProgram;
 
 import com.martinmimiGames.util.logger.Log;
+
 
 /**
  * This is the MGGames utility dependency.
@@ -27,77 +30,70 @@ import com.martinmimiGames.util.logger.Log;
  * @since 17-02-2022 dd-mm-yyyy
  */
 
-public abstract class ShaderProgram {
-  // Uniform constants
-  protected static final String U_MATRIX = "u_Matrix";
-  protected static final String U_TEXTURE_UNIT = "u_TextureUnit";
+public class Program {
 
-  // Attribute constants
-  protected static final String A_POSITION = "a_Position";
-  protected static final String A_COLOR = "a_Color";
-  protected static final String A_TEXTURE_COORDINATES = "a_TextureCoordinates";
+
+  private static final String TAG = "ShaderHelper";
 
   /**
    * Shader program
    * value = 0 if incorrect
    */
-  protected final int program;
+  protected int id;
 
-  protected ShaderProgram() {
-
-    // Compile the shaders.
-    final int vertexShader =
-        compileShader(GL_VERTEX_SHADER, ShaderCode.TEXTURE_VERTEX_SHADER);
-    final int fragmentShader =
-        compileShader(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
-
-    // Link them into a shader program.
-
+  public Program(){
     // Create a new program object.
     // return 0 if error
-    final int programObjectId = glCreateProgram();
+    id = glCreateProgram();
 
     //run if error
-    if (programObjectId == 0) {
+    if (id == 0) {
       if (Log.ON) Log.w(TAG, "Could not create new program");
-      program = 0;
-      return;
     }
+  }
 
-    // Attach the vertex shader to the program.
-    glAttachShader(programObjectId, vertexShader);
+  public Program addShaderProgram(int type, String shaderCode){
+    if (id != 0)
+    glAttachShader(id, compileShader(type, shaderCode));
+    return this;
+  }
 
-    // Attach the fragment shader to the program.
-    glAttachShader(programObjectId, fragmentShader);
+  public int getUniformLocation(String name){
+    return glGetUniformLocation(id, name);
+  }
 
+  public int getAttributeLocation(String name) {
+    return glGetAttribLocation(id, name);
+  }
+
+  public Program complete(){
+    if (id == 0) return this;
     // Link the two shaders together into a program.
-    glLinkProgram(programObjectId);
+    glLinkProgram(id);
 
     // Get the link status.
     final int[] linkStatus = new int[1];
-    glGetProgramiv(programObjectId, GL_LINK_STATUS,
+    glGetProgramiv(id, GL_LINK_STATUS,
         linkStatus, 0);
 
     // Verify the link status.
     if (linkStatus[0] == 0) {
       // If it failed, delete the program object.
-      glDeleteProgram(programObjectId);
-
+      glDeleteProgram(id);
+      id = 0;
       if (Log.ON) Log.w(TAG, "Linking of program failed.");
-
-      program = 0;
-      return;
     }
-
-    program = programObjectId;
+    return this;
   }
 
-  public void useProgram() {
+  public void use(){
     // Set the current OpenGL shader program to this program.
-    glUseProgram(program);
+    glUseProgram(id);
   }
 
-  private static final String TAG = "ShaderHelper";
+  public int getProgramId(){
+    return id;
+  }
 
   /**
    * Compiles a shader, returning the OpenGL object ID.

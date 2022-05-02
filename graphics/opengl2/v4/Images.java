@@ -73,7 +73,7 @@ public class Images implements Drawable {
 
   @Override
   public void draw() {
-    Draw.availablePrograms.textureProgram.useProgram();
+    Draw.availablePrograms.textureProgram.use();
 
     Draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
 

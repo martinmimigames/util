@@ -1,11 +1,11 @@
 package com.martinmimiGames.util.graphics.opengl2.v4.glsl;
 
+import static android.opengl.GLES20.GL_FRAGMENT_SHADER;
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
+import static android.opengl.GLES20.GL_VERTEX_SHADER;
 import static android.opengl.GLES20.glActiveTexture;
 import static android.opengl.GLES20.glBindTexture;
-import static android.opengl.GLES20.glGetAttribLocation;
-import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniformMatrix4fv;
 
@@ -18,7 +18,7 @@ import static android.opengl.GLES20.glUniformMatrix4fv;
  * @since about 11-12-2021 dd-mm-yyyy
  */
 
-public class TextureShaderProgram extends ShaderProgram {
+public class TextureProgram extends Program {
   // Uniform locations
   private final int uMatrixLocation;
   private final int uTextureUnitLocation;
@@ -27,15 +27,19 @@ public class TextureShaderProgram extends ShaderProgram {
   private final int aPositionLocation;
   private final int aTextureCoordinatesLocation;
 
-  public TextureShaderProgram() {
+  public TextureProgram() {
+    super();
+    addShaderProgram(GL_VERTEX_SHADER, ShaderCode.VERTEX_SHADER);
+    addShaderProgram(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
+    complete();
 
     // Retrieve uniform locations for the shader program.
-    uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
-    uTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT);
+    uMatrixLocation = getUniformLocation(ShaderCode.U_MATRIX);
+    uTextureUnitLocation = getUniformLocation(ShaderCode.U_TEXTURE_UNIT);
 
     // Retrieve attribute locations for the shader program.
-    aPositionLocation = glGetAttribLocation(program, A_POSITION);
-    aTextureCoordinatesLocation = glGetAttribLocation(program, A_TEXTURE_COORDINATES);
+    aPositionLocation = getAttributeLocation(ShaderCode.A_POSITION);
+    aTextureCoordinatesLocation = getAttributeLocation(ShaderCode.A_TEXTURE_COORDINATES);
   }
 
   public void setUniforms(final float[] matrix,final int textureId) {

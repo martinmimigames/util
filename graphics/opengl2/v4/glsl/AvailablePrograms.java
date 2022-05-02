@@ -11,10 +11,12 @@ package com.martinmimiGames.util.graphics.opengl2.v4.glsl;
 
 public class AvailablePrograms {
 
-  public TextureShaderProgram textureProgram;
+  public TextureProgram textureProgram;
+  public SolidColorProgram solidColorProgram;
 
   public AvailablePrograms(){
-    textureProgram = new TextureShaderProgram();
+    textureProgram = new TextureProgram();
+    solidColorProgram = new SolidColorProgram();
   }
 
 }
