@@ -30,10 +30,10 @@ public class SolidShape extends Renderable{
   }
 
   public void setColor(float red, float green, float blue, float alpha) {
-    color[0] = red;
-    color[1] = green;
-    color[2] = blue;
-    color[3] = alpha;
+    color[0] = red / 255f;
+    color[1] = green / 255f;
+    color[2] = blue / 255f;
+    color[3] = alpha / 255f;
   }
 
   public void draw() {

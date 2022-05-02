@@ -14,8 +14,7 @@ public class Renderable implements Drawable{
   public static final int FLOAT_BYTE_SIZE = 4;
   public int vertexStride = vertexPartCount * FLOAT_BYTE_SIZE; // 4 bytes per vertex
 
-  public void updateVertex(float[] vertex){
-    this.vertex = vertex;
+  public void updateStride(){
     vertexCount= vertex.length / vertexPartCount;
     vertexStride = vertexPartCount * FLOAT_BYTE_SIZE;
   }
