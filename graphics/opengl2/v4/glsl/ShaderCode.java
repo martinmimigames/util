@@ -31,9 +31,10 @@ public class ShaderCode {
           .toString();
 
   public static final String Solid_VERTEX_SHADER =
+      "uniform mat4 u_Matrix;" +
       "attribute vec4 a_Position;" +
           "void main() {" +
-          "  gl_Position = a_Position;" +
+          "  gl_Position=u_Matrix*a_Position;" +
           "}";
 
   public static final String TEXTURE_FRAGMENT_SHADER =

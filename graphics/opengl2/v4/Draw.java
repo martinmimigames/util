@@ -18,6 +18,7 @@ import static android.opengl.Matrix.orthoM;
 import static android.opengl.Matrix.translateM;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.AvailablePrograms;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
@@ -33,11 +34,20 @@ import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 
 public class Draw {
 
+  /** aspect ratio type: width and height always -1f - 1f*/
+  public static final int ASPECT_RATIO_NO_FOLLOW = 1;
+  /** aspect ratio type: width always -1f - 1f*/
+  public static final int ASPECT_RATIO_FOLLOW_WIDTH = 3;
+   /** aspect ratio type: height always -1f - 1f*/
+  public static final int ASPECT_RATIO_FOLLOW_HEIGHT = 2;
+
   public static float[] projectionMatrix = new float[16];
   public static float ratio;
   public static Integer height = 1080; //default size
   static AvailablePrograms availablePrograms = new AvailablePrograms();
   public static VertexArray vertexArray;
+  public static float widthToHeight = 1;
+  public static float heightToWidth = 1;
 
   public static void init(){
     projectionMatrix = new float[16];
@@ -46,9 +56,9 @@ public class Draw {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     // enable cull face
-    glEnable(GL_CULL_FACE);
+    /*glEnable(GL_CULL_FACE);
     glCullFace(GL_FRONT);
-    glFrontFace(GL_CW);
+    glFrontFace(GL_CW);*/
   }
 
   public static void init(Activity activity) {
@@ -62,15 +72,33 @@ public class Draw {
    * @param width  width of screen
    * @param height height of screen
    */
-  public static void setScreen(int width, int height) {
+  public static void setScreen(int width, int height, int aspectRatioType) {
     // Set the OpenGL viewport to fill the entire surface.
     glViewport(0, 0, width, height);
+    Log.e("Draw", "width: " + width + "\nheight: " + height);
     // store in aspect ratio
-    final float aspectRatio = (float) width / (float) height;
-    // build the matrix
-    orthoM(projectionMatrix, 0, -aspectRatio, aspectRatio, -1, 1, -1, 1);
-    // set the matrix to right position
-    translateM(projectionMatrix, 0, -aspectRatio, 1, 0);
+    //float aspectRatio;
+    //aspectRatio = (float) width / (float) height;
+   // aspectRatio = 1;
+    //aspectRatio = height / (float) width;
+    widthToHeight = height / (float) width;
+    heightToWidth = width / (float) height;
+    float aspectRatio;
+    switch (aspectRatioType){
+      case 1:
+        orthoM(projectionMatrix, 0, -1, 1, -1, 1, -1, 1);
+        break;
+      case 2:
+        aspectRatio = (float) width / (float) height;
+        orthoM(projectionMatrix, 0, -aspectRatio, aspectRatio, -1, 1, -1, 1);
+        break;
+      case 3:
+        aspectRatio = height / (float) width;
+        orthoM(projectionMatrix, 0, -1,1,-aspectRatio, aspectRatio,  -1, 1);
+        break;
+      default:
+        throw new RuntimeException("not such aspect ratio type: " + aspectRatioType);
+    }
     // set variables
     Draw.height = height;
     ratio = 2 / (float) height;

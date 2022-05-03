@@ -27,7 +27,7 @@ public class Renderer implements GLSurfaceView.Renderer {
 
   @Override
   public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-    Draw.setScreen(width, height);
+    Draw.setScreen(width, height,Draw.ASPECT_RATIO_FOLLOW_HEIGHT);
     // setting variables that
     // requires screen size info
   }
