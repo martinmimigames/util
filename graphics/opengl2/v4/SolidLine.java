@@ -23,7 +23,7 @@ public class SolidLine extends Renderable{
     if (Draw.vertexArray == null)
       Draw.vertexArray = new VertexArray();
 
-    program = Draw.defaultPrograms.solidShapeProgram;
+    program = Draw.defaultPrograms.solidColorProgram;
 
     positionLocation = program.getAttributeLocation(ShaderCode.A_POSITION);
     colorLocation = program.getUniformLocation(ShaderCode.A_COLOR);

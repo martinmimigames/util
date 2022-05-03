@@ -17,14 +17,14 @@ import android.opengl.GLES20;
 public class DefaultPrograms {
 
   public Program textureProgram;
-  public Program solidShapeProgram;
+  public Program solidColorProgram;
 
   public DefaultPrograms() {
     textureProgram = new Program()
         .addShaderProgram(GL_VERTEX_SHADER, ShaderCode.VERTEX_SHADER)
         .addShaderProgram(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER)
         .complete();
-    solidShapeProgram = new Program()
+    solidColorProgram = new Program()
         .addShaderProgram(GLES20.GL_VERTEX_SHADER, ShaderCode.Solid_VERTEX_SHADER)
         .addShaderProgram(GLES20.GL_FRAGMENT_SHADER, ShaderCode.SOLID_COLOR_FRAGMENT_SHADER)
         .complete();
