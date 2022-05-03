@@ -46,8 +46,6 @@ public class Draw {
   public static Integer height = 1080; //default size
   static AvailablePrograms availablePrograms = new AvailablePrograms();
   public static VertexArray vertexArray;
-  public static float widthToHeight = 1;
-  public static float heightToWidth = 1;
 
   public static void init(){
     projectionMatrix = new float[16];
@@ -75,14 +73,7 @@ public class Draw {
   public static void setScreen(int width, int height, int aspectRatioType) {
     // Set the OpenGL viewport to fill the entire surface.
     glViewport(0, 0, width, height);
-    Log.e("Draw", "width: " + width + "\nheight: " + height);
-    // store in aspect ratio
-    //float aspectRatio;
-    //aspectRatio = (float) width / (float) height;
-   // aspectRatio = 1;
-    //aspectRatio = height / (float) width;
-    widthToHeight = height / (float) width;
-    heightToWidth = width / (float) height;
+    // set aspect ratio
     float aspectRatio;
     switch (aspectRatioType){
       case 1:
