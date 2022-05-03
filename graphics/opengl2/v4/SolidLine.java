@@ -3,6 +3,7 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
 import static android.opengl.GLES20.glDrawArrays;
 import static android.opengl.GLES20.glLineWidth;
 import static android.opengl.GLES20.glUniform4fv;
+import static android.opengl.GLES20.glUniformMatrix4fv;
 
 import android.opengl.GLES20;
 
@@ -16,6 +17,7 @@ public class SolidLine extends Renderable{
   private final int positionLocation;
   private final int colorLocation;
   private float lineWidth;
+  private final int matrixLocation;
 
   public SolidLine() {
     color = new float[4];
@@ -29,7 +31,8 @@ public class SolidLine extends Renderable{
 
     positionLocation = program.getAttributeLocation(ShaderCode.A_POSITION);
     colorLocation = program.getUniformLocation(ShaderCode.A_COLOR);
-    lineWidth = 10 / Draw.height;
+    lineWidth = 1;
+    matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
   }
 
   public void setWidth(float width){
@@ -50,6 +53,7 @@ public class SolidLine extends Renderable{
     Draw.vertexArray.overwrite(vertex);
     Draw.vertexArray.setVertexAttribPointer(0, positionLocation, vertexPartCount, vertexStride);
 
+    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
     // Set color for drawing the triangle
     // Set color with red, green, blue and alpha (opacity) values
     glUniform4fv(colorLocation, 1, color, 0);

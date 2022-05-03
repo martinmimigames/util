@@ -12,6 +12,7 @@ package com.martinmimiGames.util.graphics.opengl2.v4.glsl;
 public class AvailablePrograms {
 
   public TextureProgram textureProgram;
+  public Program solidShapeProgram;
 
   public AvailablePrograms(){
     textureProgram = new TextureProgram();
