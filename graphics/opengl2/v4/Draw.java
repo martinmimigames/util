@@ -2,25 +2,19 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
 
 import static android.opengl.GLES20.GL_BLEND;
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
-import static android.opengl.GLES20.GL_CULL_FACE;
-import static android.opengl.GLES20.GL_CW;
-import static android.opengl.GLES20.GL_FRONT;
 import static android.opengl.GLES20.GL_ONE_MINUS_SRC_ALPHA;
 import static android.opengl.GLES20.GL_SRC_ALPHA;
 import static android.opengl.GLES20.glBlendFunc;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
-import static android.opengl.GLES20.glCullFace;
 import static android.opengl.GLES20.glEnable;
-import static android.opengl.GLES20.glFrontFace;
 import static android.opengl.GLES20.glViewport;
 import static android.opengl.Matrix.orthoM;
 import static android.opengl.Matrix.translateM;
 
 import android.app.Activity;
-import android.util.Log;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.AvailablePrograms;
+import com.martinmimiGames.util.graphics.opengl2.v4.glsl.DefaultPrograms;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 
 /**
@@ -44,12 +38,12 @@ public class Draw {
   public static float[] projectionMatrix = new float[16];
   public static float ratio;
   public static Integer height = 1080; //default size
-  static AvailablePrograms availablePrograms = new AvailablePrograms();
+  static DefaultPrograms defaultPrograms = new DefaultPrograms();
   public static VertexArray vertexArray;
 
   public static void init(){
     projectionMatrix = new float[16];
-    availablePrograms = new AvailablePrograms();
+    defaultPrograms = new DefaultPrograms();
     // enable transparent texture
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

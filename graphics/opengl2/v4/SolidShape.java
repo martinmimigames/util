@@ -6,7 +6,6 @@ import static android.opengl.GLES20.glUniformMatrix4fv;
 
 import android.opengl.GLES20;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.Program;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 
@@ -22,10 +21,7 @@ public class SolidShape extends Renderable{
     if (Draw.vertexArray == null)
       Draw.vertexArray = new VertexArray();
 
-    program = new Program()
-        .addShaderProgram(GLES20.GL_VERTEX_SHADER, ShaderCode.Solid_VERTEX_SHADER)
-        .addShaderProgram(GLES20.GL_FRAGMENT_SHADER, ShaderCode.SOLID_COLOR_FRAGMENT_SHADER)
-        .complete();
+    program = Draw.defaultPrograms.solidShapeProgram;
 
     positionLocation = program.getAttributeLocation(ShaderCode.A_POSITION);
     colorLocation = program.getUniformLocation(ShaderCode.A_COLOR);
