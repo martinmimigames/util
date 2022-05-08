@@ -5,7 +5,6 @@ import static android.opengl.Matrix.translateM;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
 import com.martinmimiGames.util.objects.LocationXYA;
 
 /**

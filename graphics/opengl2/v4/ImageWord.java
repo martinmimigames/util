@@ -2,7 +2,7 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
+import com.martinmimiGames.util.graphics.opengl2.v4.helper.Vertex;
 import com.martinmimiGames.util.objects.LocationXYA;
 
 /**

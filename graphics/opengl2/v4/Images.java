@@ -1,13 +1,22 @@
 package com.martinmimiGames.util.graphics.opengl2.v4;
 
+import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
+import static android.opengl.GLES20.GL_NEAREST;
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
+import static android.opengl.GLES20.GL_TEXTURE_MAG_FILTER;
+import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
 import static android.opengl.GLES20.GL_TRIANGLE_STRIP;
 import static android.opengl.GLES20.glActiveTexture;
 import static android.opengl.GLES20.glBindTexture;
+import static android.opengl.GLES20.glDeleteTextures;
 import static android.opengl.GLES20.glDrawArrays;
+import static android.opengl.GLES20.glGenTextures;
+import static android.opengl.GLES20.glGenerateMipmap;
+import static android.opengl.GLES20.glTexParameteri;
 import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniformMatrix4fv;
+import static android.opengl.GLUtils.texImage2D;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,8 +24,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
-import com.martinmimiGames.util.graphics.opengl2.v4.images.Parser;
-import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
+import com.martinmimiGames.util.graphics.opengl2.v4.helper.Vertex;
 import com.martinmimiGames.util.logger.Log;
 
 /**
@@ -70,7 +78,7 @@ public class Images extends Renderable {
       return;
     }
 
-    textureId = Parser.parseTexture(bitmap);
+    textureId = parseTexture(bitmap);
 
     bitmap.recycle();
   }
@@ -80,7 +88,7 @@ public class Images extends Renderable {
    */
   public Images(final Bitmap bitmap) {
     this();
-    textureId = Parser.parseTexture(bitmap);
+    textureId = parseTexture(bitmap);
   }
 
   private Images(){
@@ -146,7 +154,57 @@ public class Images extends Renderable {
     Draw.vertexArray.disableVertexAttribPointer(texturePositionLocation);
   }
 
-  public void deleteTexture() {
-    Parser.deleteTexture(textureId);
+  /**
+   * put texture data into opengl,
+   * and return texture id
+   *
+   * @param bitmap image
+   * @return texture id
+   */
+  public static int parseTexture(Bitmap bitmap) {
+    final int[] textureObjectIds = new int[1];
+    glGenTextures(1, textureObjectIds, 0);
+
+    if (textureObjectIds[0] == 0) {
+      if (Log.ON) Log.w(TAG, "Could not generate a new OpenGL texture object.");
+      return 0;
+    }
+    // Bind to the texture in OpenGL
+    glBindTexture(GL_TEXTURE_2D, textureObjectIds[0]);
+
+    // Set filtering: a default must be set, or the texture will be
+    // black.
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+    // Load the bitmap into the bound texture.
+    texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
+
+    // Note: Following code may cause an error to be reported in the
+    // ADB log as follows: E/IMGSRV(20095): :0: HardwareMipGen:
+    // Failed to generate texture mipmap levels (error=3)
+    // No OpenGL error will be encountered (glGetError() will return
+    // 0). If this happens, just squash the source image to be
+    // square. It will look the same because of texture coordinates,
+    // and mipmap generation will work.
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    // Recycle the bitmap, since its data has been loaded into
+    // OpenGL.
+    bitmap.recycle();
+
+    // Unbind from the texture.
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return textureObjectIds[0];
+  }
+
+  /**
+   * delete the texture of the given id,
+   * in order to free up memory
+   * @param textureId the id of the texture to be deleted
+   */
+  public static void deleteTexture(int textureId){
+    glDeleteTextures(1, new int[]{textureId}, 0);
   }
 }
