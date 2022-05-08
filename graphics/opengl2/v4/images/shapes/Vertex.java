@@ -10,8 +10,23 @@ package com.martinmimiGames.util.graphics.opengl2.v4.images.shapes;
  */
 
 public class Vertex {
-  public static class Image {
+  public static class Rectangle {
+    public static float[] setWidth(float[] vertex, float width) {
+      float halfWidth = width / 2f;
+      vertex[0] = vertex[2] = -halfWidth;
+      vertex[4] = vertex[6] = halfWidth;
+      return vertex;
+    }
 
+    public static float[] setHeight(float[] vertex, float height) {
+      float halfHeight = height / 2f;
+      vertex[1] = vertex[5] = halfHeight;
+      vertex[3] = vertex[7] = -halfHeight;
+      return vertex;
+    }
+  }
+
+  public static class Image {
     public static float[] setWidth(float[] vertex, float width) {
       float halfWidth = width / 2f;
       vertex[0] = vertex[4] = -halfWidth;
