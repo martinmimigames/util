@@ -41,12 +41,6 @@ public class Images extends Renderable {
   int texturePartCount = 2;
 
   /**
-   * type of image.
-   * use value in TYPE
-   */
-  public int imageType = TYPE.NONE;
-
-  /**
    * id of texture stored in openGL
    */
   public int textureId;
@@ -61,9 +55,7 @@ public class Images extends Renderable {
    * @param imageRId the id in R.java
    */
   public Images(final Context context, final int imageRId) {
-
-    if (Draw.vertexArray == null)
-      Draw.vertexArray = new VertexArray();
+    super();
 
     program = Draw.defaultPrograms.textureProgram;
 
@@ -86,8 +78,9 @@ public class Images extends Renderable {
         Log.w(TAG, "Resource ID " + imageRId + " could not be decoded.");
       return;
     }
+
     textureId = Parser.parseTexture(bitmap);
-    imageType = TYPE.IMAGES;
+
     bitmap.recycle();
   }
 
@@ -95,9 +88,7 @@ public class Images extends Renderable {
    * @param bitmap the bitmap for the image
    */
   public Images(final Bitmap bitmap) {
-
-    if (Draw.vertexArray == null)
-      Draw.vertexArray = new VertexArray();
+    super();
 
     program = Draw.defaultPrograms.textureProgram;
 
@@ -107,7 +98,6 @@ public class Images extends Renderable {
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
 
     textureId = Parser.parseTexture(bitmap);
-    imageType = TYPE.IMAGES;
   }
   /**
    * update stride value
@@ -158,15 +148,7 @@ public class Images extends Renderable {
     Draw.vertexArray.disableVertexAttribPointer(positionLocation);
     Draw.vertexArray.disableVertexAttribPointer(texturePositionLocation);
   }
-
-  public static final class TYPE {
-    public static final int NONE = 0;
-    public static final int IMAGES = 1;
-  }
-
-
-
-
+  
   public void deleteTexture(){
     Parser.deleteTexture(textureId);
   }

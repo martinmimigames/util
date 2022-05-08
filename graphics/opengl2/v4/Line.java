@@ -10,7 +10,7 @@ import android.opengl.GLES20;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 
-public class SolidLine extends Renderable{
+public class Line extends Renderable{
 
   public float[] color;
   private final int positionLocation;
@@ -18,10 +18,9 @@ public class SolidLine extends Renderable{
   private float lineWidth;
   private final int matrixLocation;
 
-  public SolidLine() {
+  public Line() {
+    super();
     color = new float[4];
-    if (Draw.vertexArray == null)
-      Draw.vertexArray = new VertexArray();
 
     program = Draw.defaultPrograms.solidColorProgram;
 
@@ -32,7 +31,7 @@ public class SolidLine extends Renderable{
   }
 
   public void setWidth(float width){
-    lineWidth = width / Draw.height;
+    lineWidth = width;
   }
 
   public void setColor(float red, float green, float blue, float alpha) {

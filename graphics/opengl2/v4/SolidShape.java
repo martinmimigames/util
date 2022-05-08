@@ -17,9 +17,8 @@ public class SolidShape extends Renderable{
   private final int matrixLocation;
 
   public SolidShape() {
+    super();
     color = new float[4];
-    if (Draw.vertexArray == null)
-      Draw.vertexArray = new VertexArray();
 
     program = Draw.defaultPrograms.solidColorProgram;
 
