@@ -15,11 +15,8 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
 import com.martinmimiGames.util.graphics.opengl2.v4.images.Parser;
 import com.martinmimiGames.util.logger.Log;
-
-import java.nio.BufferOverflowException;
 
 /**
  * This is the MGGames utility dependency.
@@ -99,9 +96,11 @@ public class Images extends Renderable {
 
     textureId = Parser.parseTexture(bitmap);
   }
+
   /**
    * update stride value
    */
+  @Override
   public void updateStride() {
     vertexStride = (vertexPartCount + texturePartCount) * vertexCount;
   }
@@ -124,13 +123,8 @@ public class Images extends Renderable {
     // telling it to read from texture unit 0.
     glUniform1i(textureUnitLocation, 0);
 
-    try {
-      Draw.vertexArray.overwrite(vertex);
-    }catch (BufferOverflowException e) {
-      Draw.vertexArray = new VertexArray(vertex);
-    }catch (NullPointerException e){
-      Draw.vertexArray = new VertexArray(vertex);
-    }
+    Draw.vertexArray.overwrite(vertex);
+
     Draw.vertexArray.setVertexAttribPointer(
         0,
         positionLocation,
@@ -148,8 +142,8 @@ public class Images extends Renderable {
     Draw.vertexArray.disableVertexAttribPointer(positionLocation);
     Draw.vertexArray.disableVertexAttribPointer(texturePositionLocation);
   }
-  
-  public void deleteTexture(){
+
+  public void deleteTexture() {
     Parser.deleteTexture(textureId);
   }
 }

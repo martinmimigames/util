@@ -30,14 +30,6 @@ public class VertexArray {
         .asFloatBuffer();
   }
 
-  public VertexArray(float[] vertexData) {
-    floatBuffer = ByteBuffer
-        .allocateDirect(vertexData.length * BYTE_PER_FLOAT)
-        .order(ByteOrder.nativeOrder())
-        .asFloatBuffer()
-        .put(vertexData, 0, vertexData.length);
-  }
-
   public void overwrite(float[] vertexData){
     try {
       floatBuffer.position(0);
