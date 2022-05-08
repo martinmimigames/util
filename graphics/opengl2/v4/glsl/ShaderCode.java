@@ -31,11 +31,12 @@ public class ShaderCode {
           .toString();
 
   public static final String Solid_VERTEX_SHADER =
-      "uniform mat4 u_Matrix;" +
-      "attribute vec4 a_Position;" +
-          "void main() {" +
-          "  gl_Position=u_Matrix*a_Position;" +
-          "}";
+      new StringBuilder()
+          .append("uniform mat4 u_Matrix;")
+          .append("attribute vec4 a_Position;")
+          .append("void main()")
+          .append("{gl_Position=u_Matrix*a_Position;}")
+          .toString();
 
   public static final String TEXTURE_FRAGMENT_SHADER =
       new StringBuilder()
@@ -47,11 +48,12 @@ public class ShaderCode {
           .toString();
 
   public static final String SOLID_COLOR_FRAGMENT_SHADER =
-      "precision mediump float;" +
-          "uniform vec4 a_Color;" +
-          "void main() {" +
-          "  gl_FragColor = a_Color;" +
-          "}";
+      new StringBuilder()
+          .append("precision mediump float;")
+          .append("uniform vec4 a_Color;")
+          .append("void main()")
+          .append("{gl_FragColor = a_Color;}")
+          .toString();
 
 
 }
