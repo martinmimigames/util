@@ -115,10 +115,19 @@ public class Draw {
     glClearColor(red / 255f, green / 255f, blue / 255f, alpha / 255f);
   }
 
+  /**
+   * translate matrix by x and y
+   * @param x the amount to move horizontally towards the right
+   * @param y the amount to move vertically towards the bottom
+   */
   public static void translateMatrix(final float x, final float y){
     translateM(Draw.projectionMatrix, 0, x, -y, 0f);
   }
 
+  /**
+   * rotate matrix by angle clockwise
+   * @param angle the amount to rotate in degrees
+   */
   public static void rotateMatrix(final float angle){
     rotateM(Draw.projectionMatrix, 0, -angle, 0f, 0f, 1f);
   }
