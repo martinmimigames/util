@@ -2,15 +2,21 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
 
 import static android.opengl.GLES20.GL_BLEND;
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
+import static android.opengl.GLES20.GL_CULL_FACE;
+import static android.opengl.GLES20.GL_CW;
+import static android.opengl.GLES20.GL_FRONT;
 import static android.opengl.GLES20.GL_ONE_MINUS_SRC_ALPHA;
 import static android.opengl.GLES20.GL_SRC_ALPHA;
 import static android.opengl.GLES20.glBlendFunc;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
+import static android.opengl.GLES20.glCullFace;
+import static android.opengl.GLES20.glDisable;
 import static android.opengl.GLES20.glEnable;
+import static android.opengl.GLES20.glFrontFace;
 import static android.opengl.GLES20.glViewport;
 import static android.opengl.Matrix.orthoM;
-import static android.opengl.Matrix.translateM;
+import static android.opengl.Matrix.rotateM;
 
 import android.app.Activity;
 
@@ -41,21 +47,46 @@ public class Draw {
   static DefaultPrograms defaultPrograms = new DefaultPrograms();
   public static VertexArray vertexArray;
 
+  /**
+   * initialise the draw dependency
+   */
   public static void init(){
     projectionMatrix = new float[16];
     defaultPrograms = new DefaultPrograms();
     // enable transparent texture
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    // enable cull face
-    /*glEnable(GL_CULL_FACE);
+
+    // set cull face if enabled
     glCullFace(GL_FRONT);
-    glFrontFace(GL_CW);*/
+    setDrawFace(GL_CW);
   }
 
   public static void init(Activity activity) {
     height = activity.getWindow().getDecorView().getBottom();
     init();
+  }
+
+  /**
+   * enable / disable cull face.
+   * If enabled only draw front face.
+   * @param enabled set if enable cull face
+   */
+  public static void setCullFace(boolean enabled) {
+    if (enabled)
+      glEnable(GL_CULL_FACE);
+    else
+      glDisable(GL_CULL_FACE);
+  }
+
+  /**
+   * define front face.
+   * Used in cull face to select for draw.
+   * Default: GLES20.GL_CW
+   * @param rotation the rotation to be drawn (GL_CW / GL_CCW)
+   */
+  public static void setDrawFace(int rotation){
+    glFrontFace(rotation);
   }
 
   /**

@@ -40,14 +40,20 @@ public class Object implements Drawable, Cloneable {
    * create an Object with defaults,
    * best used for textured objects
    *
-   * @param draw    the Draw.java
    * @param context the context with the screen
    * @param Rid     the id in R.java
    * @return a new Object with defaults
    */
   public static Object Images(final Context context, final int Rid) {
     final Object object = new Object();
-    object.drawable = new Rectangle(context, Rid);
+    Images images = new Images(context, Rid);
+    images.vertex = new float[]{
+        -0.5f, 0.5f, 0.0f, 0.0f,
+        -0.5f, -0.5f, 0.0f, 1.0f,
+        0.5f, 0.5f, 1.0f, 0.0f,
+        0.5f, -0.5f, 1.0f, 1.0f
+    };
+    object.drawable = images;
     return object;
   }
 
