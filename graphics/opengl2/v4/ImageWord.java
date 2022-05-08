@@ -2,7 +2,7 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Rectangle;
+import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
 import com.martinmimiGames.util.objects.LocationXYA;
 
 /**
@@ -27,7 +27,7 @@ public class ImageWord extends Object {
   public ImageWord(Context context, int imageRId) {
     location = new LocationXYA();
     object = new Object();
-    object.drawable = drawable = new Rectangle(context, imageRId);
+    object.drawable = drawable = new Images(context, imageRId);
     byteList = new byte[0];
     fontSize = 25;
     drawType = CENTERED;
@@ -47,8 +47,8 @@ public class ImageWord extends Object {
         x = location.x - string_size / 2 + fontSize / 2;
         break;
     }
-    ((Rectangle) drawable).setWidth(fontSize);
-    ((Rectangle) drawable).setHeight(fontSize);
+    Vertex.Image.setWidth(((Renderable) drawable).vertex, fontSize);
+    Vertex.Image.setHeight(((Renderable) drawable).vertex, fontSize);
     for (byte value : byteList) {
       byte b = value;
       if (b < 11 || b > 36) {
@@ -79,8 +79,7 @@ public class ImageWord extends Object {
     }
     final float cx = charByte * 0.15625f + 0.01f;
     final float cy = row * 0.15625f + 0.01f;
-    Rectangle rectangle = (Rectangle) drawable;
-    rectangle.setImageCrop(
+    Vertex.Image.setCrop(((Images) drawable).vertex,
         //col
         cx - 0.15625f,
         cx,

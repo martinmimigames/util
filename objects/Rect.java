@@ -1,7 +1,7 @@
 package com.martinmimiGames.util.objects;
 
 /**
- * This is the martinmimigames Rectangle object dependency
+ * This is the martinmimigames Vertex object dependency
  *
  * @author martinmimi (from martinmimigames)
  * @version 0.0.0.1

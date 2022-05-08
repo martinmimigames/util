@@ -16,6 +16,7 @@ import android.os.Build;
 
 import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
 import com.martinmimiGames.util.graphics.opengl2.v4.images.Parser;
+import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
 import com.martinmimiGames.util.logger.Log;
 
 /**
@@ -60,6 +61,10 @@ public class Images extends Renderable {
     textureUnitLocation = program.getUniformLocation(ShaderCode.U_TEXTURE_UNIT);
     texturePositionLocation = program.getAttributeLocation(ShaderCode.A_TEXTURE_COORDINATES);
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
+    /*vertex = new float[16];
+    Vertex.Image.setWidth(vertex, 1);
+    Vertex.Image.setHeight(vertex, 1);
+    Vertex.Image.setCrop(vertex, 0, 1, 0, 1);*/
 
     final BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
@@ -93,6 +98,11 @@ public class Images extends Renderable {
     textureUnitLocation = program.getUniformLocation(ShaderCode.U_TEXTURE_UNIT);
     texturePositionLocation = program.getAttributeLocation(ShaderCode.A_TEXTURE_COORDINATES);
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
+
+    /*vertex = new float[16];
+    Vertex.Image.setWidth(vertex, 1);
+    Vertex.Image.setHeight(vertex, 1);
+    Vertex.Image.setCrop(vertex, 0, 1, 0, 1);*/
 
     textureId = Parser.parseTexture(bitmap);
   }

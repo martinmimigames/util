@@ -8,7 +8,7 @@ import com.martinmimiGames.util.graphics.opengl2.v3.Images;
 
 /**
  * This is the MGGames utility dependency.
- * Rectangle in Draw dependency
+ * Vertex in Draw dependency
  *
  * @author martinmimi (from martinmimigames)
  * @version 1.0.2 release
@@ -126,7 +126,7 @@ public class Rectangle extends Images {
    *               default = 0;
    * @param bottom value 0 (top) - 1 (bottom),
    *               default = 1;
-   * @return this Rectangle
+   * @return this Vertex
    */
   public Rectangle setImageCrop(final float left,
                                 final float right,
@@ -160,7 +160,7 @@ public class Rectangle extends Images {
    * set object width
    *
    * @param width pixel value
-   * @return this Rectangle
+   * @return this Vertex
    */
   public Rectangle setWidth(final float width) {
     final float half_width = width / draw.height;
@@ -183,7 +183,7 @@ public class Rectangle extends Images {
    * set object height
    *
    * @param height pixel value
-   * @return this Rectangle
+   * @return this Vertex
    */
   public Rectangle setHeight(final float height) {
     final float half_height = height / draw.height;

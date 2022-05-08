@@ -139,7 +139,7 @@ public class Rectangle extends Button implements Drawable {
    *               default = 0;
    * @param bottom value 0 (top) - 1 (bottom),
    *               default = 1;
-   * @return this Rectangle
+   * @return this Vertex
    */
   public Rectangle setImageCrop(final float left,
                                 final float right,

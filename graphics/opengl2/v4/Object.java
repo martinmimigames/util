@@ -5,7 +5,7 @@ import static android.opengl.Matrix.translateM;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Rectangle;
+import com.martinmimiGames.util.graphics.opengl2.v4.images.shapes.Vertex;
 import com.martinmimiGames.util.objects.LocationXYA;
 
 /**
@@ -39,15 +39,13 @@ public class Object implements Drawable, Cloneable {
   /**
    * create an Object with defaults,
    * best used for textured objects
-   *
-   * @param draw    the Draw.java
    * @param context the context with the screen
    * @param Rid     the id in R.java
    * @return a new Object with defaults
    */
   public static Object Images(final Context context, final int Rid) {
     final Object object = new Object();
-    object.drawable = new Rectangle(context, Rid);
+    object.drawable = new Images(context, Rid);
     return object;
   }
 
