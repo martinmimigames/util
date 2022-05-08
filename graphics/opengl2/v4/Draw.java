@@ -48,6 +48,9 @@ public class Draw {
   static DefaultPrograms defaultPrograms = new DefaultPrograms();
   public static VertexArray vertexArray;
 
+  /**
+   * initialise the draw dependency
+   */
   public static void init(){
     projectionMatrix = new float[16];
     defaultPrograms = new DefaultPrograms();
