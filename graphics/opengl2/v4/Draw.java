@@ -16,6 +16,7 @@ import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glFrontFace;
 import static android.opengl.GLES20.glViewport;
 import static android.opengl.Matrix.orthoM;
+import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.translateM;
 
 import android.app.Activity;
@@ -112,6 +113,14 @@ public class Draw {
    */
   public static void background(final float red, final float green, final float blue, final float alpha) {
     glClearColor(red / 255f, green / 255f, blue / 255f, alpha / 255f);
+  }
+
+  public static void translateMatrix(final float x, final float y){
+    translateM(Draw.projectionMatrix, 0, x, -y, 0f);
+  }
+
+  public static void rotateMatrix(final float angle){
+    rotateM(Draw.projectionMatrix, 0, -angle, 0f, 0f, 1f);
   }
 
   /**

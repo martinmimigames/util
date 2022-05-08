@@ -59,21 +59,21 @@ public class Object implements Drawable, Cloneable {
 
     if (location.angle != 0) {
       // the drawing process
-      translateM(Draw.projectionMatrix, 0, x, -y, 0f);
-      rotateM(Draw.projectionMatrix, 0, -location.angle, 0f, 0f, 1f);
+      Draw.translateMatrix(x, y);
+      Draw.rotateMatrix(location.angle);
 
       drawable.draw();
 
-      rotateM(Draw.projectionMatrix, 0, location.angle, 0f, 0f, 1f);
-
-      translateM(Draw.projectionMatrix, 0, -x, y, 0f);
+      Draw.rotateMatrix(-location.angle);
+      Draw.translateMatrix(-x, -y);
     } else {
       // the drawing process
-      translateM(Draw.projectionMatrix, 0, x, -y, 0f);
+
+      Draw.translateMatrix(x, y);
 
       drawable.draw();
 
-      translateM(Draw.projectionMatrix, 0, -x, y, 0f);
+      Draw.translateMatrix(-x, -y);
     }
     // the end of the drawing process
   }
