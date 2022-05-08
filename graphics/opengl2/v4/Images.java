@@ -53,18 +53,7 @@ public class Images extends Renderable {
    * @param imageRId the id in R.java
    */
   public Images(final Context context, final int imageRId) {
-    super();
-
-    program = Draw.defaultPrograms.textureProgram;
-
-    positionLocation = program.getAttributeLocation(ShaderCode.A_POSITION);
-    textureUnitLocation = program.getUniformLocation(ShaderCode.U_TEXTURE_UNIT);
-    texturePositionLocation = program.getAttributeLocation(ShaderCode.A_TEXTURE_COORDINATES);
-    matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
-    /*vertex = new float[16];
-    Vertex.Image.setWidth(vertex, 1);
-    Vertex.Image.setHeight(vertex, 1);
-    Vertex.Image.setCrop(vertex, 0, 1, 0, 1);*/
+    this();
 
     final BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
@@ -90,7 +79,13 @@ public class Images extends Renderable {
    * @param bitmap the bitmap for the image
    */
   public Images(final Bitmap bitmap) {
+    this();
+    textureId = Parser.parseTexture(bitmap);
+  }
+
+  private Images(){
     super();
+    vertexCount = 4;
 
     program = Draw.defaultPrograms.textureProgram;
 
@@ -98,13 +93,11 @@ public class Images extends Renderable {
     textureUnitLocation = program.getUniformLocation(ShaderCode.U_TEXTURE_UNIT);
     texturePositionLocation = program.getAttributeLocation(ShaderCode.A_TEXTURE_COORDINATES);
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
-
-    /*vertex = new float[16];
+    vertex = new float[16];
     Vertex.Image.setWidth(vertex, 1);
     Vertex.Image.setHeight(vertex, 1);
-    Vertex.Image.setCrop(vertex, 0, 1, 0, 1);*/
-
-    textureId = Parser.parseTexture(bitmap);
+    Vertex.Image.setCrop(vertex, 0, 1, 0, 1);
+    updateStride();
   }
 
   /**
