@@ -13,8 +13,8 @@ import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
  * SolidShape for opengl graphic works
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.2 release
- * @since 09-03-2022 dd-mm-yyyy
+ * @version 4.0.1 release
+ * @since 09-05-2022 dd-mm-yyyy
  */
 public class SolidShape extends Renderable {
 

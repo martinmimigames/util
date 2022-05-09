@@ -32,8 +32,8 @@ import com.martinmimiGames.util.logger.Log;
  * Images for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.2 release
- * @since 09-03-2022 dd-mm-yyyy
+ * @version 4.0.1 release
+ * @since 09-05-2022 dd-mm-yyyy
  */
 public class Images extends Renderable {
 

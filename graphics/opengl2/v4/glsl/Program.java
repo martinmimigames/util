@@ -26,8 +26,8 @@ import com.martinmimiGames.util.logger.Log;
  * Program to store, compile, and use glsl shaders
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.1 release
- * @since 17-02-2022 dd-mm-yyyy
+ * @version 4.0.1 release
+ * @since 09-05-2022 dd-mm-yyyy
  */
 
 public class Program {

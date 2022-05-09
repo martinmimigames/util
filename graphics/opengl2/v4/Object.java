@@ -12,8 +12,8 @@ import com.martinmimiGames.util.objects.LocationXYA;
  * Object for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
- * @version 1.0.0 first release
- * @since about 11-12-2021 dd-mm-yyyy
+ * @version 4.0.1 release
+ * @since 09-05-2022 dd-mm-yyyy
  */
 
 public class Object implements Drawable, Cloneable {
