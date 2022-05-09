@@ -29,15 +29,15 @@ import com.martinmimiGames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.
- * Images for Draw dependency
+ * Image for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
  * @version 4.0.1 release
  * @since 09-05-2022 dd-mm-yyyy
  */
-public class Images extends Renderable {
+public class Image extends Renderable {
 
-  public static final String TAG = "Images";
+  public static final String TAG = "Image";
 
   /**
    * how many coordinate component are there.
@@ -60,12 +60,12 @@ public class Images extends Renderable {
    * @param context  the context
    * @param imageRId the id in R.java
    */
-  public Images(final Context context, final int imageRId) {
+  public Image(final Context context, final int imageRId) {
     this();
 
     final BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
-    if (Build.VERSION.SDK_INT >= 10)
+    if (Build.VERSION.SDK_INT >= 10 && Build.VERSION.SDK_INT < 24)
       options.inPreferQualityOverSpeed = true;
 
     // Read in the resource
@@ -87,12 +87,12 @@ public class Images extends Renderable {
    * Create Image object with a bitmap
    * @param bitmap the bitmap for the image
    */
-  public Images(final Bitmap bitmap) {
+  public Image(final Bitmap bitmap) {
     this();
     textureId = parseTexture(bitmap);
   }
 
-  private Images(){
+  private Image(){
     super();
     vertexCount = 4;
 

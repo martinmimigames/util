@@ -17,7 +17,7 @@ import java.nio.BufferOverflowException;
 
 /**
  * This is the MGGames utility dependency.
- * Images for Draw dependency
+ * Image for Draw dependency
  *
  * @author martinmimi (from martinmimigames)
  * @version 1.0.2 release
@@ -26,7 +26,7 @@ import java.nio.BufferOverflowException;
 
 public class Images implements Drawable {
 
-  public static final String TAG = "Images";
+  public static final String TAG = "Image";
 
   /**
    * how many position component are there.

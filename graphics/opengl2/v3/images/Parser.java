@@ -27,7 +27,7 @@ import com.martinmimiGames.util.logger.Log;
 
 public class Parser {
 
-  public static final String TAG = "Images parser";
+  public static final String TAG = "Image parser";
 
   /**
    * put texture data into opengl,

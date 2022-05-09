@@ -27,7 +27,7 @@ public class ImageWord extends Object {
   public ImageWord(Context context, int imageRId) {
     location = new LocationXYA();
     object = new Object();
-    object.drawable = drawable = new Images(context, imageRId);
+    object.drawable = drawable = new Image(context, imageRId);
     byteList = new byte[0];
     fontSize = 25;
     drawType = CENTERED;
@@ -79,7 +79,7 @@ public class ImageWord extends Object {
     }
     final float cx = charByte * 0.15625f + 0.01f;
     final float cy = row * 0.15625f + 0.01f;
-    Vertex.Image.setCrop(((Images) drawable).vertex,
+    Vertex.Image.setCrop(((Image) drawable).vertex,
         //col
         cx - 0.15625f,
         cx,
