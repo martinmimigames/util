@@ -50,29 +50,20 @@ public class Object implements Drawable, Cloneable {
 
   @Override
   public void draw() {
-
-    final float x = location.x * Draw.ratio;
-    final float y = location.y * Draw.ratio;
-
     if (location.angle != 0) {
-      // the drawing process
-      Draw.translateMatrix(x, y);
+      Draw.translateMatrix(location.x, location.y);
       Draw.rotateMatrix(location.angle);
 
       drawable.draw();
 
       Draw.rotateMatrix(-location.angle);
-      Draw.translateMatrix(-x, -y);
+      Draw.translateMatrix(-location.x, -location.y);
     } else {
-      // the drawing process
-
-      Draw.translateMatrix(x, y);
+      Draw.translateMatrix(location.x, location.y);
 
       drawable.draw();
 
-      Draw.translateMatrix(-x, -y);
+      Draw.translateMatrix(-location.x, -location.y);
     }
-    // the end of the drawing process
   }
-
 }

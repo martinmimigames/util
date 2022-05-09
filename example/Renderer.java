@@ -19,7 +19,7 @@ public class Renderer implements GLSurfaceView.Renderer {
 
   @Override
   public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
-    Draw.init(activity);
+    Draw.init();
     // base color
     // not necessary
     Draw.background(0, 0, 0, 255);

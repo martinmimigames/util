@@ -43,13 +43,18 @@ public class Draw {
   public static final int ASPECT_RATIO_FOLLOW_HEIGHT = 2;
 
   public static float[] projectionMatrix = new float[16];
-  public static float ratio;
-  public static Integer height = 1080; //default size
   static DefaultPrograms defaultPrograms = new DefaultPrograms();
   public static VertexArray vertexArray;
 
+  /** the distance between the center to the right of viewport*/
+  public static float width = 1;
+  /** the distance between the center to the top of viewport*/
+  public static float height = 1;
+
   /**
    * initialise the draw dependency
+   * Can only run in GLThread.
+   * Recommended to be placed in OnSurfaceCreate()
    */
   public static void init(){
     projectionMatrix = new float[16];
@@ -62,11 +67,13 @@ public class Draw {
     glFrontFace(GL_CW);
   }
 
-  public static void init(Activity activity) {
-    height = activity.getWindow().getDecorView().getBottom();
-    init();
-  }
-
+  /**
+   * Enable / disable cull face.
+   * If enabled, only draw front face
+   * (Defined by clockwise vertex).
+   * Can only run in GLThread.
+   * @param enabled enable or disable function
+   */
   public static void setCullFace(boolean enabled){
     if ((enabled)) {
       glEnable(GL_CULL_FACE);
@@ -76,34 +83,31 @@ public class Draw {
   }
 
   /**
-   * Setup the screen.
-   * Place in onSurfaceChange.
-   * @param width  width of screen
-   * @param height height of screen
+   * Setup the viewport to be drawn on.
+   * Recommended to be placed in onSurfaceChange.
+   * @param width  width of screen in px
+   * @param height height of screen in px
    */
   public static void setScreen(int width, int height, int aspectRatioType) {
     // Set the OpenGL viewport to fill the entire surface.
     glViewport(0, 0, width, height);
     // set aspect ratio
-    float aspectRatio;
     switch (aspectRatioType){
       case 1:
-        orthoM(projectionMatrix, 0, -1, 1, -1, 1, -1, 1);
+        Draw.width = Draw.height = 1;
         break;
       case 2:
-        aspectRatio = (float) width / (float) height;
-        orthoM(projectionMatrix, 0, -aspectRatio, aspectRatio, -1, 1, -1, 1);
+        Draw.width = width / (float) height;
+        Draw.height = 1;
         break;
       case 3:
-        aspectRatio = height / (float) width;
-        orthoM(projectionMatrix, 0, -1,1,-aspectRatio, aspectRatio,  -1, 1);
+        Draw.width = 1;
+        Draw.height = height / (float) width;
         break;
       default:
         throw new RuntimeException("not such aspect ratio type: " + aspectRatioType);
     }
-    // set variables
-    Draw.height = height;
-    ratio = 2 / (float) height;
+    orthoM(projectionMatrix, 0, -Draw.width,Draw.width,-Draw.height, Draw.height,  -1, 1);
   }
 
   /**
@@ -119,7 +123,7 @@ public class Draw {
   }
 
   /**
-   * translate matrix by x and y
+   * Translate matrix by x and y.
    * @param x the amount to move horizontally towards the right
    * @param y the amount to move vertically towards the bottom
    */
@@ -128,7 +132,7 @@ public class Draw {
   }
 
   /**
-   * rotate matrix by angle clockwise
+   * Rotate matrix by angle clockwise.
    * @param angle the amount to rotate in degrees
    */
   public static void rotateMatrix(final float angle){
@@ -137,7 +141,7 @@ public class Draw {
 
   /**
    * Clear the rendering surface.
-   * Can only run in GLThread
+   * Can only run in GLThread.
    */
   public static void clean() {
     glClear(GL_COLOR_BUFFER_BIT);
