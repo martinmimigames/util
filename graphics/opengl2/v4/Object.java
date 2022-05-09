@@ -35,19 +35,6 @@ public class Object implements Drawable, Cloneable {
     location = new LocationXYA();
   }
 
-  /**
-   * create an Object with defaults,
-   * best used for textured objects
-   * @param context the context with the screen
-   * @param Rid     the id in R.java
-   * @return a new Object with defaults
-   */
-  public static Object Images(final Context context, final int Rid) {
-    final Object object = new Object();
-    object.drawable = new Images(context, Rid);
-    return object;
-  }
-
   @Override
   public void draw() {
     if (location.angle != 0) {

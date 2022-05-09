@@ -52,7 +52,7 @@ public class Draw {
   public static float height = 1;
 
   /**
-   * initialise the draw dependency
+   * Initialise the draw dependency.
    * Can only run in GLThread.
    * Recommended to be placed in OnSurfaceCreate()
    */
@@ -84,6 +84,7 @@ public class Draw {
 
   /**
    * Setup the viewport to be drawn on.
+   * Can only run in GLThread.
    * Recommended to be placed in onSurfaceChange.
    * @param width  width of screen in px
    * @param height height of screen in px

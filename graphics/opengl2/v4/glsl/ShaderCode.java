@@ -19,7 +19,7 @@ public class ShaderCode {
   public static final String A_COLOR = "a_Color";
   public static final String A_TEXTURE_COORDINATES = "a_TextureCoordinates";
 
-  public static final String VERTEX_SHADER =
+  public static final String TEXTURE_VERTEX_SHADER =
       new StringBuilder()
           .append("uniform mat4 u_Matrix;")
           .append("attribute vec4 a_Position;")
@@ -30,7 +30,7 @@ public class ShaderCode {
           .append("gl_Position=u_Matrix*a_Position;}")
           .toString();
 
-  public static final String Solid_VERTEX_SHADER =
+  public static final String SOLID_VERTEX_SHADER =
       new StringBuilder()
           .append("uniform mat4 u_Matrix;")
           .append("attribute vec4 a_Position;")

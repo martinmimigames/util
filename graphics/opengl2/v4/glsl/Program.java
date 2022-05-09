@@ -23,7 +23,7 @@ import com.martinmimiGames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.
- * opengl code implementation for Draw dependency
+ * Program to store, compile, and use glsl shaders
  *
  * @author martinmimi (from martinmimigames)
  * @version 1.0.1 release
@@ -41,44 +41,61 @@ public class Program {
    */
   protected int id;
 
+  /**
+   * Create the program.
+   */
   public Program(){
-    // Create a new program object.
-    // return 0 if error
     id = glCreateProgram();
 
-    //run if error
     if (id == 0) {
       if (Log.ON) Log.w(TAG, "Could not create new program");
     }
   }
 
+  /**
+   * Add a shader to this program.
+   * @param type the type of shader, uses values from opengl 2
+   * @param shaderCode the shader code written in String
+   * @return this program object for chaining commands
+   */
   public Program addShaderProgram(int type, String shaderCode){
     if (id != 0)
     glAttachShader(id, compileShader(type, shaderCode));
     return this;
   }
 
+  /**
+   * For getting a uniform location from the shader codes.
+   * @param name the name of the uniform variable
+   * @return the location of the variable
+   */
   public int getUniformLocation(String name){
     return glGetUniformLocation(id, name);
   }
 
+  /**
+   * For getting a attribute location from the shader codes.
+   * @param name the name of the attribute variable
+   * @return the location of the variable
+   */
   public int getAttributeLocation(String name) {
     return glGetAttribLocation(id, name);
   }
 
+  /**
+   * Link the shaders together.
+   * Can be used after call.
+   * @return this program object for chaining commands
+   */
   public Program complete(){
     if (id == 0) return this;
-    // Link the two shaders together into a program.
     glLinkProgram(id);
 
-    // Get the link status.
     final int[] linkStatus = new int[1];
     glGetProgramiv(id, GL_LINK_STATUS,
         linkStatus, 0);
 
-    // Verify the link status.
     if (linkStatus[0] == 0) {
-      // If it failed, delete the program object.
       glDeleteProgram(id);
       id = 0;
       if (Log.ON) Log.w(TAG, "Linking of program failed.");
@@ -86,53 +103,43 @@ public class Program {
     return this;
   }
 
+  /**
+   * Call to use program.
+   */
   public void use(){
-    // Set the current OpenGL shader program to this program.
     glUseProgram(id);
   }
 
+  /**
+   * Get the program id for use in opengl.
+   * @return the program id
+   */
   public int getProgramId(){
     return id;
   }
 
-  /**
-   * Compiles a shader, returning the OpenGL object ID.
-   * if error return 0
-   */
   private int compileShader(int type, String shaderCode) {
-    // Create a new shader object.
     final int shaderObjectId = glCreateShader(type);
 
-    //if shader object id = 0
-    //then shader cannot be created
     if (shaderObjectId == 0) {
       if (Log.ON) Log.w(TAG, "Could not create new shader.");
       return 0;
     }
 
-    // Pass in the shader source.
     glShaderSource(shaderObjectId, shaderCode);
 
-    // Compile the shader.
     glCompileShader(shaderObjectId);
 
-    // Get the compilation status.
     final int[] compileStatus = new int[1];
     glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
         compileStatus, 0);
 
-    // Verify the compile status.
-    //if compile status = 0
-    //an error had occurred
     if (compileStatus[0] == 0) {
-      // If it failed, delete the shader object.
       glDeleteShader(shaderObjectId);
 
       if (Log.ON) Log.w(TAG, "Compilation of shader failed.");
       return 0;
     }
-
-    // Return the shader object ID.
     return shaderObjectId;
   }
 }

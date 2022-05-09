@@ -12,17 +12,19 @@ import java.nio.FloatBuffer;
 
 /**
  * This is the MGGames utility dependency.
- * Vertex data processing for Draw dependency
+ * Vertex data processing for opengl
  *
  * @author martinmimi (from martinmimigames)
  * @version 1.0.2 release
  * @since 09-03-2022 dd-mm-yyyy
  */
-
 public class VertexArray {
   private FloatBuffer floatBuffer;
   private static final int BYTE_PER_FLOAT = 4;
 
+  /**
+   * Create a VertexArray
+   */
   public VertexArray(){
     floatBuffer = ByteBuffer
         .allocateDirect(0)
@@ -30,6 +32,11 @@ public class VertexArray {
         .asFloatBuffer();
   }
 
+  /**
+   * Overwrite old vertex data with new vertex data.
+   * Automatically allocate new space for longer vertex data.
+   * @param vertexData a vertex data in form of array
+   */
   public void overwrite(float[] vertexData){
     try {
       floatBuffer.position(0);
@@ -44,15 +51,26 @@ public class VertexArray {
     }
   }
 
-  public void setVertexAttribPointer(int dataOffset, int attributeLocation,
-                                     int componentCount, int stride) {
+  /**
+   * Enable and point to an attribute variable.
+   * @param dataOffset the offset of data in the vertex array
+   * @param attributeLocation the location of the attribute variable
+   * @param componentCount the number of vertex pairs
+   * @param stride the size of one vertex pair
+   */
+  public void setAttributePointer(int dataOffset, int attributeLocation,
+                                  int componentCount, int stride) {
     floatBuffer.position(dataOffset);
     glVertexAttribPointer(attributeLocation, componentCount, GL_FLOAT,
         false, stride, floatBuffer);
     glEnableVertexAttribArray(attributeLocation);
   }
 
-  public void disableVertexAttribPointer(int attributeLocation){
+  /**
+   * Disable an attribute variable.
+   * @param attributeLocation the location of the attribute variable
+   */
+  public void disableAttributePointer(int attributeLocation){
     glDisableVertexAttribArray(attributeLocation);
   }
 }

@@ -35,7 +35,6 @@ import com.martinmimiGames.util.logger.Log;
  * @version 1.0.2 release
  * @since 09-03-2022 dd-mm-yyyy
  */
-
 public class Images extends Renderable {
 
   public static final String TAG = "Images";
@@ -57,6 +56,7 @@ public class Images extends Renderable {
   private final int matrixLocation;
 
   /**
+   * Create Image object with image from res folder
    * @param context  the context
    * @param imageRId the id in R.java
    */
@@ -84,6 +84,7 @@ public class Images extends Renderable {
   }
 
   /**
+   * Create Image object with a bitmap
    * @param bitmap the bitmap for the image
    */
   public Images(final Bitmap bitmap) {
@@ -108,9 +109,6 @@ public class Images extends Renderable {
     updateStride();
   }
 
-  /**
-   * update stride value
-   */
   @Override
   public void updateStride() {
     vertexStride = (vertexPartCount + texturePartCount) * vertexCount;
@@ -136,13 +134,13 @@ public class Images extends Renderable {
 
     Draw.vertexArray.overwrite(vertex);
 
-    Draw.vertexArray.setVertexAttribPointer(
+    Draw.vertexArray.setAttributePointer(
         0,
         positionLocation,
         vertexPartCount,
         vertexStride);
 
-    Draw.vertexArray.setVertexAttribPointer(
+    Draw.vertexArray.setAttributePointer(
         vertexPartCount,
         texturePositionLocation,
         texturePartCount,
@@ -150,14 +148,13 @@ public class Images extends Renderable {
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, vertexCount);
 
-    Draw.vertexArray.disableVertexAttribPointer(positionLocation);
-    Draw.vertexArray.disableVertexAttribPointer(texturePositionLocation);
+    Draw.vertexArray.disableAttributePointer(positionLocation);
+    Draw.vertexArray.disableAttributePointer(texturePositionLocation);
   }
 
   /**
-   * put texture data into opengl,
-   * and return texture id
-   *
+   * Parses a bitmap,
+   * and return texture id for use in opengl.
    * @param bitmap image
    * @return texture id
    */
@@ -200,8 +197,8 @@ public class Images extends Renderable {
   }
 
   /**
-   * delete the texture of the given id,
-   * in order to free up memory
+   * Delete the texture of the given id,
+   * in order to free up graphics memory.
    * @param textureId the id of the texture to be deleted
    */
   public static void deleteTexture(int textureId){

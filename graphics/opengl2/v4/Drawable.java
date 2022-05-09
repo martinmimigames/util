@@ -10,5 +10,9 @@ package com.martinmimiGames.util.graphics.opengl2.v4;
  */
 
 public interface Drawable {
+
+  /**
+   * The draw methods to be ran for this object.
+   */
   void draw();
 }
