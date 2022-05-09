@@ -37,6 +37,36 @@ public class SolidShape extends Renderable {
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
   }
 
+  @Override
+  public void preDraw() {
+    // Add program to OpenGL ES environment
+    program.use();
+
+    Draw.vertexArray.overwrite(vertex);
+    Draw.vertexArray.setAttributePointer(0, positionLocation, vertexPartCount, vertexStride);
+
+    // Set color for drawing the triangle
+    // Set color with red, green, blue and alpha (opacity) values
+    glUniform4fv(colorLocation, 1, color, 0);
+  }
+
+  @Override
+  public void pureDraw() {
+
+    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
+
+    // Draw the triangle
+    glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, vertexCount);
+
+  }
+
+  @Override
+  public void postDraw() {
+
+    // Disable vertex array
+    Draw.vertexArray.disableAttributePointer(positionLocation);
+  }
+
   /**
    * set shape color.
    *
@@ -50,26 +80,5 @@ public class SolidShape extends Renderable {
     color[1] = green / 255f;
     color[2] = blue / 255f;
     color[3] = alpha / 255f;
-  }
-
-  @Override
-  public void draw() {
-    // Add program to OpenGL ES environment
-    program.use();
-
-    Draw.vertexArray.overwrite(vertex);
-    Draw.vertexArray.setAttributePointer(0, positionLocation, vertexPartCount, vertexStride);
-
-    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
-    // Set color for drawing the triangle
-    // Set color with red, green, blue and alpha (opacity) values
-    glUniform4fv(colorLocation, 1, color, 0);
-
-
-    // Draw the triangle
-    glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, vertexCount);
-
-    // Disable vertex array
-    Draw.vertexArray.disableAttributePointer(positionLocation);
   }
 }

@@ -115,12 +115,8 @@ public class Image extends Renderable {
   }
 
   @Override
-  public void draw() {
-    //Draw.defaultPrograms.textureProgram.use();
+  public void preDraw() {
     program.use();
-
-    // Pass the matrix into the shader program.
-    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
 
     // Set the active texture unit to texture unit 0.
     glActiveTexture(GL_TEXTURE0);
@@ -145,9 +141,18 @@ public class Image extends Renderable {
         texturePositionLocation,
         texturePartCount,
         vertexStride);
+  }
+
+  @Override
+  public void pureDraw() {
+    // Pass the matrix into the shader program.
+    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, vertexCount);
+  }
 
+  @Override
+  public void postDraw() {
     Draw.vertexArray.disableAttributePointer(positionLocation);
     Draw.vertexArray.disableAttributePointer(texturePositionLocation);
   }

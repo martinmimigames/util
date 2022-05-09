@@ -50,6 +50,14 @@ public abstract class Renderable implements Drawable{
     vertexStride = vertexPartCount * FLOAT_BYTE_SIZE;
   }
 
+  public abstract void preDraw();
+  public abstract void pureDraw();
+  public abstract void postDraw();
+
   @Override
-  public abstract void draw();
+  public void draw(){
+    preDraw();
+    pureDraw();
+    postDraw();
+  }
 }

@@ -40,6 +40,35 @@ public class Line extends Renderable{
     matrixLocation = program.getUniformLocation(ShaderCode.U_MATRIX);
   }
 
+  @Override
+  public void preDraw() {
+    program.use();
+
+    Draw.vertexArray.overwrite(vertex);
+    Draw.vertexArray.setAttributePointer(0, positionLocation, vertexPartCount, vertexStride);
+
+
+    glUniform4fv(colorLocation, 1, color, 0);
+
+  }
+
+  @Override
+  public void pureDraw() {
+
+    glLineWidth(lineWidth);
+
+    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
+
+    glDrawArrays(GLES20.GL_LINES, 0, vertexCount);
+
+  }
+
+  @Override
+  public void postDraw() {
+
+    Draw.vertexArray.disableAttributePointer(positionLocation);
+  }
+
   /**
    *  set line width.
    *  @param width the width of the line
@@ -60,23 +89,5 @@ public class Line extends Renderable{
     color[1] = green / 255f;
     color[2] = blue / 255f;
     color[3] = alpha / 255f;
-  }
-
-  @Override
-  public void draw() {
-    program.use();
-
-    Draw.vertexArray.overwrite(vertex);
-    Draw.vertexArray.setAttributePointer(0, positionLocation, vertexPartCount, vertexStride);
-
-    glUniformMatrix4fv(matrixLocation, 1, false, Draw.projectionMatrix, 0);
-
-    glUniform4fv(colorLocation, 1, color, 0);
-
-    glLineWidth(lineWidth);
-
-    glDrawArrays(GLES20.GL_LINES, 0, vertexCount);
-
-    Draw.vertexArray.disableAttributePointer(positionLocation);
   }
 }
