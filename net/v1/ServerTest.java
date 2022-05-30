@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.net.v1;
+package com.martinmimigames.util.net.v1;
 
 import java.io.IOException;
 import java.net.Socket;

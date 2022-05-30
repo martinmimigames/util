@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.objects;
+package com.martinmimigames.util.objects;
 
 /**
  * This is the martinmimigames Rotatable rectangle object dependency
@@ -9,7 +9,6 @@ package com.martinmimiGames.util.objects;
  */
 
 @Deprecated
-@SuppressWarnings("deprecation")
 public class RotatableRect extends Rect {
 
   //static final are constants

@@ -1,11 +1,10 @@
-package com.martinmimiGames.util.graphics.gl2d.objects;
+package com.martinmimigames.util.graphics.gl2d.objects;
 
 import static android.opengl.GLES20.glUseProgram;
 
 import android.content.Context;
 
 @Deprecated
-@SuppressWarnings("deprecation")
 public abstract class ShaderProgram {
   // Uniform constants
   protected static final String U_MATRIX = "u_Matrix";

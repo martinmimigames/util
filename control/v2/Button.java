@@ -1,8 +1,8 @@
-package com.martinmimiGames.util.control.v2;
+package com.martinmimigames.util.control.v2;
 
 import android.view.MotionEvent;
 
-import com.martinmimiGames.util.objects.LocationXY;
+import com.martinmimigames.util.objects.LocationXY;
 
 public class Button {
 

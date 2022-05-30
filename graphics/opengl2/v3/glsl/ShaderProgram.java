@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
+package com.martinmimigames.util.graphics.opengl2.v3.glsl;
 
 import static android.opengl.GLES20.GL_COMPILE_STATUS;
 import static android.opengl.GLES20.GL_FRAGMENT_SHADER;
@@ -16,7 +16,7 @@ import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glUseProgram;
 
-import com.martinmimiGames.util.logger.Log;
+import com.martinmimigames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.

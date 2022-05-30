@@ -1,10 +1,10 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.images.shapes;
+package com.martinmimigames.util.graphics.opengl2.v3.images.shapes;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.martinmimiGames.util.graphics.opengl2.v3.Draw;
-import com.martinmimiGames.util.graphics.opengl2.v3.Images;
+import com.martinmimigames.util.graphics.opengl2.v3.Draw;
+import com.martinmimigames.util.graphics.opengl2.v3.Images;
 
 /**
  * This is the MGGames utility dependency.

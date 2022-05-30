@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d.objects;
+package com.martinmimigames.util.graphics.gl2d.objects;
 
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
 import static android.opengl.GLES20.GL_NEAREST;
@@ -16,7 +16,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.martinmimiGames.util.logger.Log;
+import com.martinmimigames.util.logger.Log;
 
 @Deprecated
 public class TextureHelper {

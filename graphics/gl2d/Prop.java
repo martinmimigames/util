@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d;
+package com.martinmimigames.util.graphics.gl2d;
 
 import static android.opengl.GLES20.GL_BLEND;
 import static android.opengl.GLES20.GL_ONE_MINUS_SRC_ALPHA;
@@ -15,17 +15,17 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.util.Log;
 
-import com.martinmimiGames.util.graphics.gl2d.objects.TextureHelper;
-import com.martinmimiGames.util.graphics.gl2d.objects.TextureShaderProgram;
-import com.martinmimiGames.util.objects.Rect;
-import com.martinmimiGames.util.objects.RotatableRect;
+import com.martinmimigames.util.graphics.gl2d.objects.TextureHelper;
+import com.martinmimigames.util.graphics.gl2d.objects.TextureShaderProgram;
+import com.martinmimigames.util.objects.Rect;
+import com.martinmimigames.util.objects.RotatableRect;
 
 import java.util.ArrayList;
 
 /**
- * This is the martinmimigames drawing dependency
+ * This is the martinmimigames. drawing dependency
  *
- * @author martinmimi (from martinmimigames)
+ * @author martinmimi (from martinmimigames.)
  * @version 0.0.0.1
  * @since about 2020/12/15
  */
@@ -174,7 +174,7 @@ public class Prop {
         Drawing.drawNonRotatableDefault(object, projectionMatrix, textureId);
         break;
       default:
-        if (com.martinmimiGames.util.logger.Log.ON) {
+        if (com.martinmimigames.util.logger.Log.ON) {
           Log.e("Martinmimi_Prop", "draw type \" " + draw_type + " \" is not available for choose");
         }
     }
@@ -199,7 +199,7 @@ public class Prop {
         break;
       case DrawType.ROTATABLE:
       default:
-        if (com.martinmimiGames.util.logger.Log.ON) {
+        if (com.martinmimigames.util.logger.Log.ON) {
           Log.e("Martinmimi_Prop", "draw type \" " + draw_type + " \" is not available for choose");
         }
     }
@@ -229,7 +229,7 @@ public class Prop {
       case DrawType.NON_ROTATABLE:
         Drawing.drawNonRotatableOffsetDefault(object, projectionMatrix, textureId, rotation_x, rotation_y);
       default:
-        if (com.martinmimiGames.util.logger.Log.ON) {
+        if (com.martinmimigames.util.logger.Log.ON) {
           Log.e("Martinmimi_Prop", "draw type \" " + draw_type + " \" is not available for choose");
         }
     }
@@ -257,7 +257,7 @@ public class Prop {
       //if rotatable
       case DrawType.ROTATABLE:
       default:
-        if (com.martinmimiGames.util.logger.Log.ON) {
+        if (com.martinmimigames.util.logger.Log.ON) {
           Log.e("Martinmimi_Prop", "draw type \" " + draw_type + " \" is not available for choose");
         }
     }

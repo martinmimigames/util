@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3;
+package com.martinmimigames.util.graphics.opengl2.v3;
 
 import static android.opengl.GLES20.GL_TRIANGLE_STRIP;
 import static android.opengl.GLES20.glDrawArrays;
@@ -8,10 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 
-import com.martinmimiGames.util.graphics.opengl2.v3.glsl.TextureShaderProgram;
-import com.martinmimiGames.util.graphics.opengl2.v3.glsl.VertexArray;
-import com.martinmimiGames.util.graphics.opengl2.v3.images.Parser;
-import com.martinmimiGames.util.logger.Log;
+import com.martinmimigames.util.graphics.opengl2.v3.glsl.VertexArray;
+import com.martinmimigames.util.graphics.opengl2.v3.images.Parser;
+import com.martinmimigames.util.logger.Log;
 
 import java.nio.BufferOverflowException;
 

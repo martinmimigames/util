@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d;
+package com.martinmimigames.util.graphics.gl2d;
 
 import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.glEnableVertexAttribArray;

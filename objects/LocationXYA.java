@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.objects;
+package com.martinmimigames.util.objects;
 
 /**
  * This is the MGGames utility dependency.

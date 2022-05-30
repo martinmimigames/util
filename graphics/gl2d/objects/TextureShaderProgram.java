@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d.objects;
+package com.martinmimigames.util.graphics.gl2d.objects;
 
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
@@ -12,7 +12,6 @@ import static android.opengl.GLES20.glUniformMatrix4fv;
 import android.content.Context;
 
 @Deprecated
-@SuppressWarnings("deprecation")
 public class TextureShaderProgram extends ShaderProgram {
   // Uniform locations
   private final int uMatrixLocation;

@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v4;
+package com.martinmimigames.util.graphics.opengl2.v4;
 
 import static android.opengl.GLES20.GL_BLEND;
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
@@ -19,10 +19,8 @@ import static android.opengl.Matrix.orthoM;
 import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.translateM;
 
-import android.app.Activity;
-
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.DefaultPrograms;
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.VertexArray;
+import com.martinmimigames.util.graphics.opengl2.v4.glsl.DefaultPrograms;
+import com.martinmimigames.util.graphics.opengl2.v4.glsl.VertexArray;
 
 /**
  * This is the MGGames utility dependency.

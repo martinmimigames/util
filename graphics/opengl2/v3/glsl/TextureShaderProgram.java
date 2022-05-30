@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
+package com.martinmimigames.util.graphics.opengl2.v3.glsl;
 
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_2D;

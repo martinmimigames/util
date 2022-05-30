@@ -1,9 +1,7 @@
-package com.martinmimiGames.util.graphics.opengl2.v4.glsl;
+package com.martinmimigames.util.graphics.opengl2.v4.glsl;
 
 import static android.opengl.GLES20.GL_COMPILE_STATUS;
-import static android.opengl.GLES20.GL_FRAGMENT_SHADER;
 import static android.opengl.GLES20.GL_LINK_STATUS;
-import static android.opengl.GLES20.GL_VERTEX_SHADER;
 import static android.opengl.GLES20.glAttachShader;
 import static android.opengl.GLES20.glCompileShader;
 import static android.opengl.GLES20.glCreateProgram;
@@ -18,7 +16,7 @@ import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glUseProgram;
 
-import com.martinmimiGames.util.logger.Log;
+import com.martinmimigames.util.logger.Log;
 
 
 /**

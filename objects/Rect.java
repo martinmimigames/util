@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.objects;
+package com.martinmimigames.util.objects;
 
 /**
  * This is the martinmimigames Vertex object dependency
@@ -9,7 +9,6 @@ package com.martinmimiGames.util.objects;
  */
 
 @Deprecated
-@SuppressWarnings("deprecation")
 public class Rect extends Coor {
 
   //static final are constants

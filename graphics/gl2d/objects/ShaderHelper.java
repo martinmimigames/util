@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d.objects;
+package com.martinmimigames.util.graphics.gl2d.objects;
 
 import static android.opengl.GLES20.GL_COMPILE_STATUS;
 import static android.opengl.GLES20.GL_FRAGMENT_SHADER;
@@ -47,7 +47,7 @@ public class ShaderHelper {
     final int shaderObjectId = glCreateShader(type);
 
     if (shaderObjectId == 0) {
-      if (com.martinmimiGames.util.logger.Log.ON) {
+      if (com.martinmimigames.util.logger.Log.ON) {
         Log.w(TAG, "Could not create new shader.");
       }
 
@@ -65,7 +65,7 @@ public class ShaderHelper {
     glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
         compileStatus, 0);
 
-    if (com.martinmimiGames.util.logger.Log.ON) {
+    if (com.martinmimigames.util.logger.Log.ON) {
       // Print the shader info log to the Android log output.
       Log.v(TAG, "Results of compiling source:" + "\n" + shaderCode
           + "\n:" + glGetShaderInfoLog(shaderObjectId));
@@ -76,7 +76,7 @@ public class ShaderHelper {
       // If it failed, delete the shader object.
       glDeleteShader(shaderObjectId);
 
-      if (com.martinmimiGames.util.logger.Log.ON) {
+      if (com.martinmimigames.util.logger.Log.ON) {
         Log.w(TAG, "Compilation of shader failed.");
       }
 
@@ -97,7 +97,7 @@ public class ShaderHelper {
     final int programObjectId = glCreateProgram();
 
     if (programObjectId == 0) {
-      if (com.martinmimiGames.util.logger.Log.ON) {
+      if (com.martinmimigames.util.logger.Log.ON) {
         Log.w(TAG, "Could not create new program");
       }
 
@@ -118,7 +118,7 @@ public class ShaderHelper {
     glGetProgramiv(programObjectId, GL_LINK_STATUS,
         linkStatus, 0);
 
-    if (com.martinmimiGames.util.logger.Log.ON) {
+    if (com.martinmimigames.util.logger.Log.ON) {
       // Print the program info log to the Android log output.
       Log.v(
           TAG,
@@ -131,7 +131,7 @@ public class ShaderHelper {
       // If it failed, delete the program object.
       glDeleteProgram(programObjectId);
 
-      if (com.martinmimiGames.util.logger.Log.ON) {
+      if (com.martinmimigames.util.logger.Log.ON) {
         Log.w(TAG, "Linking of program failed.");
       }
 
@@ -172,7 +172,7 @@ public class ShaderHelper {
     // Link them into a shader program.
     program = linkProgram(vertexShader, fragmentShader);
 
-    if (com.martinmimiGames.util.logger.Log.ON) {
+    if (com.martinmimigames.util.logger.Log.ON) {
       validateProgram(program);
     }
 

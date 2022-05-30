@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v4;
+package com.martinmimigames.util.graphics.opengl2.v4;
 
 import static android.opengl.GLES20.glDrawArrays;
 import static android.opengl.GLES20.glLineWidth;
@@ -7,7 +7,7 @@ import static android.opengl.GLES20.glUniformMatrix4fv;
 
 import android.opengl.GLES20;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.glsl.ShaderCode;
+import com.martinmimigames.util.graphics.opengl2.v4.glsl.ShaderCode;
 
 /**
  * This is the MGGames utility dependency.

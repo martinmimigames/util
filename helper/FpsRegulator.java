@@ -1,6 +1,4 @@
-package com.martinmimiGames.util.helper;
-
-import com.martinmimiGames.util.logger.Log;
+package com.martinmimigames.util.helper;
 
 /**
  * This is the MGGames utility dependency.

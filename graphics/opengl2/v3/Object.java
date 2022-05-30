@@ -1,12 +1,12 @@
-package com.martinmimiGames.util.graphics.opengl2.v3;
+package com.martinmimigames.util.graphics.opengl2.v3;
 
 import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.translateM;
 
 import android.content.Context;
 
-import com.martinmimiGames.util.graphics.opengl2.v3.images.shapes.Rectangle;
-import com.martinmimiGames.util.objects.LocationXYA;
+import com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle;
+import com.martinmimigames.util.objects.LocationXYA;
 
 /**
  * This is the MGGames utility dependency.
@@ -17,7 +17,7 @@ import com.martinmimiGames.util.objects.LocationXYA;
  * @since about 11-12-2021 dd-mm-yyyy
  */
 
-public class Object implements Drawable, Cloneable {
+public class Object implements Drawable {
 
   /**
    * location values on the screen

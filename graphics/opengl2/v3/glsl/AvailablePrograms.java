@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
+package com.martinmimigames.util.graphics.opengl2.v3.glsl;
 
 /**
  * This is the MGGames utility dependency.

@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.math;
+package com.martinmimigames.util.math;
 
 public class Offset {
 

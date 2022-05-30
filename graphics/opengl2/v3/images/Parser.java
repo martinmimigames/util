@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.images;
+package com.martinmimigames.util.graphics.opengl2.v3.images;
 
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
 import static android.opengl.GLES20.GL_NEAREST;
@@ -14,7 +14,7 @@ import static android.opengl.GLUtils.texImage2D;
 
 import android.graphics.Bitmap;
 
-import com.martinmimiGames.util.logger.Log;
+import com.martinmimigames.util.logger.Log;
 
 /**
  * This is the MGGames utility dependency.

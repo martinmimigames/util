@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.gl2d.objects;
+package com.martinmimigames.util.graphics.gl2d.objects;
 
 import android.content.Context;
 import android.content.res.Resources;

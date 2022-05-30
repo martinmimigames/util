@@ -1,9 +1,9 @@
-package com.martinmimiGames.util.example;
+package com.martinmimigames.util.example;
 
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
 
-import com.martinmimiGames.util.graphics.opengl2.v4.Draw;
+import com.martinmimigames.util.graphics.opengl2.v4.Draw;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;

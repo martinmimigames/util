@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
+package com.martinmimigames.util.graphics.opengl2.v3.glsl;
 
 /**
  * This is the MGGames utility dependency.
@@ -12,23 +12,19 @@ package com.martinmimiGames.util.graphics.opengl2.v3.glsl;
 public class ShaderCode {
 
   public static final String TEXTURE_VERTEX_SHADER =
-      new StringBuilder()
-      .append("uniform mat4 u_Matrix;")
-      .append("attribute vec4 a_Position;")
-      .append("attribute vec2 a_TextureCoordinates;")
-      .append("varying vec2 v_TextureCoordinates;")
-      .append("void main()")
-      .append("{v_TextureCoordinates=a_TextureCoordinates;")
-      .append("gl_Position=u_Matrix*a_Position;}")
-      .toString();
+      "uniform mat4 u_Matrix;" +
+          "attribute vec4 a_Position;" +
+          "attribute vec2 a_TextureCoordinates;" +
+          "varying vec2 v_TextureCoordinates;" +
+          "void main()" +
+          "{v_TextureCoordinates=a_TextureCoordinates;" +
+          "gl_Position=u_Matrix*a_Position;}";
 
 
   public static final String TEXTURE_FRAGMENT_SHADER =
-      new StringBuilder()
-          .append("precision mediump float;")
-          .append("uniform sampler2D u_TextureUnit;")
-          .append("varying vec2 v_TextureCoordinates;")
-          .append("void main()")
-          .append("{gl_FragColor=texture2D(u_TextureUnit,v_TextureCoordinates);}")
-          .toString();
+      "precision mediump float;" +
+          "uniform sampler2D u_TextureUnit;" +
+          "varying vec2 v_TextureCoordinates;" +
+          "void main()" +
+          "{gl_FragColor=texture2D(u_TextureUnit,v_TextureCoordinates);}";
 }

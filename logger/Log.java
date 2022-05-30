@@ -1,4 +1,4 @@
-package com.martinmimiGames.util.logger;
+package com.martinmimigames.util.logger;
 
 public class Log {
 
