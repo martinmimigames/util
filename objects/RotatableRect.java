@@ -8,6 +8,7 @@ package com.martinmimigames.util.objects;
  * @since about 2021/3/21
  */
 
+@SuppressWarnings("ALL")
 @Deprecated
 public class RotatableRect extends Rect {
 

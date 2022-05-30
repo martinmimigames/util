@@ -146,13 +146,13 @@ public class Collide {
     collisionRadiusSquared = sqr(size.halfWidth) + sqr(size.halfHeight);
   }
 
-  public class Location {
+  public static class Location {
     public float x;
     public float y;
     public float angle;
   }
 
-  public class Size {
+  public static class Size {
     public float halfWidth;
     public float halfHeight;
   }

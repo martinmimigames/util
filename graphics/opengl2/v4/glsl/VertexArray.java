@@ -41,7 +41,7 @@ public class VertexArray {
     try {
       floatBuffer.position(0);
       final int length = vertexData.length;
-      for (int i = 0; i < length; i++) floatBuffer.put(vertexData[i]);
+      for (float vertexDatum : vertexData) floatBuffer.put(vertexDatum);
     } catch (BufferOverflowException e){
       floatBuffer = ByteBuffer
           .allocateDirect(vertexData.length * BYTE_PER_FLOAT)

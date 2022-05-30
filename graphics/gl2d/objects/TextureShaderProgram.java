@@ -11,6 +11,7 @@ import static android.opengl.GLES20.glUniformMatrix4fv;
 
 import android.content.Context;
 
+@SuppressWarnings("ALL")
 @Deprecated
 public class TextureShaderProgram extends ShaderProgram {
   // Uniform locations

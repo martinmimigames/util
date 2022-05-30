@@ -9,7 +9,7 @@ package com.martinmimigames.util.objects;
  * @since about 11-12-2021 dd-mm-yyyy
  */
 
-public class LocationXYA implements Cloneable {
+public class LocationXYA {
 
   /*/**
    * coordinates,
@@ -21,13 +21,4 @@ public class LocationXYA implements Cloneable {
    * the angle in which the object is drawn
    */
   public float angle;
-
-  @Override
-  public java.lang.Object clone() throws CloneNotSupportedException {
-    LocationXYA location = new LocationXYA();
-    location.x = this.x;
-    location.y = this.y;
-    location.angle = this.angle;
-    return location;
-  }
 }

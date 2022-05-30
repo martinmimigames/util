@@ -4,6 +4,7 @@ import static android.opengl.GLES20.glUseProgram;
 
 import android.content.Context;
 
+@SuppressWarnings("ALL")
 @Deprecated
 public abstract class ShaderProgram {
   // Uniform constants

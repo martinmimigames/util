@@ -32,7 +32,7 @@ public class VertexArray {
   public void overwrite(float[] vertexData){
     floatBuffer.position(0);
     final int length = vertexData.length;
-    for (int i = 0; i < length; i++) floatBuffer.put(vertexData[i]);
+    for (float vertexDatum : vertexData) floatBuffer.put(vertexDatum);
   }
 
   public void setVertexAttribPointer(int dataOffset, int attributeLocation,

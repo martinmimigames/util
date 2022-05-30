@@ -8,6 +8,7 @@ package com.martinmimigames.util.objects;
  * @since about 2021/3/21
  */
 
+@SuppressWarnings("ALL")
 @Deprecated
 public class Rect extends Coor {
 
@@ -17,6 +18,7 @@ public class Rect extends Coor {
   //example : data[CONSTANT]
 
   protected static final int TOTAL_FLOAT_DATA_OPTION = Coor.TOTAL_FLOAT_DATA_OPTION + 2;
+
   private static final int BASE_FLOAT_DATA_OPTION = Coor.TOTAL_FLOAT_DATA_OPTION;
 
   public static final int HALF_WIDTH = BASE_FLOAT_DATA_OPTION;

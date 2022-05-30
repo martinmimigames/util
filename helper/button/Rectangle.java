@@ -69,7 +69,7 @@ public class Rectangle extends Button implements Drawable {
     try {
       ((com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setWidth(width);
     } catch (NullPointerException e) {
-      throw new RuntimeException("IMAGE NOT SET\n" + e.toString(), e.getCause());
+      throw new RuntimeException("IMAGE NOT SET\n" + e, e.getCause());
     }
     return this;
   }
@@ -85,7 +85,7 @@ public class Rectangle extends Button implements Drawable {
     try {
       ((com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setHeight(height);
     } catch (NullPointerException e) {
-      throw new RuntimeException("IMAGE NOT SET\n" + e.toString(), e.getCause());
+      throw new RuntimeException("IMAGE NOT SET\n" + e, e.getCause());
     }
     return this;
   }
