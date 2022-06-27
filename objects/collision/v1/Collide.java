@@ -1,6 +1,6 @@
-package com.martinmimigames.util.objects.collision.v1;
+package mg.utils.objects.collision.v1;
 
-import com.martinmimigames.util.math.Offset;
+import mg.utils.math.Offset;
 
 public class Collide {
 

@@ -1,8 +1,8 @@
-package com.martinmimigames.util.control.v2;
+package mg.utils.control.v2;
 
 import android.view.MotionEvent;
 
-import com.martinmimigames.util.objects.LocationXY;
+import mg.utils.objects.LocationXY;
 
 /**
  * This is the MGGames utility dependency.

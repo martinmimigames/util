@@ -1,7 +1,7 @@
-package com.martinmimigames.util.graphics.opengl2.v4;
+package mg.utils.graphics.opengl2.v4;
 
-import com.martinmimigames.util.graphics.opengl2.v4.glsl.Program;
-import com.martinmimigames.util.graphics.opengl2.v4.glsl.VertexArray;
+import mg.utils.graphics.opengl2.v4.glsl.Program;
+import mg.utils.graphics.opengl2.v4.glsl.VertexArray;
 
 /**
  * This is the MGGames utility dependency.

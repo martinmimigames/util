@@ -1,12 +1,12 @@
-package com.martinmimigames.util.graphics.opengl2.v3;
+package mg.utils.graphics.opengl2.v3;
 
 import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.translateM;
 
 import android.content.Context;
 
-import com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle;
-import com.martinmimigames.util.objects.LocationXYA;
+import mg.utils.graphics.opengl2.v3.images.shapes.Rectangle;
+import mg.utils.objects.LocationXYA;
 
 /**
  * This is the MGGames utility dependency.

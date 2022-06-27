@@ -1,13 +1,13 @@
-package com.martinmimigames.util.helper.button;
+package mg.utils.helper.button;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.MotionEvent;
 
-import com.martinmimigames.util.control.v2.Button;
-import com.martinmimigames.util.graphics.opengl2.v3.Draw;
-import com.martinmimigames.util.graphics.opengl2.v3.Drawable;
-import com.martinmimigames.util.graphics.opengl2.v3.Object;
+import mg.utils.control.v2.Button;
+import mg.utils.graphics.opengl2.v3.Draw;
+import mg.utils.graphics.opengl2.v3.Drawable;
+import mg.utils.graphics.opengl2.v3.Object;
 
 /**
  * This is the MGGames utility dependency.
@@ -40,7 +40,7 @@ public class Rectangle extends Button implements Drawable {
    */
   public Rectangle setX(float x) {
     button.location.x = x;
-    //object.location.coor[com.martinmimigames.util.objects.LocationXYA.X] = x;
+    //object.location.coor[mg.util.objects.LocationXYA.X] = x;
     object.location.x = x;
     return this;
   }
@@ -53,7 +53,7 @@ public class Rectangle extends Button implements Drawable {
    */
   public Rectangle setY(float y) {
     button.location.y = y;
-    //object.location.coor[com.martinmimigames.util.objects.LocationXYA.Y] = y;
+    //object.location.coor[mg.util.objects.LocationXYA.Y] = y;
     object.location.y = y;
     return this;
   }
@@ -67,7 +67,7 @@ public class Rectangle extends Button implements Drawable {
   public Rectangle setWidth(float width) {
     button.setWidth(width);
     try {
-      ((com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setWidth(width);
+      ((mg.utils.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setWidth(width);
     } catch (NullPointerException e) {
       throw new RuntimeException("IMAGE NOT SET\n" + e, e.getCause());
     }
@@ -83,7 +83,7 @@ public class Rectangle extends Button implements Drawable {
   public Rectangle setHeight(float height) {
     button.setHeight(height);
     try {
-      ((com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setHeight(height);
+      ((mg.utils.graphics.opengl2.v3.images.shapes.Rectangle) object.drawable).setHeight(height);
     } catch (NullPointerException e) {
       throw new RuntimeException("IMAGE NOT SET\n" + e, e.getCause());
     }
@@ -99,7 +99,7 @@ public class Rectangle extends Button implements Drawable {
    * @return this button
    */
   public Rectangle setImage(Draw draw, Context context, int Rid) {
-    object.drawable = new com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle(draw, context, Rid);
+    object.drawable = new mg.utils.graphics.opengl2.v3.images.shapes.Rectangle(draw, context, Rid);
     return this;
   }
 
@@ -111,7 +111,7 @@ public class Rectangle extends Button implements Drawable {
    * @return this button
    */
   public Rectangle setImage(Draw draw, Bitmap bitmap) {
-    object.drawable = new com.martinmimigames.util.graphics.opengl2.v3.images.shapes.Rectangle(draw, bitmap);
+    object.drawable = new mg.utils.graphics.opengl2.v3.images.shapes.Rectangle(draw, bitmap);
     return this;
   }
 

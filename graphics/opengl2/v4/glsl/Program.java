@@ -1,4 +1,4 @@
-package com.martinmimigames.util.graphics.opengl2.v4.glsl;
+package mg.utils.graphics.opengl2.v4.glsl;
 
 import static android.opengl.GLES20.GL_COMPILE_STATUS;
 import static android.opengl.GLES20.GL_LINK_STATUS;
@@ -16,7 +16,7 @@ import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glUseProgram;
 
-import com.martinmimigames.util.logger.Log;
+import mg.utils.logger.Log;
 
 
 /**

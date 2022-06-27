@@ -1,4 +1,4 @@
-package com.martinmimigames.util.example;
+package mg.utils.example;
 
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;

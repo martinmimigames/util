@@ -1,4 +1,4 @@
-package com.martinmimigames.util.control;
+package mg.utils.control;
 
 import java.util.ArrayList;
 

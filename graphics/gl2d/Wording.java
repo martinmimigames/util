@@ -1,6 +1,6 @@
-package com.martinmimigames.util.graphics.gl2d;
+package mg.utils.graphics.gl2d;
 
-import com.martinmimigames.util.objects.Rect;
+import mg.utils.objects.Rect;
 
 import java.util.ArrayList;
 

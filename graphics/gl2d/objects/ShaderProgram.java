@@ -1,4 +1,4 @@
-package com.martinmimigames.util.graphics.gl2d.objects;
+package mg.utils.graphics.gl2d.objects;
 
 import static android.opengl.GLES20.glUseProgram;
 

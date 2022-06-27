@@ -1,4 +1,4 @@
-package com.martinmimigames.util.prefix;
+package mg.utils.prefix;
 
 @Deprecated
 public class Coor {

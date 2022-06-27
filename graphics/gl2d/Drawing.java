@@ -1,17 +1,17 @@
-package com.martinmimigames.util.graphics.gl2d;
+package mg.utils.graphics.gl2d;
 
 import static android.opengl.GLES20.GL_TRIANGLE_STRIP;
 import static android.opengl.GLES20.glDrawArrays;
 import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.translateM;
-import static com.martinmimigames.util.graphics.gl2d.Prop.crop_data;
-import static com.martinmimigames.util.graphics.gl2d.Prop.height;
-import static com.martinmimigames.util.graphics.gl2d.Prop.ratio;
-import static com.martinmimigames.util.graphics.gl2d.Prop.texture_data;
+import static mg.utils.graphics.gl2d.Prop.crop_data;
+import static mg.utils.graphics.gl2d.Prop.height;
+import static mg.utils.graphics.gl2d.Prop.ratio;
+import static mg.utils.graphics.gl2d.Prop.texture_data;
 
-import com.martinmimigames.util.graphics.gl2d.objects.TextureShaderProgram;
-import com.martinmimigames.util.objects.Rect;
-import com.martinmimigames.util.objects.RotatableRect;
+import mg.utils.graphics.gl2d.objects.TextureShaderProgram;
+import mg.utils.objects.Rect;
+import mg.utils.objects.RotatableRect;
 
 import java.util.ArrayList;
 

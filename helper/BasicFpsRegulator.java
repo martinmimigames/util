@@ -1,4 +1,4 @@
-package com.martinmimigames.util.helper;
+package mg.utils.helper;
 
 /**
  * This is the MGGames utility dependency.

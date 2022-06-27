@@ -1,4 +1,4 @@
-package com.martinmimigames.util.graphics.opengl2.v4.glsl;
+package mg.utils.graphics.opengl2.v4.glsl;
 
 import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.glDisableVertexAttribArray;

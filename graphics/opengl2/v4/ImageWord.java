@@ -1,9 +1,9 @@
-package com.martinmimigames.util.graphics.opengl2.v4;
+package mg.utils.graphics.opengl2.v4;
 
 import android.content.Context;
 
-import com.martinmimigames.util.graphics.opengl2.v4.helper.Vertex;
-import com.martinmimigames.util.objects.LocationXYA;
+import mg.utils.graphics.opengl2.v4.helper.Vertex;
+import mg.utils.objects.LocationXYA;
 
 /**
  * This is the MGGames utility dependency.

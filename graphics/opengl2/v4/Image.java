@@ -1,4 +1,4 @@
-package com.martinmimigames.util.graphics.opengl2.v4;
+package mg.utils.graphics.opengl2.v4;
 
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
 import static android.opengl.GLES20.GL_NEAREST;
@@ -23,9 +23,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 
-import com.martinmimigames.util.graphics.opengl2.v4.glsl.ShaderCode;
-import com.martinmimigames.util.graphics.opengl2.v4.helper.Vertex;
-import com.martinmimigames.util.logger.Log;
+import mg.utils.graphics.opengl2.v4.glsl.ShaderCode;
+import mg.utils.graphics.opengl2.v4.helper.Vertex;
+import mg.utils.logger.Log;
 
 /**
  * This is the MGGames utility dependency.

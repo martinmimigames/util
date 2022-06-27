@@ -1,4 +1,4 @@
-package com.martinmimigames.util.graphics.gl2d;
+package mg.utils.graphics.gl2d;
 
 /**
  * This is the martinmimigames draw type dependency

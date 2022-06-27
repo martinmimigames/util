@@ -1,4 +1,4 @@
-package com.martinmimigames.util.objects;
+package mg.utils.objects;
 
 public class LocationXY {
   public float x;

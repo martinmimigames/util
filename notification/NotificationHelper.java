@@ -1,4 +1,4 @@
-package com.martinmimigames.util.notification;
+package mg.utils.notification;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

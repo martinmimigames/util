@@ -1,4 +1,4 @@
-package com.martinmimigames.util.objects;
+package mg.utils.objects;
 
 /**
  * This is the martinmimigames Rotatable rectangle object dependency
