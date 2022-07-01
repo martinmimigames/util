@@ -1,5 +1,6 @@
 package mg.utils.notify;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -50,5 +51,10 @@ public class NotificationHelper {
 
   public static void unsend(NotificationManager notificationManager, int id) {
     notificationManager.cancel(id);
+  }
+
+  @TargetApi(Build.VERSION_CODES.KITKAT)
+  public static void setText(Notification notification, String msg) {
+    notification.extras.putCharSequence(Notification.EXTRA_TEXT, msg);
   }
 }
