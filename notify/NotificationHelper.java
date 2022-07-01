@@ -1,4 +1,4 @@
-package mg.utils.notification;
+package mg.utils.notify;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
