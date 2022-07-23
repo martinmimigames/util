@@ -29,7 +29,7 @@ public class ImageWord extends Object {
     object = new Object();
     object.drawable = drawable = new Image(context, imageRId);
     byteList = new byte[0];
-    fontSize = 25;
+    fontSize = 0.25f;
     drawType = CENTERED;
   }
 
