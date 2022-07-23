@@ -21,6 +21,7 @@ alt="go to license">](https://github.com/martinmimigames/utils/blob/main/LICENSE
 
 * clone to mg package in java directory
 ```app/src/main/java/mg/utils```
+* change to ```android``` branch
 
 ## Issues ##
 
