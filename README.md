@@ -10,6 +10,13 @@ To use, clone the repo and use the branch corresponding to your programming lang
 * main : nothing
 * android : for android development (java)
 
+## How to use ##
+
+### android ###
+
+* clone to mg package in java directory
+```app/src/main/java/mg/utils```
+
 ## Issues ##
 
 If have any bugs, features, or improvements,
