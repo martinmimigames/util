@@ -10,6 +10,11 @@ To use, clone the repo and use the branch corresponding to your programming lang
 * main : nothing
 * android : for android development (java)
 
+## License ##
+
+[<img src="https://img.shields.io/github/license/martinmimigames/utils?style=flat-square"
+alt="go to license">](https://github.com/martinmimigames/utils/blob/main/LICENSE.md)
+
 ## How to use ##
 
 ### android ###
