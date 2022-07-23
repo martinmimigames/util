@@ -5,12 +5,10 @@
 This is the MGGames Utilities.
 To use, clone the repo and use the branch corresponding to your programming language.
 
-
 ## Branches ##
 
 * main : nothing
 * android : for android development (java)
-
 
 ## Issues ##
 
@@ -24,4 +22,5 @@ Please put appropiate tags to issues if possible.
 - - - -
 
 ## Last update of README ##
+
 Date : 30-05-2022 dd-mm-yyyy
