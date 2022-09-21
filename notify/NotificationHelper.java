@@ -14,6 +14,8 @@ public class NotificationHelper {
       return new Notification.Builder(context, channelId)
           .setCategory(category)
           .build();
+    } else if (Build.VERSION.SDK_INT >= 11) {
+      return new Notification.Builder(context).getNotification();
     } else {
       return new Notification();
     }
@@ -56,5 +58,9 @@ public class NotificationHelper {
   @TargetApi(Build.VERSION_CODES.KITKAT)
   public static void setText(Notification notification, String msg) {
     notification.extras.putCharSequence(Notification.EXTRA_TEXT, msg);
+  }
+
+  public static void setText(Notification notification, int Rid, String msg) {
+    notification.contentView.setTextViewText(Rid, msg);
   }
 }
