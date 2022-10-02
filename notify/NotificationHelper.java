@@ -55,9 +55,10 @@ public class NotificationHelper {
     notificationManager.cancel(id);
   }
 
-  @TargetApi(Build.VERSION_CODES.KITKAT)
   public static void setText(Notification notification, String msg) {
-    notification.extras.putCharSequence(Notification.EXTRA_TEXT, msg);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+      notification.extras.putCharSequence(Notification.EXTRA_TEXT, msg);
+    }
   }
 
   public static void setText(Notification notification, int Rid, String msg) {
