@@ -66,20 +66,20 @@ public class ServerOperator implements Runnable {
     }
   }
 
-  public void setConnectable(boolean connectable) {
-    acceptConnection = connectable;
-    if (acceptConnection && running == null && isClosed) {
-      running = new Thread(this);
-      running.start();
-    }
-  }
-
   public void setPreferredPorts(int[] preferredPorts) {
     this.preferredPorts = preferredPorts;
   }
 
   public boolean getConnectable() {
     return acceptConnection;
+  }
+
+  public void setConnectable(boolean connectable) {
+    acceptConnection = connectable;
+    if (acceptConnection && running == null && isClosed) {
+      running = new Thread(this);
+      running.start();
+    }
   }
 
   private void searchConnection() {

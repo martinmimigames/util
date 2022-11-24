@@ -8,13 +8,13 @@ package mg.utils.helper;
  * @version 1.0.0 first release
  * @since about 22-01-2021 dd-mm-yyyy
  */
-public class BasicFpsRegulator{
+public class BasicFpsRegulator {
 
   // default 50 fps
   private long stopTime = 20;
 
-  public void run() throws InterruptedException{
-      Thread.sleep(stopTime);
+  public void run() throws InterruptedException {
+    Thread.sleep(stopTime);
   }
 
   /**

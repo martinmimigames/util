@@ -36,7 +36,7 @@ public abstract class ShaderProgram {
   protected static final String A_POSITION = "a_Position";
   protected static final String A_COLOR = "a_Color";
   protected static final String A_TEXTURE_COORDINATES = "a_TextureCoordinates";
-
+  private static final String TAG = "ShaderHelper";
   /**
    * Shader program
    * value = 0 if incorrect
@@ -47,9 +47,9 @@ public abstract class ShaderProgram {
 
     // Compile the shaders.
     final int vertexShader =
-        compileShader(GL_VERTEX_SHADER, ShaderCode.TEXTURE_VERTEX_SHADER);
+      compileShader(GL_VERTEX_SHADER, ShaderCode.TEXTURE_VERTEX_SHADER);
     final int fragmentShader =
-        compileShader(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
+      compileShader(GL_FRAGMENT_SHADER, ShaderCode.TEXTURE_FRAGMENT_SHADER);
 
     // Link them into a shader program.
 
@@ -76,7 +76,7 @@ public abstract class ShaderProgram {
     // Get the link status.
     final int[] linkStatus = new int[1];
     glGetProgramiv(programObjectId, GL_LINK_STATUS,
-        linkStatus, 0);
+      linkStatus, 0);
 
     // Verify the link status.
     if (linkStatus[0] == 0) {
@@ -96,8 +96,6 @@ public abstract class ShaderProgram {
     // Set the current OpenGL shader program to this program.
     glUseProgram(program);
   }
-
-  private static final String TAG = "ShaderHelper";
 
   /**
    * Compiles a shader, returning the OpenGL object ID.
@@ -123,7 +121,7 @@ public abstract class ShaderProgram {
     // Get the compilation status.
     final int[] compileStatus = new int[1];
     glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
-        compileStatus, 0);
+      compileStatus, 0);
 
     // Verify the compile status.
     //if compile status = 0

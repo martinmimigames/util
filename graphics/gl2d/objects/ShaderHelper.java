@@ -63,12 +63,12 @@ public class ShaderHelper {
     // Get the compilation status.
     final int[] compileStatus = new int[1];
     glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
-        compileStatus, 0);
+      compileStatus, 0);
 
     if (mg.utils.logger.Log.ON) {
       // Print the shader info log to the Android log output.
       Log.v(TAG, "Results of compiling source:" + "\n" + shaderCode
-          + "\n:" + glGetShaderInfoLog(shaderObjectId));
+        + "\n:" + glGetShaderInfoLog(shaderObjectId));
     }
 
     // Verify the compile status.
@@ -116,14 +116,14 @@ public class ShaderHelper {
     // Get the link status.
     final int[] linkStatus = new int[1];
     glGetProgramiv(programObjectId, GL_LINK_STATUS,
-        linkStatus, 0);
+      linkStatus, 0);
 
     if (mg.utils.logger.Log.ON) {
       // Print the program info log to the Android log output.
       Log.v(
-          TAG,
-          "Results of linking program:\n"
-              + glGetProgramInfoLog(programObjectId));
+        TAG,
+        "Results of linking program:\n"
+          + glGetProgramInfoLog(programObjectId));
     }
 
     // Verify the link status.
@@ -150,9 +150,9 @@ public class ShaderHelper {
     glValidateProgram(programObjectId);
     final int[] validateStatus = new int[1];
     glGetProgramiv(programObjectId, GL_VALIDATE_STATUS,
-        validateStatus, 0);
+      validateStatus, 0);
     Log.v(TAG, "Results of validating program: " + validateStatus[0]
-        + "\nLog:" + glGetProgramInfoLog(programObjectId));
+      + "\nLog:" + glGetProgramInfoLog(programObjectId));
 
     return validateStatus[0] != 0;
   }

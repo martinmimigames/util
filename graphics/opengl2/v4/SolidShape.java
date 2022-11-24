@@ -18,10 +18,10 @@ import mg.utils.graphics.opengl2.v4.glsl.ShaderCode;
  */
 public class SolidShape extends Renderable {
 
-  public float[] color;
   private final int positionLocation;
   private final int colorLocation;
   private final int matrixLocation;
+  public float[] color;
 
   /**
    * Create the SolidShape object

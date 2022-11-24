@@ -17,13 +17,13 @@ import mg.utils.graphics.opengl2.v4.glsl.ShaderCode;
  * @version 4.0.1 release
  * @since 09-05-2022 dd-mm-yyyy
  */
-public class Line extends Renderable{
+public class Line extends Renderable {
 
-  private float[] color;
   private final int positionLocation;
   private final int colorLocation;
-  private float lineWidth;
   private final int matrixLocation;
+  private float[] color;
+  private float lineWidth;
 
   /**
    * Create the line object.
@@ -70,15 +70,17 @@ public class Line extends Renderable{
   }
 
   /**
-   *  set line width.
-   *  @param width the width of the line
-   *  */
-  public void setWidth(float width){
+   * set line width.
+   *
+   * @param width the width of the line
+   */
+  public void setWidth(float width) {
     lineWidth = width;
   }
 
   /**
    * set line color.
+   *
    * @param red   colour red, value 0 - 255
    * @param green colour green, value 0 - 255
    * @param blue  colour blue, value 0 - 255

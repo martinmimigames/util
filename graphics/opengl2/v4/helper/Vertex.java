@@ -17,8 +17,9 @@ public class Vertex {
   public static class Rectangle {
     /**
      * Set the width of a rectangular object
+     *
      * @param vertex the vertex array to be modify (must be size 8)
-     * @param width the width of the object
+     * @param width  the width of the object
      * @return the given array
      */
     public static float[] setWidth(float[] vertex, float width) {
@@ -30,6 +31,7 @@ public class Vertex {
 
     /**
      * Set the height of a rectangular object
+     *
      * @param vertex the vertex array to be modify (must be size 8)
      * @param height the height of the object
      * @return the given array
@@ -49,8 +51,9 @@ public class Vertex {
   public static class Image {
     /**
      * Set the width of a image
+     *
      * @param vertex the vertex array to be modify (must be size 16)
-     * @param width the width of the object
+     * @param width  the width of the object
      * @return the given array
      */
     public static float[] setWidth(float[] vertex, float width) {
@@ -62,6 +65,7 @@ public class Vertex {
 
     /**
      * Set the height of a image
+     *
      * @param vertex the vertex array to be modify (must be size 16)
      * @param height the height of the object
      * @return the given array
@@ -75,6 +79,7 @@ public class Vertex {
 
     /**
      * Set the crop of a image
+     *
      * @param vertex the vertex array to be modify (must be size 16)
      * @param left   value 0 (left) - 1 (right), default = 0
      * @param right  value 0 (left) - 1 (right), default = 1

@@ -68,8 +68,8 @@ public class Button {
 
   public static boolean use(int id) {
     return current_x >= left.get(id)
-        && current_y <= up.get(id)
-        && current_x <= right.get(id)
-        && current_y >= down.get(id);
+      && current_y <= up.get(id)
+      && current_x <= right.get(id)
+      && current_y >= down.get(id);
   }
 }

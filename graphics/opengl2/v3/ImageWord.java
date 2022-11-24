@@ -16,13 +16,12 @@ import mg.utils.objects.LocationXYA;
 
 public class ImageWord extends Object {
 
-  private byte[] byteList;
-  public float fontSize;
-  private final Object object;
-  public int drawType;
-
   public static final int CENTERED = 0;
   public static final int LEFT = 1;
+  private final Object object;
+  public float fontSize;
+  public int drawType;
+  private byte[] byteList;
 
   public ImageWord(Draw draw, Context context, int imageRId) {
     location = new LocationXYA();
@@ -81,12 +80,12 @@ public class ImageWord extends Object {
     final float cy = row * 0.15625f + 0.01f;
     Rectangle rectangle = (Rectangle) drawable;
     rectangle.setImageCrop(
-        //col
-        cx - 0.15625f,
-        cx,
-        //row
-        cy,
-        cy + 0.15625f);
+      //col
+      cx - 0.15625f,
+      cx,
+      //row
+      cy,
+      cy + 0.15625f);
     object.location.x = x;
     object.location.y = y;
     object.draw(draw);

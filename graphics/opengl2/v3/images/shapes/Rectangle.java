@@ -48,72 +48,6 @@ public class Rectangle extends Images {
     setImageCrop(0f, 1f, 0f, 1f);
   }
 
-  public static final class POINTS {
-
-    static final int NULL = 0;
-    static final int MINUS_HALF_WIDTH = 1;
-    static final int MINUS_HALF_HEIGHT = 2;
-    static final int PLUS_HALF_WIDTH = 3;
-    static final int PLUS_HALF_HEIGHT = 4;
-
-    public static final int[] VALUE =
-        {
-            MINUS_HALF_WIDTH,
-            MINUS_HALF_HEIGHT,
-            NULL,
-            NULL,
-
-            MINUS_HALF_WIDTH,
-            PLUS_HALF_HEIGHT,
-            NULL,
-            NULL,
-
-            PLUS_HALF_WIDTH,
-            MINUS_HALF_HEIGHT,
-            NULL,
-            NULL,
-
-            PLUS_HALF_WIDTH,
-            PLUS_HALF_HEIGHT,
-            NULL,
-            NULL
-        };
-
-  }
-
-  public static final class Crop {
-
-    static final int NULL = 0;
-    static final int LEFT = 1;
-    static final int RIGHT = 2;
-    static final int TOP = 3;
-    static final int BOTTOM = 4;
-
-    public static final int[] VALUE =
-        {
-            NULL,
-            NULL,
-            LEFT,
-            BOTTOM,
-
-            NULL,
-            NULL,
-            LEFT,
-            TOP,
-
-            NULL,
-            NULL,
-            RIGHT,
-            BOTTOM,
-
-            NULL,
-            NULL,
-            RIGHT,
-            TOP
-        };
-
-  }
-
   /**
    * crop the image,
    * value 0 - 1
@@ -200,6 +134,72 @@ public class Rectangle extends Images {
       }
     }
     return this;
+  }
+
+  public static final class POINTS {
+
+    static final int NULL = 0;
+    static final int MINUS_HALF_WIDTH = 1;
+    static final int MINUS_HALF_HEIGHT = 2;
+    static final int PLUS_HALF_WIDTH = 3;
+    static final int PLUS_HALF_HEIGHT = 4;
+
+    public static final int[] VALUE =
+      {
+        MINUS_HALF_WIDTH,
+        MINUS_HALF_HEIGHT,
+        NULL,
+        NULL,
+
+        MINUS_HALF_WIDTH,
+        PLUS_HALF_HEIGHT,
+        NULL,
+        NULL,
+
+        PLUS_HALF_WIDTH,
+        MINUS_HALF_HEIGHT,
+        NULL,
+        NULL,
+
+        PLUS_HALF_WIDTH,
+        PLUS_HALF_HEIGHT,
+        NULL,
+        NULL
+      };
+
+  }
+
+  public static final class Crop {
+
+    static final int NULL = 0;
+    static final int LEFT = 1;
+    static final int RIGHT = 2;
+    static final int TOP = 3;
+    static final int BOTTOM = 4;
+
+    public static final int[] VALUE =
+      {
+        NULL,
+        NULL,
+        LEFT,
+        BOTTOM,
+
+        NULL,
+        NULL,
+        LEFT,
+        TOP,
+
+        NULL,
+        NULL,
+        RIGHT,
+        BOTTOM,
+
+        NULL,
+        NULL,
+        RIGHT,
+        TOP
+      };
+
   }
 
 }

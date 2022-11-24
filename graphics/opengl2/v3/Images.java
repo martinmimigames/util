@@ -8,11 +8,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 
+import java.nio.BufferOverflowException;
+
 import mg.utils.graphics.opengl2.v3.glsl.VertexArray;
 import mg.utils.graphics.opengl2.v3.images.Parser;
 import mg.utils.logger.Log;
-
-import java.nio.BufferOverflowException;
 
 /**
  * This is the MGGames utility dependency.
@@ -26,7 +26,28 @@ import java.nio.BufferOverflowException;
 public class Images implements Drawable {
 
   public static final String TAG = "Image";
-
+  /**
+   * how many set of points are there.
+   * a set = (position + coordinate)
+   */
+  public int points;
+  /**
+   * stride
+   */
+  public int stride;
+  /**
+   * type of image.
+   * use value in TYPE
+   */
+  public int imageType = TYPE.NONE;
+  /**
+   * id of texture stored in openGL
+   */
+  public int textureId;
+  /**
+   * vertex data
+   */
+  public float[] vertex_data;
   /**
    * how many position component are there.
    * update stride
@@ -38,72 +59,6 @@ public class Images implements Drawable {
    * default = 2
    */
   int textureCoordinatesComponentCount = 2;
-  /**
-   * how many set of points are there.
-   * a set = (position + coordinate)
-   */
-  public int points;
-  /**
-   * stride
-   */
-  public int stride;
-
-  /**
-   * type of image.
-   * use value in TYPE
-   */
-  public int imageType = TYPE.NONE;
-
-  /**
-   * id of texture stored in openGL
-   */
-  public int textureId;
-
-  /**
-   * vertex data
-   */
-  public float[] vertex_data;
-
-  /**
-   * update stride value
-   */
-  public void updateStride() {
-    stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
-  }
-
-  @Override
-  public void draw(Draw draw) {
-    draw.availablePrograms.textureProgram.useProgram();
-
-    draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
-
-    try {
-      draw.vertexArray.overwrite(vertex_data);
-    }catch (BufferOverflowException e) {
-      draw.vertexArray = new VertexArray(vertex_data);
-    }catch (NullPointerException e){
-      draw.vertexArray = new VertexArray(vertex_data);
-    }
-    draw.vertexArray.setVertexAttribPointer(
-        0,
-        draw.availablePrograms.textureProgram.getPositionAttributeLocation(),
-        positionComponentCount,
-        stride);
-
-    draw.vertexArray.setVertexAttribPointer(
-        positionComponentCount,
-        draw.availablePrograms.textureProgram.getTextureCoordinatesAttributeLocation(),
-        textureCoordinatesComponentCount,
-        stride);
-
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, points);
-  }
-
-  public static final class TYPE {
-    public static final int NONE = 0;
-    public static final int IMAGES = 1;
-  }
-
 
   /**
    * @param context  the context
@@ -117,7 +72,7 @@ public class Images implements Drawable {
 
     // Read in the resource
     final Bitmap bitmap =
-        BitmapFactory.decodeResource(context.getResources(), imageRId, options);
+      BitmapFactory.decodeResource(context.getResources(), imageRId, options);
 
     if (bitmap == null) {
       if (Log.ON)
@@ -137,7 +92,47 @@ public class Images implements Drawable {
     imageType = TYPE.IMAGES;
   }
 
-  public void deleteTexture(){
+  /**
+   * update stride value
+   */
+  public void updateStride() {
+    stride = (positionComponentCount + textureCoordinatesComponentCount) * points;
+  }
+
+  @Override
+  public void draw(Draw draw) {
+    draw.availablePrograms.textureProgram.useProgram();
+
+    draw.availablePrograms.textureProgram.setUniforms(Draw.projectionMatrix, textureId);
+
+    try {
+      draw.vertexArray.overwrite(vertex_data);
+    } catch (BufferOverflowException e) {
+      draw.vertexArray = new VertexArray(vertex_data);
+    } catch (NullPointerException e) {
+      draw.vertexArray = new VertexArray(vertex_data);
+    }
+    draw.vertexArray.setVertexAttribPointer(
+      0,
+      draw.availablePrograms.textureProgram.getPositionAttributeLocation(),
+      positionComponentCount,
+      stride);
+
+    draw.vertexArray.setVertexAttribPointer(
+      positionComponentCount,
+      draw.availablePrograms.textureProgram.getTextureCoordinatesAttributeLocation(),
+      textureCoordinatesComponentCount,
+      stride);
+
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, points);
+  }
+
+  public void deleteTexture() {
     Parser.deleteTexture(textureId);
+  }
+
+  public static final class TYPE {
+    public static final int NONE = 0;
+    public static final int IMAGES = 1;
   }
 }

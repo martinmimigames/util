@@ -32,20 +32,20 @@ public class RotatableRect extends Rect {
   //object angle
 
   /**
-   * set angle of rectangle in degree
-   *
-   * @param degree angle of rectangle in degree
-   */
-  public void setAngle(Float degree) {
-    data[ANGLE] = degree;
-  }
-
-  /**
    * get angle of rectangle in degree
    *
    * @return angle of rectangle in degree
    */
   public Float getAngle() {
     return data[ANGLE];
+  }
+
+  /**
+   * set angle of rectangle in degree
+   *
+   * @param degree angle of rectangle in degree
+   */
+  public void setAngle(Float degree) {
+    data[ANGLE] = degree;
   }
 }

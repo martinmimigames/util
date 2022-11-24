@@ -8,7 +8,7 @@ package mg.utils.helper;
  * @version 1.0.0 first release
  * @since about 22-01-2021 dd-mm-yyyy
  */
-public class FpsRegulator{
+public class FpsRegulator {
 
   // default 50 fps
   private long stopTime = 20;
@@ -17,8 +17,8 @@ public class FpsRegulator{
   public void run() throws InterruptedException {
     final long currentTime = System.currentTimeMillis();
     final long pauseTime = stopTime - (currentTime - lastStopTime);
-      if (pauseTime > 0)
-        Thread.sleep(pauseTime);
+    if (pauseTime > 0)
+      Thread.sleep(pauseTime);
     lastStopTime = currentTime;
   }
 

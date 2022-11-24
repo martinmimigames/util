@@ -1,8 +1,8 @@
 package mg.utils.graphics.gl2d;
 
-import mg.utils.objects.Rect;
-
 import java.util.ArrayList;
+
+import mg.utils.objects.Rect;
 
 @Deprecated
 @SuppressWarnings({"deprecation", "StatementWithEmptyBody"})
@@ -71,12 +71,12 @@ public class Wording {
     final float cy = row * 0.15625f + 0.01f;
 
     final float[] crop = {
-        //col
-        cx - 0.15625f,
-        cx,
-        //row
-        cy,
-        cy + 0.15625f
+      //col
+      cx - 0.15625f,
+      cx,
+      //row
+      cy,
+      cy + 0.15625f
     };
     Prop.crop(word_res, crop);
     word_obj.setCoor(x, y);

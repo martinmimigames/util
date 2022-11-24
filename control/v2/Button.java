@@ -14,13 +14,12 @@ import mg.utils.objects.LocationXY;
  */
 public class Button {
 
-  private float half_w;
-  private float half_h;
-
   /**
    * the center of button
    */
   public LocationXY location;
+  private float half_w;
+  private float half_h;
 
   /**
    * initiation
@@ -88,8 +87,8 @@ public class Button {
    */
   public boolean check(float x, float y) {
     return x >= location.x - half_w
-        && y <= location.y + half_h
-        && x <= location.x + half_w
-        && y >= location.y - half_h;
+      && y <= location.y + half_h
+      && x <= location.x + half_w
+      && y >= location.y - half_h;
   }
 }

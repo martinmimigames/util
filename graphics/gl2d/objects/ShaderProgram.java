@@ -23,10 +23,10 @@ public abstract class ShaderProgram {
                           int fragmentShaderResourceId) {
     // Compile the shaders and link the program.
     program = ShaderHelper.buildProgram(
-        TxtResReader.readTextFileFromResource(
-            context, vertexShaderResourceId),
-        TxtResReader.readTextFileFromResource(
-            context, fragmentShaderResourceId));
+      TxtResReader.readTextFileFromResource(
+        context, vertexShaderResourceId),
+      TxtResReader.readTextFileFromResource(
+        context, fragmentShaderResourceId));
   }
 
   public void useProgram() {

@@ -42,7 +42,7 @@ public class Program {
   /**
    * Create the program.
    */
-  public Program(){
+  public Program() {
     id = glCreateProgram();
 
     if (id == 0) {
@@ -52,27 +52,30 @@ public class Program {
 
   /**
    * Add a shader to this program.
-   * @param type the type of shader, uses values from opengl 2
+   *
+   * @param type       the type of shader, uses values from opengl 2
    * @param shaderCode the shader code written in String
    * @return this program object for chaining commands
    */
-  public Program addShaderProgram(int type, String shaderCode){
+  public Program addShaderProgram(int type, String shaderCode) {
     if (id != 0)
-    glAttachShader(id, compileShader(type, shaderCode));
+      glAttachShader(id, compileShader(type, shaderCode));
     return this;
   }
 
   /**
    * For getting a uniform location from the shader codes.
+   *
    * @param name the name of the uniform variable
    * @return the location of the variable
    */
-  public int getUniformLocation(String name){
+  public int getUniformLocation(String name) {
     return glGetUniformLocation(id, name);
   }
 
   /**
    * For getting a attribute location from the shader codes.
+   *
    * @param name the name of the attribute variable
    * @return the location of the variable
    */
@@ -83,15 +86,16 @@ public class Program {
   /**
    * Link the shaders together.
    * Can be used after call.
+   *
    * @return this program object for chaining commands
    */
-  public Program complete(){
+  public Program complete() {
     if (id == 0) return this;
     glLinkProgram(id);
 
     final int[] linkStatus = new int[1];
     glGetProgramiv(id, GL_LINK_STATUS,
-        linkStatus, 0);
+      linkStatus, 0);
 
     if (linkStatus[0] == 0) {
       glDeleteProgram(id);
@@ -104,15 +108,16 @@ public class Program {
   /**
    * Call to use program.
    */
-  public void use(){
+  public void use() {
     glUseProgram(id);
   }
 
   /**
    * Get the program id for use in opengl.
+   *
    * @return the program id
    */
-  public int getProgramId(){
+  public int getProgramId() {
     return id;
   }
 
@@ -130,7 +135,7 @@ public class Program {
 
     final int[] compileStatus = new int[1];
     glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
-        compileStatus, 0);
+      compileStatus, 0);
 
     if (compileStatus[0] == 0) {
       glDeleteShader(shaderObjectId);

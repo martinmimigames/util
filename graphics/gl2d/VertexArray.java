@@ -15,17 +15,17 @@ public class VertexArray {
   public VertexArray(float[] vertexData) {
     int byte_per_float = 4;
     floatBuffer = ByteBuffer
-        .allocateDirect(vertexData.length * byte_per_float)
-        .order(ByteOrder.nativeOrder())
-        .asFloatBuffer()
-        .put(vertexData);
+      .allocateDirect(vertexData.length * byte_per_float)
+      .order(ByteOrder.nativeOrder())
+      .asFloatBuffer()
+      .put(vertexData);
   }
 
   public void setVertexAttribPointer(int dataOffset, int attributeLocation,
                                      int componentCount, int stride) {
     floatBuffer.position(dataOffset);
     glVertexAttribPointer(attributeLocation, componentCount, GL_FLOAT,
-        false, stride, floatBuffer);
+      false, stride, floatBuffer);
     glEnableVertexAttribArray(attributeLocation);
 
     floatBuffer.position(0);

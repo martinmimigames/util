@@ -45,7 +45,7 @@ public class TextureHelper {
 
     // Read in the resource
     final Bitmap bitmap =
-        BitmapFactory.decodeResource(context.getResources(), resourceId, options);
+      BitmapFactory.decodeResource(context.getResources(), resourceId, options);
 
     if (bitmap == null) {
       if (Log.ON)

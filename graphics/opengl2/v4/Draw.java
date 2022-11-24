@@ -33,28 +33,37 @@ import mg.utils.graphics.opengl2.v4.glsl.VertexArray;
 
 public class Draw {
 
-  /** aspect ratio type: width and height always -1f - 1f*/
+  /**
+   * aspect ratio type: width and height always -1f - 1f
+   */
   public static final int ASPECT_RATIO_NO_FOLLOW = 1;
-  /** aspect ratio type: width always -1f - 1f*/
+  /**
+   * aspect ratio type: width always -1f - 1f
+   */
   public static final int ASPECT_RATIO_FOLLOW_WIDTH = 3;
-   /** aspect ratio type: height always -1f - 1f*/
+  /**
+   * aspect ratio type: height always -1f - 1f
+   */
   public static final int ASPECT_RATIO_FOLLOW_HEIGHT = 2;
 
   public static float[] projectionMatrix = new float[16];
-  static DefaultPrograms defaultPrograms = new DefaultPrograms();
   public static VertexArray vertexArray;
-
-  /** the distance between the center to the right of viewport*/
+  /**
+   * the distance between the center to the right of viewport
+   */
   public static float width = 1;
-  /** the distance between the center to the top of viewport*/
+  /**
+   * the distance between the center to the top of viewport
+   */
   public static float height = 1;
+  static DefaultPrograms defaultPrograms = new DefaultPrograms();
 
   /**
    * Initialise the draw dependency.
    * Can only run in GLThread.
    * Recommended to be placed in OnSurfaceCreate()
    */
-  public static void init(){
+  public static void init() {
     projectionMatrix = new float[16];
     defaultPrograms = new DefaultPrograms();
     // enable transparent texture
@@ -70,9 +79,10 @@ public class Draw {
    * If enabled, only draw front face
    * (Defined by clockwise vertex).
    * Can only run in GLThread.
+   *
    * @param enabled enable or disable function
    */
-  public static void setCullFace(boolean enabled){
+  public static void setCullFace(boolean enabled) {
     if ((enabled)) {
       glEnable(GL_CULL_FACE);
     } else {
@@ -84,6 +94,7 @@ public class Draw {
    * Setup the viewport to be drawn on.
    * Can only run in GLThread.
    * Recommended to be placed in onSurfaceChange.
+   *
    * @param width  width of screen in px
    * @param height height of screen in px
    */
@@ -91,7 +102,7 @@ public class Draw {
     // Set the OpenGL viewport to fill the entire surface.
     glViewport(0, 0, width, height);
     // set aspect ratio
-    switch (aspectRatioType){
+    switch (aspectRatioType) {
       case 1:
         Draw.width = Draw.height = 1;
         break;
@@ -106,12 +117,13 @@ public class Draw {
       default:
         throw new RuntimeException("not such aspect ratio type: " + aspectRatioType);
     }
-    orthoM(projectionMatrix, 0, -Draw.width,Draw.width,-Draw.height, Draw.height,  -1, 1);
+    orthoM(projectionMatrix, 0, -Draw.width, Draw.width, -Draw.height, Draw.height, -1, 1);
   }
 
   /**
    * Set background colour.
    * Can only run in GLThread.
+   *
    * @param red   colour red, value 0 - 255
    * @param green colour green, value 0 - 255
    * @param blue  colour blue, value 0 - 255
@@ -123,18 +135,20 @@ public class Draw {
 
   /**
    * Translate matrix by x and y.
+   *
    * @param x the amount to move horizontally towards the right
    * @param y the amount to move vertically towards the bottom
    */
-  public static void translateMatrix(final float x, final float y){
+  public static void translateMatrix(final float x, final float y) {
     translateM(Draw.projectionMatrix, 0, x, -y, 0f);
   }
 
   /**
    * Rotate matrix by angle clockwise.
+   *
    * @param angle the amount to rotate in degrees
    */
-  public static void rotateMatrix(final float angle){
+  public static void rotateMatrix(final float angle) {
     rotateM(Draw.projectionMatrix, 0, -angle, 0f, 0f, 1f);
   }
 

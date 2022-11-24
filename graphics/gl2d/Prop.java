@@ -15,12 +15,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import mg.utils.graphics.gl2d.objects.TextureHelper;
 import mg.utils.graphics.gl2d.objects.TextureShaderProgram;
 import mg.utils.objects.Rect;
 import mg.utils.objects.RotatableRect;
-
-import java.util.ArrayList;
 
 /**
  * This is the martinmimigames. drawing dependency
@@ -36,7 +36,7 @@ public class Prop {
   static final int POSITION_COMPONENT_COUNT = 2;
   static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
   static final int STRIDE =
-      (POSITION_COMPONENT_COUNT + TEXTURE_COORDINATES_COMPONENT_COUNT) * 4;
+    (POSITION_COMPONENT_COUNT + TEXTURE_COORDINATES_COMPONENT_COUNT) * 4;
 
   // data storage
   static ArrayList<Integer> texture_data;

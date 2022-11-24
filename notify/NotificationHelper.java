@@ -1,6 +1,5 @@
 package mg.utils.notify;
 
-import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,8 +11,8 @@ public class NotificationHelper {
   public static Notification createNotification(Context context, String channelId, String category) {
     if (Build.VERSION.SDK_INT >= 26) {
       return new Notification.Builder(context, channelId)
-          .setCategory(category)
-          .build();
+        .setCategory(category)
+        .build();
     } else if (Build.VERSION.SDK_INT >= 11) {
       return new Notification.Builder(context).getNotification();
     } else {

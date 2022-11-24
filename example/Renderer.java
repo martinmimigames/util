@@ -3,10 +3,10 @@ package mg.utils.example;
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
 
-import mg.utils.graphics.opengl2.v4.Draw;
-
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+
+import mg.utils.graphics.opengl2.v4.Draw;
 
 public class Renderer implements GLSurfaceView.Renderer {
   private final Activity activity;
@@ -27,7 +27,7 @@ public class Renderer implements GLSurfaceView.Renderer {
 
   @Override
   public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-    Draw.setScreen(width, height,Draw.ASPECT_RATIO_FOLLOW_HEIGHT);
+    Draw.setScreen(width, height, Draw.ASPECT_RATIO_FOLLOW_HEIGHT);
     // setting variables that
     // requires screen size info
   }

@@ -57,6 +57,7 @@ public class Image extends Renderable {
 
   /**
    * Create Image object with image from res folder
+   *
    * @param context  the context
    * @param imageRId the id in R.java
    */
@@ -70,7 +71,7 @@ public class Image extends Renderable {
 
     // Read in the resource
     final Bitmap bitmap =
-        BitmapFactory.decodeResource(context.getResources(), imageRId, options);
+      BitmapFactory.decodeResource(context.getResources(), imageRId, options);
 
     if (bitmap == null) {
       if (Log.ON)
@@ -85,6 +86,7 @@ public class Image extends Renderable {
 
   /**
    * Create Image object with a bitmap
+   *
    * @param bitmap the bitmap for the image
    */
   public Image(final Bitmap bitmap) {
@@ -92,7 +94,7 @@ public class Image extends Renderable {
     textureId = parseTexture(bitmap);
   }
 
-  private Image(){
+  private Image() {
     super();
     vertexCount = 4;
 
@@ -131,16 +133,16 @@ public class Image extends Renderable {
     Draw.vertexArray.overwrite(vertex);
 
     Draw.vertexArray.setAttributePointer(
-        0,
-        positionLocation,
-        vertexPartCount,
-        vertexStride);
+      0,
+      positionLocation,
+      vertexPartCount,
+      vertexStride);
 
     Draw.vertexArray.setAttributePointer(
-        vertexPartCount,
-        texturePositionLocation,
-        texturePartCount,
-        vertexStride);
+      vertexPartCount,
+      texturePositionLocation,
+      texturePartCount,
+      vertexStride);
   }
 
   @Override
@@ -163,6 +165,7 @@ public class Image extends Renderable {
    * If error reported in ADB log as follows: E/IMGSRV(20095): :0: HardwareMipGen:,
    * just squash texture to a square to resolve,
    * the outputted texture will stay the same because of texture cropping.
+   *
    * @param bitmap image
    * @return texture id
    */
@@ -192,9 +195,10 @@ public class Image extends Renderable {
   /**
    * Delete the texture of the given id,
    * in order to free up graphics memory.
+   *
    * @param textureId the id of the texture to be deleted
    */
-  public static void deleteTexture(int textureId){
+  public static void deleteTexture(int textureId) {
     glDeleteTextures(1, new int[]{textureId}, 0);
   }
 }

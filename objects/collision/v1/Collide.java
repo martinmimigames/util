@@ -4,16 +4,14 @@ import mg.utils.math.Offset;
 
 public class Collide {
 
-  public Location location;
-  public Size size;
-  public float[] collisionEdges;
   private static final int LEFT = 0;
   private static final int RIGHT = 1;
   private static final int TOP = 2;
   private static final int DOWN = 3;
-
   private final Offset offset;
-
+  public Location location;
+  public Size size;
+  public float[] collisionEdges;
   private float collisionRadiusSquared;
 
   public Collide() {
@@ -85,14 +83,14 @@ public class Collide {
     //uses pyth. theorem (A2 = B2 + C2) to calculate distance
     //between self and the target object.
     final float pointToPointDistance =
-        sqr(this.location.x - target.location.x)
-            + sqr(this.location.y - target.location.y);
+      sqr(this.location.x - target.location.x)
+        + sqr(this.location.y - target.location.y);
     //distance between the center of self and
     //the center of the target object,
     //minus the collision radius of target and self
     //to start comparing when touched a possible side.
     final float actualDistance = pointToPointDistance
-        - this.collisionRadiusSquared - target.collisionRadiusSquared;
+      - this.collisionRadiusSquared - target.collisionRadiusSquared;
     //no need to square root as square root of 0 or is still 0 or less.
     return (actualDistance <= 0);
   }

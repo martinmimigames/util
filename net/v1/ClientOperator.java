@@ -16,12 +16,12 @@ public class ClientOperator {
     this.client = client;
   }
 
-  public void setSocket(Socket socket) {
-    this.socket = socket;
-  }
-
   public Socket getSocket() {
     return socket;
+  }
+
+  public void setSocket(Socket socket) {
+    this.socket = socket;
   }
 
   public void setHost(String host) {
@@ -40,12 +40,12 @@ public class ClientOperator {
     return host.getHostAddress();
   }
 
-  public void setPort(int port) {
-    this.port = port;
-  }
-
   public int getPort() {
     return port;
+  }
+
+  public void setPort(int port) {
+    this.port = port;
   }
 
   public void connect() {

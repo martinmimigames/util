@@ -18,13 +18,13 @@ public class Activity extends android.app.Activity {
   }
 
   @Override
-  protected void onStart(){
+  protected void onStart() {
     super.onStart();
     v.onResume();
   }
 
   @Override
-  protected void onPause(){
+  protected void onPause() {
     super.onPause();
     v.onPause();
   }

@@ -18,18 +18,18 @@ import java.nio.FloatBuffer;
  */
 
 public class VertexArray {
-  private final FloatBuffer floatBuffer;
   private static final int BYTE_PER_FLOAT = 4;
+  private final FloatBuffer floatBuffer;
 
   public VertexArray(float[] vertexData) {
     floatBuffer = ByteBuffer
-        .allocateDirect(vertexData.length * BYTE_PER_FLOAT)
-        .order(ByteOrder.nativeOrder())
-        .asFloatBuffer()
-        .put(vertexData, 0, vertexData.length);
+      .allocateDirect(vertexData.length * BYTE_PER_FLOAT)
+      .order(ByteOrder.nativeOrder())
+      .asFloatBuffer()
+      .put(vertexData, 0, vertexData.length);
   }
 
-  public void overwrite(float[] vertexData){
+  public void overwrite(float[] vertexData) {
     floatBuffer.position(0);
     final int length = vertexData.length;
     for (float vertexDatum : vertexData) floatBuffer.put(vertexDatum);
@@ -39,7 +39,7 @@ public class VertexArray {
                                      int componentCount, int stride) {
     floatBuffer.position(dataOffset);
     glVertexAttribPointer(attributeLocation, componentCount, GL_FLOAT,
-        false, stride, floatBuffer);
+      false, stride, floatBuffer);
     glEnableVertexAttribArray(attributeLocation);
   }
 }

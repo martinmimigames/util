@@ -13,7 +13,7 @@ public class AvailablePrograms {
 
   public TextureShaderProgram textureProgram;
 
-  public AvailablePrograms(){
+  public AvailablePrograms() {
     textureProgram = new TextureShaderProgram();
   }
 

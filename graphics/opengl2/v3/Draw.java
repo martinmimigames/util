@@ -37,6 +37,7 @@ public class Draw {
   /**
    * Do not use in Constructor.
    * Place in onSurfaceCreated instead.
+   *
    * @param activity Activity with the screen
    */
   public Draw(Activity activity) {
@@ -52,6 +53,7 @@ public class Draw {
   /**
    * Setup the screen.
    * Place in onSurfaceChange.
+   *
    * @param width  width of screen
    * @param height height of screen
    */
@@ -72,6 +74,7 @@ public class Draw {
   /**
    * Set background colour.
    * Can only run in GLThread.
+   *
    * @param red   colour red, value 0 - 255
    * @param green colour green, value 0 - 255
    * @param blue  colour blue, value 0 - 255
@@ -84,6 +87,7 @@ public class Draw {
   /**
    * Draw the drawable.
    * Calls the draw(draw) method.
+   *
    * @param drawable the drawable to be drawn
    */
   public void draw(Drawable drawable) {

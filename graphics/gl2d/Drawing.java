@@ -9,11 +9,11 @@ import static mg.utils.graphics.gl2d.Prop.height;
 import static mg.utils.graphics.gl2d.Prop.ratio;
 import static mg.utils.graphics.gl2d.Prop.texture_data;
 
+import java.util.ArrayList;
+
 import mg.utils.graphics.gl2d.objects.TextureShaderProgram;
 import mg.utils.objects.Rect;
 import mg.utils.objects.RotatableRect;
-
-import java.util.ArrayList;
 
 @Deprecated
 @SuppressWarnings("deprecation")
@@ -33,22 +33,22 @@ class Drawing {
     final float half_h = result[RotatableRect.HALF_HEIGHT] * ratio;
 
     final float[] vertex_data = {
-        -half_w,
-        -half_h,
-        crop.get(0),
-        crop.get(3),
-        -half_w,
-        half_h,
-        crop.get(0),
-        crop.get(2),
-        half_w,
-        -half_h,
-        crop.get(1),
-        crop.get(3),
-        half_w,
-        half_h,
-        crop.get(1),
-        crop.get(2)
+      -half_w,
+      -half_h,
+      crop.get(0),
+      crop.get(3),
+      -half_w,
+      half_h,
+      crop.get(0),
+      crop.get(2),
+      half_w,
+      -half_h,
+      crop.get(1),
+      crop.get(3),
+      half_w,
+      half_h,
+      crop.get(1),
+      crop.get(2)
     };
 
     // get the drawing location
@@ -80,22 +80,22 @@ class Drawing {
     final float half_h = result[Rect.HALF_HEIGHT] * ratio;
 
     final float[] vertex_data = {
-        -half_w,
-        -half_h,
-        crop.get(0),
-        crop.get(3),
-        -half_w,
-        half_h,
-        crop.get(0),
-        crop.get(2),
-        half_w,
-        -half_h,
-        crop.get(1),
-        crop.get(3),
-        half_w,
-        half_h,
-        crop.get(1),
-        crop.get(2)
+      -half_w,
+      -half_h,
+      crop.get(0),
+      crop.get(3),
+      -half_w,
+      half_h,
+      crop.get(0),
+      crop.get(2),
+      half_w,
+      -half_h,
+      crop.get(1),
+      crop.get(3),
+      half_w,
+      half_h,
+      crop.get(1),
+      crop.get(2)
     };
 
     // get the drawing location
@@ -126,22 +126,22 @@ class Drawing {
     final float half_h = result[RotatableRect.HALF_HEIGHT] * ratio;
 
     final float[] vertex_data = {
-        -half_w,
-        -half_h,
-        crop.get(0),
-        crop.get(3),
-        -half_w,
-        half_h,
-        crop.get(0),
-        crop.get(2),
-        half_w,
-        -half_h,
-        crop.get(1),
-        crop.get(3),
-        half_w,
-        half_h,
-        crop.get(1),
-        crop.get(2)
+      -half_w,
+      -half_h,
+      crop.get(0),
+      crop.get(3),
+      -half_w,
+      half_h,
+      crop.get(0),
+      crop.get(2),
+      half_w,
+      -half_h,
+      crop.get(1),
+      crop.get(3),
+      half_w,
+      half_h,
+      crop.get(1),
+      crop.get(2)
     };
 
     // get the drawing location
@@ -175,22 +175,22 @@ class Drawing {
     final float half_h = result[Rect.HALF_HEIGHT] * ratio;
 
     final float[] vertex_data = {
-        -half_w,
-        -half_h,
-        crop.get(0),
-        crop.get(3),
-        -half_w,
-        half_h,
-        crop.get(0),
-        crop.get(2),
-        half_w,
-        -half_h,
-        crop.get(1),
-        crop.get(3),
-        half_w,
-        half_h,
-        crop.get(1),
-        crop.get(2)
+      -half_w,
+      -half_h,
+      crop.get(0),
+      crop.get(3),
+      -half_w,
+      half_h,
+      crop.get(0),
+      crop.get(2),
+      half_w,
+      -half_h,
+      crop.get(1),
+      crop.get(3),
+      half_w,
+      half_h,
+      crop.get(1),
+      crop.get(2)
     };
 
     // get the drawing location
@@ -223,12 +223,12 @@ class Drawing {
 
   private static void bindData(final TextureShaderProgram textureProgram, final VertexArray vertexArray) {
     vertexArray.setVertexAttribPointer(
-        0, textureProgram.getPositionAttributeLocation(), Prop.POSITION_COMPONENT_COUNT, Prop.STRIDE);
+      0, textureProgram.getPositionAttributeLocation(), Prop.POSITION_COMPONENT_COUNT, Prop.STRIDE);
 
     vertexArray.setVertexAttribPointer(
-        Prop.POSITION_COMPONENT_COUNT,
-        textureProgram.getTextureCoordinatesAttributeLocation(),
-        Prop.TEXTURE_COORDINATES_COMPONENT_COUNT,
-        Prop.STRIDE);
+      Prop.POSITION_COMPONENT_COUNT,
+      textureProgram.getTextureCoordinatesAttributeLocation(),
+      Prop.TEXTURE_COORDINATES_COMPONENT_COUNT,
+      Prop.STRIDE);
   }
 }

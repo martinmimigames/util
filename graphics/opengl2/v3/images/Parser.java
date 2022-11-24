@@ -77,9 +77,10 @@ public class Parser {
   /**
    * delete the texture of the given id,
    * in order to free up memory
+   *
    * @param textureId the id of the texture to be deleted
    */
-  public static void deleteTexture(int textureId){
+  public static void deleteTexture(int textureId) {
     glDeleteTextures(1, new int[]{textureId}, 0);
   }
 }
