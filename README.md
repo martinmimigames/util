@@ -1,39 +1,41 @@
-# MGGames Utilities #
+# MGGames Utilities
 
-## Description ##
+## Description
 
 This is the MGGames Utilities.
 To use, clone the repo and use the branch corresponding to your programming language.
 
-## Branches ##
+## Branches
 
 * main : nothing
 * android : for android development (java)
 
-## License ##
+## License
 
 [<img src="https://img.shields.io/github/license/martinmimigames/utils?style=flat-square"
 alt="go to license">](https://github.com/martinmimigames/utils/blob/main/LICENSE.md)
 
-## How to use ##
+## How to use
 
-### android ###
+### Android
 
-* clone to mg package in java directory
-```app/src/main/java/mg/utils```
-* change to ```android``` branch
+Assuming your java source code path is ```app/src/main/java``` and in a git repo:
+```
+git submodule add https://github.com/martinmimigames/utils app/src/main/java/mg/utils
+cd app/src/main/java/mg/utils
+git submodule init
+git checkout android
+cd ../../../../../..
+```
 
-## Issues ##
+## Issues
 
-If have any bugs, features, or improvements,
-please put them into issues
-[here](https://github.com/martinmimigames/util/issues/new).
-The issues created should be refered to the android branch, unless specified.
-Only create a new issue when there is no other of similar topic.
-Please put appropiate tags to issues if possible.
 
-- - - -
+We welcome any bug reports, features, or improvements.
 
-## Last update of README ##
+Please put them into [Issues](https://github.com/martinmimigames/utils/issues)
+or create [Pull Requests](https://github.com/martinmimigames/utils/pulls).
 
-Date : 30-05-2022 dd-mm-yyyy
+### Last update of README
+
+Date : 22-01-2023 dd-mm-yyyy
