@@ -49,4 +49,12 @@ public class ClipBoard {
   private static ClipboardManager getService(Context context){
     return (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
   }
+
+  public static String getClipboardText(Context context){
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+      return ((android.content.ClipboardManager) getService(context)).getPrimaryClip().getItemAt(0).getText().toString();
+    } else {
+      return ClipBoard.getService(context).getText().toString();
+    }
+  }
 }
