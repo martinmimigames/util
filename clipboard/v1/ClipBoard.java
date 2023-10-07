@@ -51,10 +51,16 @@ public class ClipBoard {
   }
 
   public static String getClipboardText(Context context){
+    CharSequence text;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-      return ((android.content.ClipboardManager) getService(context)).getPrimaryClip().getItemAt(0).getText().toString();
+      text = ((android.content.ClipboardManager) getService(context)).getPrimaryClip().getItemAt(0).getText();
     } else {
-      return ClipBoard.getService(context).getText().toString();
+      text = ClipBoard.getService(context).getText();
+    }
+    if (text != null) {
+      return text.toString();
+    } else {
+      return "";
     }
   }
 }
