@@ -53,7 +53,8 @@ public class ClipBoard {
   public static String getClipboardText(Context context){
     CharSequence text;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-      text = ((android.content.ClipboardManager) getService(context)).getPrimaryClip().getItemAt(0).getText();
+      var clip = ((android.content.ClipboardManager) getService(context)).getPrimaryClip();
+      text = (clip != null) ? clip.getItemAt(0).getText() : null;
     } else {
       text = ClipBoard.getService(context).getText();
     }
